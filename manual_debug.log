@@ -1,0 +1,2029 @@
+[92m04:54:06 - openhands:INFO[0m: run_infer.py:56 - Using docker image prefix: mswebench
+[92m04:54:06 - openhands:INFO[0m: run_infer.py:792 - Loading dataset /home/seongminju/openhands/OpenHands-main/evaluation/benchmarks/multi_swe_bench/processed_java_dataset.jsonl with split train 
+[92m04:54:07 - openhands:INFO[0m: run_infer.py:813 - Loaded dataset /home/seongminju/openhands/OpenHands-main/evaluation/benchmarks/multi_swe_bench/processed_java_dataset.jsonl with split train: 128 tasks
+[92m04:54:07 - openhands:INFO[0m: shared.py:191 - Using evaluation output directory: evaluation/evaluation_outputs/outputs/__home__seongminju__openhands__OpenHands-main__evaluation__benchmarks__multi_swe_bench__processed_java_dataset.jsonl-train/CodeActAgent/claude-3-5-sonnet_maxiter_30
+[92m04:54:07 - openhands:INFO[0m: shared.py:212 - Metadata: {"agent_class":"CodeActAgent","llm_config":{"model":"anthropic/claude-3-5-sonnet","api_key":"**********","base_url":null,"api_version":null,"aws_access_key_id":null,"aws_secret_access_key":null,"aws_region_name":null,"openrouter_site_url":"https://docs.all-hands.dev/","openrouter_app_name":"OpenHands","num_retries":5,"retry_multiplier":8.0,"retry_min_wait":8,"retry_max_wait":64,"timeout":null,"max_message_chars":30000,"temperature":0.0,"top_p":1.0,"top_k":null,"custom_llm_provider":null,"max_input_tokens":null,"max_output_tokens":null,"input_cost_per_token":null,"output_cost_per_token":null,"ollama_base_url":null,"drop_params":true,"modify_params":false,"disable_vision":null,"disable_stop_word":false,"caching_prompt":true,"log_completions":true,"log_completions_folder":"/home/seongminju/openhands/OpenHands-main/logs/completions","custom_tokenizer":null,"native_tool_calling":null,"reasoning_effort":null,"seed":null,"safety_settings":null,"for_routing":false,"correct_num":5,"completion_kwargs":null},"agent_config":null,"max_iterations":30,"eval_output_dir":"evaluation/evaluation_outputs/outputs/__home__seongminju__openhands__OpenHands-main__evaluation__benchmarks__multi_swe_bench__processed_java_dataset.jsonl-train/CodeActAgent/claude-3-5-sonnet_maxiter_30","start_time":"2026-01-27 04:54:07","git_commit":"dc6061a0384a13837752e445a86f644811902c3c","dataset":"__home__seongminju__openhands__OpenHands-main__evaluation__benchmarks__multi_swe_bench__processed_java_dataset.jsonl-train","data_split":null,"details":{},"condenser_config":{"type":"noop"},"instruction_template_name":null}
+[92m04:54:07 - openhands:INFO[0m: shared.py:231 - Writing evaluation output to evaluation/evaluation_outputs/outputs/__home__seongminju__openhands__OpenHands-main__evaluation__benchmarks__multi_swe_bench__processed_java_dataset.jsonl-train/CodeActAgent/claude-3-5-sonnet_maxiter_30/output.jsonl
+[92m04:54:07 - openhands:WARNING[0m: shared.py:238 - 
+Output file evaluation/evaluation_outputs/outputs/__home__seongminju__openhands__OpenHands-main__evaluation__benchmarks__multi_swe_bench__processed_java_dataset.jsonl-train/CodeActAgent/claude-3-5-sonnet_maxiter_30/output.jsonl already exists. Loaded 20 finished instances.
+[92m04:54:07 - openhands:INFO[0m: shared.py:292 - Finished instances: 20, Remaining instances: 108
+[92m04:54:07 - openhands:INFO[0m: shared.py:507 - Evaluation started with Agent CodeActAgent:
+model anthropic/claude-3-5-sonnet, max iterations 30.
+
+DEBUG: Loaded LLM Config: model='anthropic/claude-3-5-sonnet' api_key=SecretStr('**********') base_url=None api_version=None aws_access_key_id=None aws_secret_access_key=None aws_region_name=None openrouter_site_url='https://docs.all-hands.dev/' openrouter_app_name='OpenHands' num_retries=5 retry_multiplier=8 retry_min_wait=8 retry_max_wait=64 timeout=None max_message_chars=30000 temperature=0.0 top_p=1.0 top_k=None custom_llm_provider=None max_input_tokens=None max_output_tokens=None input_cost_per_token=None output_cost_per_token=None ollama_base_url=None drop_params=True modify_params=False disable_vision=None disable_stop_word=False caching_prompt=True log_completions=True log_completions_folder='/home/seongminju/openhands/OpenHands-main/logs/completions' custom_tokenizer=None native_tool_calling=None reasoning_effort=None seed=None safety_settings=None for_routing=False correct_num=5 completion_kwargs=None
+DEBUG: Model Name: anthropic/claude-3-5-sonnet
+DEBUG: CWD: /home/seongminju/openhands/OpenHands-main
+### OUTPUT FILE: evaluation/evaluation_outputs/outputs/__home__seongminju__openhands__OpenHands-main__evaluation__benchmarks__multi_swe_bench__processed_java_dataset.jsonl-train/CodeActAgent/claude-3-5-sonnet_maxiter_30/output.jsonl ###
+Instances processed:   0%|          | 0/108 [00:00<?, ?it/s]/home/seongminju/miniforge3/envs/openhands/lib/python3.12/multiprocessing/popen_fork.py:66: DeprecationWarning: This process (pid=642311) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  self.pid = os.fork()
+[92m04:54:07 - openhands:INFO[0m: run_infer.py:322 - Using instance container image: mswebench/googlecontainertools_m_jib:pr-4035. Please make sure this image exists. Submit an issue on https://github.com/OpenHands/OpenHands if you run into any issues.
+[92m04:54:07 - openhands:INFO[0m: run_infer.py:322 - Using instance container image: mswebench/googlecontainertools_m_jib:pr-2542. Please make sure this image exists. Submit an issue on https://github.com/OpenHands/OpenHands if you run into any issues.
+[92m04:54:07 - openhands:INFO[0m: run_infer.py:322 - Using instance container image: mswebench/googlecontainertools_m_jib:pr-2536. Please make sure this image exists. Submit an issue on https://github.com/OpenHands/OpenHands if you run into any issues.
+[92m04:54:07 - openhands:INFO[0m: run_infer.py:322 - Using instance container image: mswebench/googlecontainertools_m_jib:pr-2688. Please make sure this image exists. Submit an issue on https://github.com/OpenHands/OpenHands if you run into any issues.
+[92m04:54:07 - openhands:INFO[0m: mapping.py:26 - Resource mapping for __home__seongminju__openhands__OpenHands-main__evaluation__benchmarks__multi_swe_bench__processed_java_dataset.jsonl-train not found.
+[92m04:54:07 - openhands:INFO[0m: mapping.py:26 - Resource mapping for __home__seongminju__openhands__OpenHands-main__evaluation__benchmarks__multi_swe_bench__processed_java_dataset.jsonl-train not found.
+[92m04:54:07 - openhands:INFO[0m: mapping.py:26 - Resource mapping for __home__seongminju__openhands__OpenHands-main__evaluation__benchmarks__multi_swe_bench__processed_java_dataset.jsonl-train not found.
+[92m04:54:07 - openhands:INFO[0m: mapping.py:26 - Resource mapping for __home__seongminju__openhands__OpenHands-main__evaluation__benchmarks__multi_swe_bench__processed_java_dataset.jsonl-train not found.
+[92m04:54:07 - openhands:INFO[0m: shared.py:611 - Logging LLM completions for instance googlecontainertools__jib-4035 to evaluation/evaluation_outputs/outputs/__home__seongminju__openhands__OpenHands-main__evaluation__benchmarks__multi_swe_bench__processed_java_dataset.jsonl-train/CodeActAgent/claude-3-5-sonnet_maxiter_30/llm_completions/googlecontainertools__jib-4035
+Instance googlecontainertools__jib-4035 - 2026-01-27 04:54:07,499 - INFO - Starting evaluation for instance googlecontainertools__jib-4035.
+Hint: run "tail -f evaluation/evaluation_outputs/outputs/__home__seongminju__openhands__OpenHands-main__evaluation__benchmarks__multi_swe_bench__processed_java_dataset.jsonl-train/CodeActAgent/claude-3-5-sonnet_maxiter_30/infer_logs/instance_googlecontainertools__jib-4035.log" to see live logs in a separate shell
+[92m04:54:07 - openhands:INFO[0m: shared.py:611 - Logging LLM completions for instance googlecontainertools__jib-2542 to evaluation/evaluation_outputs/outputs/__home__seongminju__openhands__OpenHands-main__evaluation__benchmarks__multi_swe_bench__processed_java_dataset.jsonl-train/CodeActAgent/claude-3-5-sonnet_maxiter_30/llm_completions/googlecontainertools__jib-2542
+[92m04:54:07 - openhands:INFO[0m: shared.py:611 - Logging LLM completions for instance googlecontainertools__jib-2536 to evaluation/evaluation_outputs/outputs/__home__seongminju__openhands__OpenHands-main__evaluation__benchmarks__multi_swe_bench__processed_java_dataset.jsonl-train/CodeActAgent/claude-3-5-sonnet_maxiter_30/llm_completions/googlecontainertools__jib-2536
+[92m04:54:07 - openhands:INFO[0m: shared.py:611 - Logging LLM completions for instance googlecontainertools__jib-2688 to evaluation/evaluation_outputs/outputs/__home__seongminju__openhands__OpenHands-main__evaluation__benchmarks__multi_swe_bench__processed_java_dataset.jsonl-train/CodeActAgent/claude-3-5-sonnet_maxiter_30/llm_completions/googlecontainertools__jib-2688
+Instance googlecontainertools__jib-2542 - 2026-01-27 04:54:07,500 - INFO - Starting evaluation for instance googlecontainertools__jib-2542.
+Hint: run "tail -f evaluation/evaluation_outputs/outputs/__home__seongminju__openhands__OpenHands-main__evaluation__benchmarks__multi_swe_bench__processed_java_dataset.jsonl-train/CodeActAgent/claude-3-5-sonnet_maxiter_30/infer_logs/instance_googlecontainertools__jib-2542.log" to see live logs in a separate shell
+Instance googlecontainertools__jib-2688 - 2026-01-27 04:54:07,500 - INFO - Starting evaluation for instance googlecontainertools__jib-2688.
+Hint: run "tail -f evaluation/evaluation_outputs/outputs/__home__seongminju__openhands__OpenHands-main__evaluation__benchmarks__multi_swe_bench__processed_java_dataset.jsonl-train/CodeActAgent/claude-3-5-sonnet_maxiter_30/infer_logs/instance_googlecontainertools__jib-2688.log" to see live logs in a separate shell
+Instance googlecontainertools__jib-2536 - 2026-01-27 04:54:07,500 - INFO - Starting evaluation for instance googlecontainertools__jib-2536.
+Hint: run "tail -f evaluation/evaluation_outputs/outputs/__home__seongminju__openhands__OpenHands-main__evaluation__benchmarks__multi_swe_bench__processed_java_dataset.jsonl-train/CodeActAgent/claude-3-5-sonnet_maxiter_30/infer_logs/instance_googlecontainertools__jib-2536.log" to see live logs in a separate shell
+Instance googlecontainertools__jib-4035 - 2026-01-27 04:54:07,535 - ERROR - Launch docker client failed. Please make sure you have installed docker and started docker desktop/daemon.
+Instance googlecontainertools__jib-2536 - 2026-01-27 04:54:07,537 - ERROR - Launch docker client failed. Please make sure you have installed docker and started docker desktop/daemon.
+Instance googlecontainertools__jib-2542 - 2026-01-27 04:54:07,537 - ERROR - Launch docker client failed. Please make sure you have installed docker and started docker desktop/daemon.
+Instance googlecontainertools__jib-2688 - 2026-01-27 04:54:07,537 - ERROR - Launch docker client failed. Please make sure you have installed docker and started docker desktop/daemon.
+Instance googlecontainertools__jib-4035 - 2026-01-27 04:54:07,543 - ERROR - ----------
+Error in instance [googlecontainertools__jib-4035]: Error while fetching server API version: ('Connection aborted.', PermissionError(13, 'Permission denied')). Stacktrace:
+Traceback (most recent call last):
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/connectionpool.py", line 493, in _make_request
+    conn.request(
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/connection.py", line 500, in request
+    self.endheaders()
+  File "/home/seongminju/miniforge3/envs/openhands/lib/python3.12/http/client.py", line 1333, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/home/seongminju/miniforge3/envs/openhands/lib/python3.12/http/client.py", line 1093, in _send_output
+    self.send(msg)
+  File "/home/seongminju/miniforge3/envs/openhands/lib/python3.12/http/client.py", line 1037, in send
+    self.connect()
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/transport/unixconn.py", line 26, in connect
+    sock.connect(self.unix_socket)
+PermissionError: [Errno 13] Permission denied
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/requests/adapters.py", line 644, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/util/retry.py", line 490, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/util/util.py", line 38, in reraise
+    raise value.with_traceback(tb)
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/connectionpool.py", line 493, in _make_request
+    conn.request(
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/connection.py", line 500, in request
+    self.endheaders()
+  File "/home/seongminju/miniforge3/envs/openhands/lib/python3.12/http/client.py", line 1333, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/home/seongminju/miniforge3/envs/openhands/lib/python3.12/http/client.py", line 1093, in _send_output
+    self.send(msg)
+  File "/home/seongminju/miniforge3/envs/openhands/lib/python3.12/http/client.py", line 1037, in send
+    self.connect()
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/transport/unixconn.py", line 26, in connect
+    sock.connect(self.unix_socket)
+urllib3.exceptions.ProtocolError: ('Connection aborted.', PermissionError(13, 'Permission denied'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/api/client.py", line 223, in _retrieve_server_version
+    return self.version(api_version=False)["ApiVersion"]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/api/daemon.py", line 181, in version
+    return self._result(self._get(url), json=True)
+                        ^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/utils/decorators.py", line 44, in inner
+    return f(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/api/client.py", line 246, in _get
+    return self.get(url, **self._set_request_timeout(kwargs))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/requests/sessions.py", line 602, in get
+    return self.request("GET", url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/requests/adapters.py", line 659, in send
+    raise ConnectionError(err, request=request)
+requests.exceptions.ConnectionError: ('Connection aborted.', PermissionError(13, 'Permission denied'))
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/seongminju/openhands/OpenHands-main/evaluation/utils/shared.py", line 414, in _process_instance_wrapper
+    result = process_instance_func(instance, metadata, use_mp, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/openhands/OpenHands-main/evaluation/benchmarks/multi_swe_bench/run_infer.py", line 654, in process_instance
+    runtime = create_runtime(config)
+              ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/openhands/OpenHands-main/openhands/core/setup.py", line 81, in create_runtime
+    runtime: Runtime = runtime_cls(
+                       ^^^^^^^^^^^^
+  File "/home/seongminju/openhands/OpenHands-main/openhands/runtime/impl/docker/docker_runtime.py", line 131, in __init__
+    self.docker_client: docker.DockerClient = self._init_docker_client()
+                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/openhands/OpenHands-main/openhands/runtime/impl/docker/docker_runtime.py", line 264, in _init_docker_client
+    raise ex
+  File "/home/seongminju/openhands/OpenHands-main/openhands/runtime/impl/docker/docker_runtime.py", line 259, in _init_docker_client
+    return docker.from_env()
+           ^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/client.py", line 94, in from_env
+    return cls(
+           ^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/client.py", line 45, in __init__
+    self.api = APIClient(*args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/api/client.py", line 207, in __init__
+    self._version = self._retrieve_server_version()
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/api/client.py", line 230, in _retrieve_server_version
+    raise DockerException(
+docker.errors.DockerException: Error while fetching server API version: ('Connection aborted.', PermissionError(13, 'Permission denied'))
+
+----------[The above error occurred. Retrying... (attempt 1 of 3)]----------
+
+Instance googlecontainertools__jib-2688 - 2026-01-27 04:54:07,549 - ERROR - ----------
+Error in instance [googlecontainertools__jib-2688]: Error while fetching server API version: ('Connection aborted.', PermissionError(13, 'Permission denied')). Stacktrace:
+Traceback (most recent call last):
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/connectionpool.py", line 493, in _make_request
+    conn.request(
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/connection.py", line 500, in request
+    self.endheaders()
+  File "/home/seongminju/miniforge3/envs/openhands/lib/python3.12/http/client.py", line 1333, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/home/seongminju/miniforge3/envs/openhands/lib/python3.12/http/client.py", line 1093, in _send_output
+    self.send(msg)
+  File "/home/seongminju/miniforge3/envs/openhands/lib/python3.12/http/client.py", line 1037, in send
+    self.connect()
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/transport/unixconn.py", line 26, in connect
+    sock.connect(self.unix_socket)
+PermissionError: [Errno 13] Permission denied
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/requests/adapters.py", line 644, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/util/retry.py", line 490, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/util/util.py", line 38, in reraise
+    raise value.with_traceback(tb)
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/connectionpool.py", line 493, in _make_request
+    conn.request(
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/connection.py", line 500, in request
+    self.endheaders()
+  File "/home/seongminju/miniforge3/envs/openhands/lib/python3.12/http/client.py", line 1333, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/home/seongminju/miniforge3/envs/openhands/lib/python3.12/http/client.py", line 1093, in _send_output
+    self.send(msg)
+  File "/home/seongminju/miniforge3/envs/openhands/lib/python3.12/http/client.py", line 1037, in send
+    self.connect()
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/transport/unixconn.py", line 26, in connect
+    sock.connect(self.unix_socket)
+urllib3.exceptions.ProtocolError: ('Connection aborted.', PermissionError(13, 'Permission denied'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/api/client.py", line 223, in _retrieve_server_version
+    return self.version(api_version=False)["ApiVersion"]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/api/daemon.py", line 181, in version
+    return self._result(self._get(url), json=True)
+                        ^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/utils/decorators.py", line 44, in inner
+    return f(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/api/client.py", line 246, in _get
+    return self.get(url, **self._set_request_timeout(kwargs))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/requests/sessions.py", line 602, in get
+    return self.request("GET", url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/requests/adapters.py", line 659, in send
+    raise ConnectionError(err, request=request)
+requests.exceptions.ConnectionError: ('Connection aborted.', PermissionError(13, 'Permission denied'))
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/seongminju/openhands/OpenHands-main/evaluation/utils/shared.py", line 414, in _process_instance_wrapper
+    result = process_instance_func(instance, metadata, use_mp, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/openhands/OpenHands-main/evaluation/benchmarks/multi_swe_bench/run_infer.py", line 654, in process_instance
+    runtime = create_runtime(config)
+              ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/openhands/OpenHands-main/openhands/core/setup.py", line 81, in create_runtime
+    runtime: Runtime = runtime_cls(
+                       ^^^^^^^^^^^^
+  File "/home/seongminju/openhands/OpenHands-main/openhands/runtime/impl/docker/docker_runtime.py", line 131, in __init__
+    self.docker_client: docker.DockerClient = self._init_docker_client()
+                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/openhands/OpenHands-main/openhands/runtime/impl/docker/docker_runtime.py", line 264, in _init_docker_client
+    raise ex
+  File "/home/seongminju/openhands/OpenHands-main/openhands/runtime/impl/docker/docker_runtime.py", line 259, in _init_docker_client
+    return docker.from_env()
+           ^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/client.py", line 94, in from_env
+    return cls(
+           ^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/client.py", line 45, in __init__
+    self.api = APIClient(*args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/api/client.py", line 207, in __init__
+    self._version = self._retrieve_server_version()
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/api/client.py", line 230, in _retrieve_server_version
+    raise DockerException(
+docker.errors.DockerException: Error while fetching server API version: ('Connection aborted.', PermissionError(13, 'Permission denied'))
+
+----------[The above error occurred. Retrying... (attempt 1 of 3)]----------
+
+Instance googlecontainertools__jib-2536 - 2026-01-27 04:54:07,549 - ERROR - ----------
+Error in instance [googlecontainertools__jib-2536]: Error while fetching server API version: ('Connection aborted.', PermissionError(13, 'Permission denied')). Stacktrace:
+Traceback (most recent call last):
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/connectionpool.py", line 493, in _make_request
+    conn.request(
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/connection.py", line 500, in request
+    self.endheaders()
+  File "/home/seongminju/miniforge3/envs/openhands/lib/python3.12/http/client.py", line 1333, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/home/seongminju/miniforge3/envs/openhands/lib/python3.12/http/client.py", line 1093, in _send_output
+    self.send(msg)
+  File "/home/seongminju/miniforge3/envs/openhands/lib/python3.12/http/client.py", line 1037, in send
+    self.connect()
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/transport/unixconn.py", line 26, in connect
+    sock.connect(self.unix_socket)
+PermissionError: [Errno 13] Permission denied
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/requests/adapters.py", line 644, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/util/retry.py", line 490, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/util/util.py", line 38, in reraise
+    raise value.with_traceback(tb)
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/connectionpool.py", line 493, in _make_request
+    conn.request(
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/connection.py", line 500, in request
+    self.endheaders()
+  File "/home/seongminju/miniforge3/envs/openhands/lib/python3.12/http/client.py", line 1333, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/home/seongminju/miniforge3/envs/openhands/lib/python3.12/http/client.py", line 1093, in _send_output
+    self.send(msg)
+  File "/home/seongminju/miniforge3/envs/openhands/lib/python3.12/http/client.py", line 1037, in send
+    self.connect()
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/transport/unixconn.py", line 26, in connect
+    sock.connect(self.unix_socket)
+urllib3.exceptions.ProtocolError: ('Connection aborted.', PermissionError(13, 'Permission denied'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/api/client.py", line 223, in _retrieve_server_version
+    return self.version(api_version=False)["ApiVersion"]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/api/daemon.py", line 181, in version
+    return self._result(self._get(url), json=True)
+                        ^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/utils/decorators.py", line 44, in inner
+    return f(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/api/client.py", line 246, in _get
+    return self.get(url, **self._set_request_timeout(kwargs))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/requests/sessions.py", line 602, in get
+    return self.request("GET", url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/requests/adapters.py", line 659, in send
+    raise ConnectionError(err, request=request)
+requests.exceptions.ConnectionError: ('Connection aborted.', PermissionError(13, 'Permission denied'))
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/seongminju/openhands/OpenHands-main/evaluation/utils/shared.py", line 414, in _process_instance_wrapper
+    result = process_instance_func(instance, metadata, use_mp, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/openhands/OpenHands-main/evaluation/benchmarks/multi_swe_bench/run_infer.py", line 654, in process_instance
+    runtime = create_runtime(config)
+              ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/openhands/OpenHands-main/openhands/core/setup.py", line 81, in create_runtime
+    runtime: Runtime = runtime_cls(
+                       ^^^^^^^^^^^^
+  File "/home/seongminju/openhands/OpenHands-main/openhands/runtime/impl/docker/docker_runtime.py", line 131, in __init__
+    self.docker_client: docker.DockerClient = self._init_docker_client()
+                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/openhands/OpenHands-main/openhands/runtime/impl/docker/docker_runtime.py", line 264, in _init_docker_client
+    raise ex
+  File "/home/seongminju/openhands/OpenHands-main/openhands/runtime/impl/docker/docker_runtime.py", line 259, in _init_docker_client
+    return docker.from_env()
+           ^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/client.py", line 94, in from_env
+    return cls(
+           ^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/client.py", line 45, in __init__
+    self.api = APIClient(*args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/api/client.py", line 207, in __init__
+    self._version = self._retrieve_server_version()
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/api/client.py", line 230, in _retrieve_server_version
+    raise DockerException(
+docker.errors.DockerException: Error while fetching server API version: ('Connection aborted.', PermissionError(13, 'Permission denied'))
+
+----------[The above error occurred. Retrying... (attempt 1 of 3)]----------
+
+Instance googlecontainertools__jib-2542 - 2026-01-27 04:54:07,549 - ERROR - ----------
+Error in instance [googlecontainertools__jib-2542]: Error while fetching server API version: ('Connection aborted.', PermissionError(13, 'Permission denied')). Stacktrace:
+Traceback (most recent call last):
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/connectionpool.py", line 493, in _make_request
+    conn.request(
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/connection.py", line 500, in request
+    self.endheaders()
+  File "/home/seongminju/miniforge3/envs/openhands/lib/python3.12/http/client.py", line 1333, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/home/seongminju/miniforge3/envs/openhands/lib/python3.12/http/client.py", line 1093, in _send_output
+    self.send(msg)
+  File "/home/seongminju/miniforge3/envs/openhands/lib/python3.12/http/client.py", line 1037, in send
+    self.connect()
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/transport/unixconn.py", line 26, in connect
+    sock.connect(self.unix_socket)
+PermissionError: [Errno 13] Permission denied
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/requests/adapters.py", line 644, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/util/retry.py", line 490, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/util/util.py", line 38, in reraise
+    raise value.with_traceback(tb)
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/connectionpool.py", line 493, in _make_request
+    conn.request(
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/connection.py", line 500, in request
+    self.endheaders()
+  File "/home/seongminju/miniforge3/envs/openhands/lib/python3.12/http/client.py", line 1333, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/home/seongminju/miniforge3/envs/openhands/lib/python3.12/http/client.py", line 1093, in _send_output
+    self.send(msg)
+  File "/home/seongminju/miniforge3/envs/openhands/lib/python3.12/http/client.py", line 1037, in send
+    self.connect()
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/transport/unixconn.py", line 26, in connect
+    sock.connect(self.unix_socket)
+urllib3.exceptions.ProtocolError: ('Connection aborted.', PermissionError(13, 'Permission denied'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/api/client.py", line 223, in _retrieve_server_version
+    return self.version(api_version=False)["ApiVersion"]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/api/daemon.py", line 181, in version
+    return self._result(self._get(url), json=True)
+                        ^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/utils/decorators.py", line 44, in inner
+    return f(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/api/client.py", line 246, in _get
+    return self.get(url, **self._set_request_timeout(kwargs))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/requests/sessions.py", line 602, in get
+    return self.request("GET", url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/requests/adapters.py", line 659, in send
+    raise ConnectionError(err, request=request)
+requests.exceptions.ConnectionError: ('Connection aborted.', PermissionError(13, 'Permission denied'))
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/seongminju/openhands/OpenHands-main/evaluation/utils/shared.py", line 414, in _process_instance_wrapper
+    result = process_instance_func(instance, metadata, use_mp, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/openhands/OpenHands-main/evaluation/benchmarks/multi_swe_bench/run_infer.py", line 654, in process_instance
+    runtime = create_runtime(config)
+              ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/openhands/OpenHands-main/openhands/core/setup.py", line 81, in create_runtime
+    runtime: Runtime = runtime_cls(
+                       ^^^^^^^^^^^^
+  File "/home/seongminju/openhands/OpenHands-main/openhands/runtime/impl/docker/docker_runtime.py", line 131, in __init__
+    self.docker_client: docker.DockerClient = self._init_docker_client()
+                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/openhands/OpenHands-main/openhands/runtime/impl/docker/docker_runtime.py", line 264, in _init_docker_client
+    raise ex
+  File "/home/seongminju/openhands/OpenHands-main/openhands/runtime/impl/docker/docker_runtime.py", line 259, in _init_docker_client
+    return docker.from_env()
+           ^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/client.py", line 94, in from_env
+    return cls(
+           ^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/client.py", line 45, in __init__
+    self.api = APIClient(*args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/api/client.py", line 207, in __init__
+    self._version = self._retrieve_server_version()
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/api/client.py", line 230, in _retrieve_server_version
+    raise DockerException(
+docker.errors.DockerException: Error while fetching server API version: ('Connection aborted.', PermissionError(13, 'Permission denied'))
+
+----------[The above error occurred. Retrying... (attempt 1 of 3)]----------
+
+Instance googlecontainertools__jib-4035 - 2026-01-27 04:54:12,546 - INFO - Starting evaluation for instance googlecontainertools__jib-4035.
+Hint: run "tail -f evaluation/evaluation_outputs/outputs/__home__seongminju__openhands__OpenHands-main__evaluation__benchmarks__multi_swe_bench__processed_java_dataset.jsonl-train/CodeActAgent/claude-3-5-sonnet_maxiter_30/infer_logs/instance_googlecontainertools__jib-4035.log" to see live logs in a separate shell
+Instance googlecontainertools__jib-2688 - 2026-01-27 04:54:12,552 - INFO - Starting evaluation for instance googlecontainertools__jib-2688.
+Hint: run "tail -f evaluation/evaluation_outputs/outputs/__home__seongminju__openhands__OpenHands-main__evaluation__benchmarks__multi_swe_bench__processed_java_dataset.jsonl-train/CodeActAgent/claude-3-5-sonnet_maxiter_30/infer_logs/instance_googlecontainertools__jib-2688.log" to see live logs in a separate shell
+Instance googlecontainertools__jib-2536 - 2026-01-27 04:54:12,552 - INFO - Starting evaluation for instance googlecontainertools__jib-2536.
+Hint: run "tail -f evaluation/evaluation_outputs/outputs/__home__seongminju__openhands__OpenHands-main__evaluation__benchmarks__multi_swe_bench__processed_java_dataset.jsonl-train/CodeActAgent/claude-3-5-sonnet_maxiter_30/infer_logs/instance_googlecontainertools__jib-2536.log" to see live logs in a separate shell
+Instance googlecontainertools__jib-2542 - 2026-01-27 04:54:12,552 - INFO - Starting evaluation for instance googlecontainertools__jib-2542.
+Hint: run "tail -f evaluation/evaluation_outputs/outputs/__home__seongminju__openhands__OpenHands-main__evaluation__benchmarks__multi_swe_bench__processed_java_dataset.jsonl-train/CodeActAgent/claude-3-5-sonnet_maxiter_30/infer_logs/instance_googlecontainertools__jib-2542.log" to see live logs in a separate shell
+Instance googlecontainertools__jib-4035 - 2026-01-27 04:54:12,556 - ERROR - Launch docker client failed. Please make sure you have installed docker and started docker desktop/daemon.
+Instance googlecontainertools__jib-2536 - 2026-01-27 04:54:12,561 - ERROR - Launch docker client failed. Please make sure you have installed docker and started docker desktop/daemon.
+Instance googlecontainertools__jib-4035 - 2026-01-27 04:54:12,561 - ERROR - ----------
+Error in instance [googlecontainertools__jib-4035]: Error while fetching server API version: ('Connection aborted.', PermissionError(13, 'Permission denied')). Stacktrace:
+Traceback (most recent call last):
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/connectionpool.py", line 493, in _make_request
+    conn.request(
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/connection.py", line 500, in request
+    self.endheaders()
+  File "/home/seongminju/miniforge3/envs/openhands/lib/python3.12/http/client.py", line 1333, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/home/seongminju/miniforge3/envs/openhands/lib/python3.12/http/client.py", line 1093, in _send_output
+    self.send(msg)
+  File "/home/seongminju/miniforge3/envs/openhands/lib/python3.12/http/client.py", line 1037, in send
+    self.connect()
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/transport/unixconn.py", line 26, in connect
+    sock.connect(self.unix_socket)
+PermissionError: [Errno 13] Permission denied
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/requests/adapters.py", line 644, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/util/retry.py", line 490, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/util/util.py", line 38, in reraise
+    raise value.with_traceback(tb)
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/connectionpool.py", line 493, in _make_request
+    conn.request(
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/connection.py", line 500, in request
+    self.endheaders()
+  File "/home/seongminju/miniforge3/envs/openhands/lib/python3.12/http/client.py", line 1333, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/home/seongminju/miniforge3/envs/openhands/lib/python3.12/http/client.py", line 1093, in _send_output
+    self.send(msg)
+  File "/home/seongminju/miniforge3/envs/openhands/lib/python3.12/http/client.py", line 1037, in send
+    self.connect()
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/transport/unixconn.py", line 26, in connect
+    sock.connect(self.unix_socket)
+urllib3.exceptions.ProtocolError: ('Connection aborted.', PermissionError(13, 'Permission denied'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/api/client.py", line 223, in _retrieve_server_version
+    return self.version(api_version=False)["ApiVersion"]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/api/daemon.py", line 181, in version
+    return self._result(self._get(url), json=True)
+                        ^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/utils/decorators.py", line 44, in inner
+    return f(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/api/client.py", line 246, in _get
+    return self.get(url, **self._set_request_timeout(kwargs))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/requests/sessions.py", line 602, in get
+    return self.request("GET", url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/requests/adapters.py", line 659, in send
+    raise ConnectionError(err, request=request)
+requests.exceptions.ConnectionError: ('Connection aborted.', PermissionError(13, 'Permission denied'))
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/seongminju/openhands/OpenHands-main/evaluation/utils/shared.py", line 414, in _process_instance_wrapper
+    result = process_instance_func(instance, metadata, use_mp, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/openhands/OpenHands-main/evaluation/benchmarks/multi_swe_bench/run_infer.py", line 654, in process_instance
+    runtime = create_runtime(config)
+              ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/openhands/OpenHands-main/openhands/core/setup.py", line 81, in create_runtime
+    runtime: Runtime = runtime_cls(
+                       ^^^^^^^^^^^^
+  File "/home/seongminju/openhands/OpenHands-main/openhands/runtime/impl/docker/docker_runtime.py", line 131, in __init__
+    self.docker_client: docker.DockerClient = self._init_docker_client()
+                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/openhands/OpenHands-main/openhands/runtime/impl/docker/docker_runtime.py", line 264, in _init_docker_client
+    raise ex
+  File "/home/seongminju/openhands/OpenHands-main/openhands/runtime/impl/docker/docker_runtime.py", line 259, in _init_docker_client
+    return docker.from_env()
+           ^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/client.py", line 94, in from_env
+    return cls(
+           ^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/client.py", line 45, in __init__
+    self.api = APIClient(*args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/api/client.py", line 207, in __init__
+    self._version = self._retrieve_server_version()
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/api/client.py", line 230, in _retrieve_server_version
+    raise DockerException(
+docker.errors.DockerException: Error while fetching server API version: ('Connection aborted.', PermissionError(13, 'Permission denied'))
+
+----------[The above error occurred. Retrying... (attempt 2 of 3)]----------
+
+Instance googlecontainertools__jib-2542 - 2026-01-27 04:54:12,562 - ERROR - Launch docker client failed. Please make sure you have installed docker and started docker desktop/daemon.
+Instance googlecontainertools__jib-2688 - 2026-01-27 04:54:12,562 - ERROR - Launch docker client failed. Please make sure you have installed docker and started docker desktop/daemon.
+Instance googlecontainertools__jib-2536 - 2026-01-27 04:54:12,567 - ERROR - ----------
+Error in instance [googlecontainertools__jib-2536]: Error while fetching server API version: ('Connection aborted.', PermissionError(13, 'Permission denied')). Stacktrace:
+Traceback (most recent call last):
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/connectionpool.py", line 493, in _make_request
+    conn.request(
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/connection.py", line 500, in request
+    self.endheaders()
+  File "/home/seongminju/miniforge3/envs/openhands/lib/python3.12/http/client.py", line 1333, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/home/seongminju/miniforge3/envs/openhands/lib/python3.12/http/client.py", line 1093, in _send_output
+    self.send(msg)
+  File "/home/seongminju/miniforge3/envs/openhands/lib/python3.12/http/client.py", line 1037, in send
+    self.connect()
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/transport/unixconn.py", line 26, in connect
+    sock.connect(self.unix_socket)
+PermissionError: [Errno 13] Permission denied
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/requests/adapters.py", line 644, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/util/retry.py", line 490, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/util/util.py", line 38, in reraise
+    raise value.with_traceback(tb)
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/connectionpool.py", line 493, in _make_request
+    conn.request(
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/connection.py", line 500, in request
+    self.endheaders()
+  File "/home/seongminju/miniforge3/envs/openhands/lib/python3.12/http/client.py", line 1333, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/home/seongminju/miniforge3/envs/openhands/lib/python3.12/http/client.py", line 1093, in _send_output
+    self.send(msg)
+  File "/home/seongminju/miniforge3/envs/openhands/lib/python3.12/http/client.py", line 1037, in send
+    self.connect()
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/transport/unixconn.py", line 26, in connect
+    sock.connect(self.unix_socket)
+urllib3.exceptions.ProtocolError: ('Connection aborted.', PermissionError(13, 'Permission denied'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/api/client.py", line 223, in _retrieve_server_version
+    return self.version(api_version=False)["ApiVersion"]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/api/daemon.py", line 181, in version
+    return self._result(self._get(url), json=True)
+                        ^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/utils/decorators.py", line 44, in inner
+    return f(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/api/client.py", line 246, in _get
+    return self.get(url, **self._set_request_timeout(kwargs))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/requests/sessions.py", line 602, in get
+    return self.request("GET", url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/requests/adapters.py", line 659, in send
+    raise ConnectionError(err, request=request)
+requests.exceptions.ConnectionError: ('Connection aborted.', PermissionError(13, 'Permission denied'))
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/seongminju/openhands/OpenHands-main/evaluation/utils/shared.py", line 414, in _process_instance_wrapper
+    result = process_instance_func(instance, metadata, use_mp, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/openhands/OpenHands-main/evaluation/benchmarks/multi_swe_bench/run_infer.py", line 654, in process_instance
+    runtime = create_runtime(config)
+              ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/openhands/OpenHands-main/openhands/core/setup.py", line 81, in create_runtime
+    runtime: Runtime = runtime_cls(
+                       ^^^^^^^^^^^^
+  File "/home/seongminju/openhands/OpenHands-main/openhands/runtime/impl/docker/docker_runtime.py", line 131, in __init__
+    self.docker_client: docker.DockerClient = self._init_docker_client()
+                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/openhands/OpenHands-main/openhands/runtime/impl/docker/docker_runtime.py", line 264, in _init_docker_client
+    raise ex
+  File "/home/seongminju/openhands/OpenHands-main/openhands/runtime/impl/docker/docker_runtime.py", line 259, in _init_docker_client
+    return docker.from_env()
+           ^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/client.py", line 94, in from_env
+    return cls(
+           ^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/client.py", line 45, in __init__
+    self.api = APIClient(*args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/api/client.py", line 207, in __init__
+    self._version = self._retrieve_server_version()
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/api/client.py", line 230, in _retrieve_server_version
+    raise DockerException(
+docker.errors.DockerException: Error while fetching server API version: ('Connection aborted.', PermissionError(13, 'Permission denied'))
+
+----------[The above error occurred. Retrying... (attempt 2 of 3)]----------
+
+Instance googlecontainertools__jib-2542 - 2026-01-27 04:54:12,567 - ERROR - ----------
+Error in instance [googlecontainertools__jib-2542]: Error while fetching server API version: ('Connection aborted.', PermissionError(13, 'Permission denied')). Stacktrace:
+Traceback (most recent call last):
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/connectionpool.py", line 493, in _make_request
+    conn.request(
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/connection.py", line 500, in request
+    self.endheaders()
+  File "/home/seongminju/miniforge3/envs/openhands/lib/python3.12/http/client.py", line 1333, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/home/seongminju/miniforge3/envs/openhands/lib/python3.12/http/client.py", line 1093, in _send_output
+    self.send(msg)
+  File "/home/seongminju/miniforge3/envs/openhands/lib/python3.12/http/client.py", line 1037, in send
+    self.connect()
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/transport/unixconn.py", line 26, in connect
+    sock.connect(self.unix_socket)
+PermissionError: [Errno 13] Permission denied
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/requests/adapters.py", line 644, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/util/retry.py", line 490, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/util/util.py", line 38, in reraise
+    raise value.with_traceback(tb)
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/connectionpool.py", line 493, in _make_request
+    conn.request(
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/connection.py", line 500, in request
+    self.endheaders()
+  File "/home/seongminju/miniforge3/envs/openhands/lib/python3.12/http/client.py", line 1333, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/home/seongminju/miniforge3/envs/openhands/lib/python3.12/http/client.py", line 1093, in _send_output
+    self.send(msg)
+  File "/home/seongminju/miniforge3/envs/openhands/lib/python3.12/http/client.py", line 1037, in send
+    self.connect()
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/transport/unixconn.py", line 26, in connect
+    sock.connect(self.unix_socket)
+urllib3.exceptions.ProtocolError: ('Connection aborted.', PermissionError(13, 'Permission denied'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/api/client.py", line 223, in _retrieve_server_version
+    return self.version(api_version=False)["ApiVersion"]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/api/daemon.py", line 181, in version
+    return self._result(self._get(url), json=True)
+                        ^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/utils/decorators.py", line 44, in inner
+    return f(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/api/client.py", line 246, in _get
+    return self.get(url, **self._set_request_timeout(kwargs))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/requests/sessions.py", line 602, in get
+    return self.request("GET", url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/requests/adapters.py", line 659, in send
+    raise ConnectionError(err, request=request)
+requests.exceptions.ConnectionError: ('Connection aborted.', PermissionError(13, 'Permission denied'))
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/seongminju/openhands/OpenHands-main/evaluation/utils/shared.py", line 414, in _process_instance_wrapper
+    result = process_instance_func(instance, metadata, use_mp, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/openhands/OpenHands-main/evaluation/benchmarks/multi_swe_bench/run_infer.py", line 654, in process_instance
+    runtime = create_runtime(config)
+              ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/openhands/OpenHands-main/openhands/core/setup.py", line 81, in create_runtime
+    runtime: Runtime = runtime_cls(
+                       ^^^^^^^^^^^^
+  File "/home/seongminju/openhands/OpenHands-main/openhands/runtime/impl/docker/docker_runtime.py", line 131, in __init__
+    self.docker_client: docker.DockerClient = self._init_docker_client()
+                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/openhands/OpenHands-main/openhands/runtime/impl/docker/docker_runtime.py", line 264, in _init_docker_client
+    raise ex
+  File "/home/seongminju/openhands/OpenHands-main/openhands/runtime/impl/docker/docker_runtime.py", line 259, in _init_docker_client
+    return docker.from_env()
+           ^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/client.py", line 94, in from_env
+    return cls(
+           ^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/client.py", line 45, in __init__
+    self.api = APIClient(*args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/api/client.py", line 207, in __init__
+    self._version = self._retrieve_server_version()
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/api/client.py", line 230, in _retrieve_server_version
+    raise DockerException(
+docker.errors.DockerException: Error while fetching server API version: ('Connection aborted.', PermissionError(13, 'Permission denied'))
+
+----------[The above error occurred. Retrying... (attempt 2 of 3)]----------
+
+Instance googlecontainertools__jib-2688 - 2026-01-27 04:54:12,567 - ERROR - ----------
+Error in instance [googlecontainertools__jib-2688]: Error while fetching server API version: ('Connection aborted.', PermissionError(13, 'Permission denied')). Stacktrace:
+Traceback (most recent call last):
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/connectionpool.py", line 493, in _make_request
+    conn.request(
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/connection.py", line 500, in request
+    self.endheaders()
+  File "/home/seongminju/miniforge3/envs/openhands/lib/python3.12/http/client.py", line 1333, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/home/seongminju/miniforge3/envs/openhands/lib/python3.12/http/client.py", line 1093, in _send_output
+    self.send(msg)
+  File "/home/seongminju/miniforge3/envs/openhands/lib/python3.12/http/client.py", line 1037, in send
+    self.connect()
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/transport/unixconn.py", line 26, in connect
+    sock.connect(self.unix_socket)
+PermissionError: [Errno 13] Permission denied
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/requests/adapters.py", line 644, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/util/retry.py", line 490, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/util/util.py", line 38, in reraise
+    raise value.with_traceback(tb)
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/connectionpool.py", line 493, in _make_request
+    conn.request(
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/connection.py", line 500, in request
+    self.endheaders()
+  File "/home/seongminju/miniforge3/envs/openhands/lib/python3.12/http/client.py", line 1333, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/home/seongminju/miniforge3/envs/openhands/lib/python3.12/http/client.py", line 1093, in _send_output
+    self.send(msg)
+  File "/home/seongminju/miniforge3/envs/openhands/lib/python3.12/http/client.py", line 1037, in send
+    self.connect()
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/transport/unixconn.py", line 26, in connect
+    sock.connect(self.unix_socket)
+urllib3.exceptions.ProtocolError: ('Connection aborted.', PermissionError(13, 'Permission denied'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/api/client.py", line 223, in _retrieve_server_version
+    return self.version(api_version=False)["ApiVersion"]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/api/daemon.py", line 181, in version
+    return self._result(self._get(url), json=True)
+                        ^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/utils/decorators.py", line 44, in inner
+    return f(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/api/client.py", line 246, in _get
+    return self.get(url, **self._set_request_timeout(kwargs))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/requests/sessions.py", line 602, in get
+    return self.request("GET", url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/requests/adapters.py", line 659, in send
+    raise ConnectionError(err, request=request)
+requests.exceptions.ConnectionError: ('Connection aborted.', PermissionError(13, 'Permission denied'))
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/seongminju/openhands/OpenHands-main/evaluation/utils/shared.py", line 414, in _process_instance_wrapper
+    result = process_instance_func(instance, metadata, use_mp, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/openhands/OpenHands-main/evaluation/benchmarks/multi_swe_bench/run_infer.py", line 654, in process_instance
+    runtime = create_runtime(config)
+              ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/openhands/OpenHands-main/openhands/core/setup.py", line 81, in create_runtime
+    runtime: Runtime = runtime_cls(
+                       ^^^^^^^^^^^^
+  File "/home/seongminju/openhands/OpenHands-main/openhands/runtime/impl/docker/docker_runtime.py", line 131, in __init__
+    self.docker_client: docker.DockerClient = self._init_docker_client()
+                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/openhands/OpenHands-main/openhands/runtime/impl/docker/docker_runtime.py", line 264, in _init_docker_client
+    raise ex
+  File "/home/seongminju/openhands/OpenHands-main/openhands/runtime/impl/docker/docker_runtime.py", line 259, in _init_docker_client
+    return docker.from_env()
+           ^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/client.py", line 94, in from_env
+    return cls(
+           ^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/client.py", line 45, in __init__
+    self.api = APIClient(*args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/api/client.py", line 207, in __init__
+    self._version = self._retrieve_server_version()
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/api/client.py", line 230, in _retrieve_server_version
+    raise DockerException(
+docker.errors.DockerException: Error while fetching server API version: ('Connection aborted.', PermissionError(13, 'Permission denied'))
+
+----------[The above error occurred. Retrying... (attempt 2 of 3)]----------
+
+Instance googlecontainertools__jib-4035 - 2026-01-27 04:54:17,565 - INFO - Starting evaluation for instance googlecontainertools__jib-4035.
+Hint: run "tail -f evaluation/evaluation_outputs/outputs/__home__seongminju__openhands__OpenHands-main__evaluation__benchmarks__multi_swe_bench__processed_java_dataset.jsonl-train/CodeActAgent/claude-3-5-sonnet_maxiter_30/infer_logs/instance_googlecontainertools__jib-4035.log" to see live logs in a separate shell
+Instance googlecontainertools__jib-2536 - 2026-01-27 04:54:17,570 - INFO - Starting evaluation for instance googlecontainertools__jib-2536.
+Hint: run "tail -f evaluation/evaluation_outputs/outputs/__home__seongminju__openhands__OpenHands-main__evaluation__benchmarks__multi_swe_bench__processed_java_dataset.jsonl-train/CodeActAgent/claude-3-5-sonnet_maxiter_30/infer_logs/instance_googlecontainertools__jib-2536.log" to see live logs in a separate shell
+Instance googlecontainertools__jib-2542 - 2026-01-27 04:54:17,570 - INFO - Starting evaluation for instance googlecontainertools__jib-2542.
+Hint: run "tail -f evaluation/evaluation_outputs/outputs/__home__seongminju__openhands__OpenHands-main__evaluation__benchmarks__multi_swe_bench__processed_java_dataset.jsonl-train/CodeActAgent/claude-3-5-sonnet_maxiter_30/infer_logs/instance_googlecontainertools__jib-2542.log" to see live logs in a separate shell
+Instance googlecontainertools__jib-2688 - 2026-01-27 04:54:17,571 - INFO - Starting evaluation for instance googlecontainertools__jib-2688.
+Hint: run "tail -f evaluation/evaluation_outputs/outputs/__home__seongminju__openhands__OpenHands-main__evaluation__benchmarks__multi_swe_bench__processed_java_dataset.jsonl-train/CodeActAgent/claude-3-5-sonnet_maxiter_30/infer_logs/instance_googlecontainertools__jib-2688.log" to see live logs in a separate shell
+Instance googlecontainertools__jib-4035 - 2026-01-27 04:54:17,573 - ERROR - Launch docker client failed. Please make sure you have installed docker and started docker desktop/daemon.
+Instance googlecontainertools__jib-2536 - 2026-01-27 04:54:17,578 - ERROR - Launch docker client failed. Please make sure you have installed docker and started docker desktop/daemon.
+Instance googlecontainertools__jib-2542 - 2026-01-27 04:54:17,578 - ERROR - Launch docker client failed. Please make sure you have installed docker and started docker desktop/daemon.
+Instance googlecontainertools__jib-2688 - 2026-01-27 04:54:17,579 - ERROR - Launch docker client failed. Please make sure you have installed docker and started docker desktop/daemon.
+Instance googlecontainertools__jib-4035 - 2026-01-27 04:54:17,579 - ERROR - ----------
+Error in instance [googlecontainertools__jib-4035]: Error while fetching server API version: ('Connection aborted.', PermissionError(13, 'Permission denied')). Stacktrace:
+Traceback (most recent call last):
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/connectionpool.py", line 493, in _make_request
+    conn.request(
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/connection.py", line 500, in request
+    self.endheaders()
+  File "/home/seongminju/miniforge3/envs/openhands/lib/python3.12/http/client.py", line 1333, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/home/seongminju/miniforge3/envs/openhands/lib/python3.12/http/client.py", line 1093, in _send_output
+    self.send(msg)
+  File "/home/seongminju/miniforge3/envs/openhands/lib/python3.12/http/client.py", line 1037, in send
+    self.connect()
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/transport/unixconn.py", line 26, in connect
+    sock.connect(self.unix_socket)
+PermissionError: [Errno 13] Permission denied
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/requests/adapters.py", line 644, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/util/retry.py", line 490, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/util/util.py", line 38, in reraise
+    raise value.with_traceback(tb)
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/connectionpool.py", line 493, in _make_request
+    conn.request(
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/connection.py", line 500, in request
+    self.endheaders()
+  File "/home/seongminju/miniforge3/envs/openhands/lib/python3.12/http/client.py", line 1333, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/home/seongminju/miniforge3/envs/openhands/lib/python3.12/http/client.py", line 1093, in _send_output
+    self.send(msg)
+  File "/home/seongminju/miniforge3/envs/openhands/lib/python3.12/http/client.py", line 1037, in send
+    self.connect()
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/transport/unixconn.py", line 26, in connect
+    sock.connect(self.unix_socket)
+urllib3.exceptions.ProtocolError: ('Connection aborted.', PermissionError(13, 'Permission denied'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/api/client.py", line 223, in _retrieve_server_version
+    return self.version(api_version=False)["ApiVersion"]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/api/daemon.py", line 181, in version
+    return self._result(self._get(url), json=True)
+                        ^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/utils/decorators.py", line 44, in inner
+    return f(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/api/client.py", line 246, in _get
+    return self.get(url, **self._set_request_timeout(kwargs))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/requests/sessions.py", line 602, in get
+    return self.request("GET", url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/requests/adapters.py", line 659, in send
+    raise ConnectionError(err, request=request)
+requests.exceptions.ConnectionError: ('Connection aborted.', PermissionError(13, 'Permission denied'))
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/seongminju/openhands/OpenHands-main/evaluation/utils/shared.py", line 414, in _process_instance_wrapper
+    result = process_instance_func(instance, metadata, use_mp, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/openhands/OpenHands-main/evaluation/benchmarks/multi_swe_bench/run_infer.py", line 654, in process_instance
+    runtime = create_runtime(config)
+              ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/openhands/OpenHands-main/openhands/core/setup.py", line 81, in create_runtime
+    runtime: Runtime = runtime_cls(
+                       ^^^^^^^^^^^^
+  File "/home/seongminju/openhands/OpenHands-main/openhands/runtime/impl/docker/docker_runtime.py", line 131, in __init__
+    self.docker_client: docker.DockerClient = self._init_docker_client()
+                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/openhands/OpenHands-main/openhands/runtime/impl/docker/docker_runtime.py", line 264, in _init_docker_client
+    raise ex
+  File "/home/seongminju/openhands/OpenHands-main/openhands/runtime/impl/docker/docker_runtime.py", line 259, in _init_docker_client
+    return docker.from_env()
+           ^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/client.py", line 94, in from_env
+    return cls(
+           ^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/client.py", line 45, in __init__
+    self.api = APIClient(*args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/api/client.py", line 207, in __init__
+    self._version = self._retrieve_server_version()
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/api/client.py", line 230, in _retrieve_server_version
+    raise DockerException(
+docker.errors.DockerException: Error while fetching server API version: ('Connection aborted.', PermissionError(13, 'Permission denied'))
+
+----------[The above error occurred. Retrying... (attempt 3 of 3)]----------
+
+Instance googlecontainertools__jib-2542 - 2026-01-27 04:54:17,584 - ERROR - ----------
+Error in instance [googlecontainertools__jib-2542]: Error while fetching server API version: ('Connection aborted.', PermissionError(13, 'Permission denied')). Stacktrace:
+Traceback (most recent call last):
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/connectionpool.py", line 493, in _make_request
+    conn.request(
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/connection.py", line 500, in request
+    self.endheaders()
+  File "/home/seongminju/miniforge3/envs/openhands/lib/python3.12/http/client.py", line 1333, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/home/seongminju/miniforge3/envs/openhands/lib/python3.12/http/client.py", line 1093, in _send_output
+    self.send(msg)
+  File "/home/seongminju/miniforge3/envs/openhands/lib/python3.12/http/client.py", line 1037, in send
+    self.connect()
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/transport/unixconn.py", line 26, in connect
+    sock.connect(self.unix_socket)
+PermissionError: [Errno 13] Permission denied
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/requests/adapters.py", line 644, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/util/retry.py", line 490, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/util/util.py", line 38, in reraise
+    raise value.with_traceback(tb)
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/connectionpool.py", line 493, in _make_request
+    conn.request(
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/connection.py", line 500, in request
+    self.endheaders()
+  File "/home/seongminju/miniforge3/envs/openhands/lib/python3.12/http/client.py", line 1333, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/home/seongminju/miniforge3/envs/openhands/lib/python3.12/http/client.py", line 1093, in _send_output
+    self.send(msg)
+  File "/home/seongminju/miniforge3/envs/openhands/lib/python3.12/http/client.py", line 1037, in send
+    self.connect()
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/transport/unixconn.py", line 26, in connect
+    sock.connect(self.unix_socket)
+urllib3.exceptions.ProtocolError: ('Connection aborted.', PermissionError(13, 'Permission denied'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/api/client.py", line 223, in _retrieve_server_version
+    return self.version(api_version=False)["ApiVersion"]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/api/daemon.py", line 181, in version
+    return self._result(self._get(url), json=True)
+                        ^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/utils/decorators.py", line 44, in inner
+    return f(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/api/client.py", line 246, in _get
+    return self.get(url, **self._set_request_timeout(kwargs))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/requests/sessions.py", line 602, in get
+    return self.request("GET", url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/requests/adapters.py", line 659, in send
+    raise ConnectionError(err, request=request)
+requests.exceptions.ConnectionError: ('Connection aborted.', PermissionError(13, 'Permission denied'))
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/seongminju/openhands/OpenHands-main/evaluation/utils/shared.py", line 414, in _process_instance_wrapper
+    result = process_instance_func(instance, metadata, use_mp, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/openhands/OpenHands-main/evaluation/benchmarks/multi_swe_bench/run_infer.py", line 654, in process_instance
+    runtime = create_runtime(config)
+              ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/openhands/OpenHands-main/openhands/core/setup.py", line 81, in create_runtime
+    runtime: Runtime = runtime_cls(
+                       ^^^^^^^^^^^^
+  File "/home/seongminju/openhands/OpenHands-main/openhands/runtime/impl/docker/docker_runtime.py", line 131, in __init__
+    self.docker_client: docker.DockerClient = self._init_docker_client()
+                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/openhands/OpenHands-main/openhands/runtime/impl/docker/docker_runtime.py", line 264, in _init_docker_client
+    raise ex
+  File "/home/seongminju/openhands/OpenHands-main/openhands/runtime/impl/docker/docker_runtime.py", line 259, in _init_docker_client
+    return docker.from_env()
+           ^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/client.py", line 94, in from_env
+    return cls(
+           ^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/client.py", line 45, in __init__
+    self.api = APIClient(*args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/api/client.py", line 207, in __init__
+    self._version = self._retrieve_server_version()
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/api/client.py", line 230, in _retrieve_server_version
+    raise DockerException(
+docker.errors.DockerException: Error while fetching server API version: ('Connection aborted.', PermissionError(13, 'Permission denied'))
+
+----------[The above error occurred. Retrying... (attempt 3 of 3)]----------
+
+Instance googlecontainertools__jib-2688 - 2026-01-27 04:54:17,585 - ERROR - ----------
+Error in instance [googlecontainertools__jib-2688]: Error while fetching server API version: ('Connection aborted.', PermissionError(13, 'Permission denied')). Stacktrace:
+Traceback (most recent call last):
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/connectionpool.py", line 493, in _make_request
+    conn.request(
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/connection.py", line 500, in request
+    self.endheaders()
+  File "/home/seongminju/miniforge3/envs/openhands/lib/python3.12/http/client.py", line 1333, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/home/seongminju/miniforge3/envs/openhands/lib/python3.12/http/client.py", line 1093, in _send_output
+    self.send(msg)
+  File "/home/seongminju/miniforge3/envs/openhands/lib/python3.12/http/client.py", line 1037, in send
+    self.connect()
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/transport/unixconn.py", line 26, in connect
+    sock.connect(self.unix_socket)
+PermissionError: [Errno 13] Permission denied
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/requests/adapters.py", line 644, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/util/retry.py", line 490, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/util/util.py", line 38, in reraise
+    raise value.with_traceback(tb)
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/connectionpool.py", line 493, in _make_request
+    conn.request(
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/connection.py", line 500, in request
+    self.endheaders()
+  File "/home/seongminju/miniforge3/envs/openhands/lib/python3.12/http/client.py", line 1333, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/home/seongminju/miniforge3/envs/openhands/lib/python3.12/http/client.py", line 1093, in _send_output
+    self.send(msg)
+  File "/home/seongminju/miniforge3/envs/openhands/lib/python3.12/http/client.py", line 1037, in send
+    self.connect()
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/transport/unixconn.py", line 26, in connect
+    sock.connect(self.unix_socket)
+urllib3.exceptions.ProtocolError: ('Connection aborted.', PermissionError(13, 'Permission denied'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/api/client.py", line 223, in _retrieve_server_version
+    return self.version(api_version=False)["ApiVersion"]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/api/daemon.py", line 181, in version
+    return self._result(self._get(url), json=True)
+                        ^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/utils/decorators.py", line 44, in inner
+    return f(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/api/client.py", line 246, in _get
+    return self.get(url, **self._set_request_timeout(kwargs))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/requests/sessions.py", line 602, in get
+    return self.request("GET", url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/requests/adapters.py", line 659, in send
+    raise ConnectionError(err, request=request)
+requests.exceptions.ConnectionError: ('Connection aborted.', PermissionError(13, 'Permission denied'))
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/seongminju/openhands/OpenHands-main/evaluation/utils/shared.py", line 414, in _process_instance_wrapper
+    result = process_instance_func(instance, metadata, use_mp, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/openhands/OpenHands-main/evaluation/benchmarks/multi_swe_bench/run_infer.py", line 654, in process_instance
+    runtime = create_runtime(config)
+              ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/openhands/OpenHands-main/openhands/core/setup.py", line 81, in create_runtime
+    runtime: Runtime = runtime_cls(
+                       ^^^^^^^^^^^^
+  File "/home/seongminju/openhands/OpenHands-main/openhands/runtime/impl/docker/docker_runtime.py", line 131, in __init__
+    self.docker_client: docker.DockerClient = self._init_docker_client()
+                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/openhands/OpenHands-main/openhands/runtime/impl/docker/docker_runtime.py", line 264, in _init_docker_client
+    raise ex
+  File "/home/seongminju/openhands/OpenHands-main/openhands/runtime/impl/docker/docker_runtime.py", line 259, in _init_docker_client
+    return docker.from_env()
+           ^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/client.py", line 94, in from_env
+    return cls(
+           ^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/client.py", line 45, in __init__
+    self.api = APIClient(*args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/api/client.py", line 207, in __init__
+    self._version = self._retrieve_server_version()
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/api/client.py", line 230, in _retrieve_server_version
+    raise DockerException(
+docker.errors.DockerException: Error while fetching server API version: ('Connection aborted.', PermissionError(13, 'Permission denied'))
+
+----------[The above error occurred. Retrying... (attempt 3 of 3)]----------
+
+Instance googlecontainertools__jib-2536 - 2026-01-27 04:54:17,585 - ERROR - ----------
+Error in instance [googlecontainertools__jib-2536]: Error while fetching server API version: ('Connection aborted.', PermissionError(13, 'Permission denied')). Stacktrace:
+Traceback (most recent call last):
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/connectionpool.py", line 493, in _make_request
+    conn.request(
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/connection.py", line 500, in request
+    self.endheaders()
+  File "/home/seongminju/miniforge3/envs/openhands/lib/python3.12/http/client.py", line 1333, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/home/seongminju/miniforge3/envs/openhands/lib/python3.12/http/client.py", line 1093, in _send_output
+    self.send(msg)
+  File "/home/seongminju/miniforge3/envs/openhands/lib/python3.12/http/client.py", line 1037, in send
+    self.connect()
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/transport/unixconn.py", line 26, in connect
+    sock.connect(self.unix_socket)
+PermissionError: [Errno 13] Permission denied
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/requests/adapters.py", line 644, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/util/retry.py", line 490, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/util/util.py", line 38, in reraise
+    raise value.with_traceback(tb)
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/connectionpool.py", line 493, in _make_request
+    conn.request(
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/connection.py", line 500, in request
+    self.endheaders()
+  File "/home/seongminju/miniforge3/envs/openhands/lib/python3.12/http/client.py", line 1333, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/home/seongminju/miniforge3/envs/openhands/lib/python3.12/http/client.py", line 1093, in _send_output
+    self.send(msg)
+  File "/home/seongminju/miniforge3/envs/openhands/lib/python3.12/http/client.py", line 1037, in send
+    self.connect()
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/transport/unixconn.py", line 26, in connect
+    sock.connect(self.unix_socket)
+urllib3.exceptions.ProtocolError: ('Connection aborted.', PermissionError(13, 'Permission denied'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/api/client.py", line 223, in _retrieve_server_version
+    return self.version(api_version=False)["ApiVersion"]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/api/daemon.py", line 181, in version
+    return self._result(self._get(url), json=True)
+                        ^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/utils/decorators.py", line 44, in inner
+    return f(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/api/client.py", line 246, in _get
+    return self.get(url, **self._set_request_timeout(kwargs))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/requests/sessions.py", line 602, in get
+    return self.request("GET", url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/requests/adapters.py", line 659, in send
+    raise ConnectionError(err, request=request)
+requests.exceptions.ConnectionError: ('Connection aborted.', PermissionError(13, 'Permission denied'))
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/seongminju/openhands/OpenHands-main/evaluation/utils/shared.py", line 414, in _process_instance_wrapper
+    result = process_instance_func(instance, metadata, use_mp, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/openhands/OpenHands-main/evaluation/benchmarks/multi_swe_bench/run_infer.py", line 654, in process_instance
+    runtime = create_runtime(config)
+              ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/openhands/OpenHands-main/openhands/core/setup.py", line 81, in create_runtime
+    runtime: Runtime = runtime_cls(
+                       ^^^^^^^^^^^^
+  File "/home/seongminju/openhands/OpenHands-main/openhands/runtime/impl/docker/docker_runtime.py", line 131, in __init__
+    self.docker_client: docker.DockerClient = self._init_docker_client()
+                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/openhands/OpenHands-main/openhands/runtime/impl/docker/docker_runtime.py", line 264, in _init_docker_client
+    raise ex
+  File "/home/seongminju/openhands/OpenHands-main/openhands/runtime/impl/docker/docker_runtime.py", line 259, in _init_docker_client
+    return docker.from_env()
+           ^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/client.py", line 94, in from_env
+    return cls(
+           ^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/client.py", line 45, in __init__
+    self.api = APIClient(*args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/api/client.py", line 207, in __init__
+    self._version = self._retrieve_server_version()
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/api/client.py", line 230, in _retrieve_server_version
+    raise DockerException(
+docker.errors.DockerException: Error while fetching server API version: ('Connection aborted.', PermissionError(13, 'Permission denied'))
+
+----------[The above error occurred. Retrying... (attempt 3 of 3)]----------
+
+Instance googlecontainertools__jib-4035 - 2026-01-27 04:54:22,582 - INFO - Starting evaluation for instance googlecontainertools__jib-4035.
+Hint: run "tail -f evaluation/evaluation_outputs/outputs/__home__seongminju__openhands__OpenHands-main__evaluation__benchmarks__multi_swe_bench__processed_java_dataset.jsonl-train/CodeActAgent/claude-3-5-sonnet_maxiter_30/infer_logs/instance_googlecontainertools__jib-4035.log" to see live logs in a separate shell
+Instance googlecontainertools__jib-2542 - 2026-01-27 04:54:22,587 - INFO - Starting evaluation for instance googlecontainertools__jib-2542.
+Hint: run "tail -f evaluation/evaluation_outputs/outputs/__home__seongminju__openhands__OpenHands-main__evaluation__benchmarks__multi_swe_bench__processed_java_dataset.jsonl-train/CodeActAgent/claude-3-5-sonnet_maxiter_30/infer_logs/instance_googlecontainertools__jib-2542.log" to see live logs in a separate shell
+Instance googlecontainertools__jib-2688 - 2026-01-27 04:54:22,588 - INFO - Starting evaluation for instance googlecontainertools__jib-2688.
+Hint: run "tail -f evaluation/evaluation_outputs/outputs/__home__seongminju__openhands__OpenHands-main__evaluation__benchmarks__multi_swe_bench__processed_java_dataset.jsonl-train/CodeActAgent/claude-3-5-sonnet_maxiter_30/infer_logs/instance_googlecontainertools__jib-2688.log" to see live logs in a separate shell
+Instance googlecontainertools__jib-2536 - 2026-01-27 04:54:22,588 - INFO - Starting evaluation for instance googlecontainertools__jib-2536.
+Hint: run "tail -f evaluation/evaluation_outputs/outputs/__home__seongminju__openhands__OpenHands-main__evaluation__benchmarks__multi_swe_bench__processed_java_dataset.jsonl-train/CodeActAgent/claude-3-5-sonnet_maxiter_30/infer_logs/instance_googlecontainertools__jib-2536.log" to see live logs in a separate shell
+Instance googlecontainertools__jib-4035 - 2026-01-27 04:54:22,592 - ERROR - Launch docker client failed. Please make sure you have installed docker and started docker desktop/daemon.
+Instance googlecontainertools__jib-2688 - 2026-01-27 04:54:22,596 - ERROR - Launch docker client failed. Please make sure you have installed docker and started docker desktop/daemon.
+Instance googlecontainertools__jib-2542 - 2026-01-27 04:54:22,597 - ERROR - Launch docker client failed. Please make sure you have installed docker and started docker desktop/daemon.
+Instance googlecontainertools__jib-2536 - 2026-01-27 04:54:22,598 - ERROR - Launch docker client failed. Please make sure you have installed docker and started docker desktop/daemon.
+Instance googlecontainertools__jib-4035 - 2026-01-27 04:54:22,597 - ERROR - Error while fetching server API version: ('Connection aborted.', PermissionError(13, 'Permission denied'))
+Traceback (most recent call last):
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/connectionpool.py", line 493, in _make_request
+    conn.request(
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/connection.py", line 500, in request
+    self.endheaders()
+  File "/home/seongminju/miniforge3/envs/openhands/lib/python3.12/http/client.py", line 1333, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/home/seongminju/miniforge3/envs/openhands/lib/python3.12/http/client.py", line 1093, in _send_output
+    self.send(msg)
+  File "/home/seongminju/miniforge3/envs/openhands/lib/python3.12/http/client.py", line 1037, in send
+    self.connect()
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/transport/unixconn.py", line 26, in connect
+    sock.connect(self.unix_socket)
+PermissionError: [Errno 13] Permission denied
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/requests/adapters.py", line 644, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/util/retry.py", line 490, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/util/util.py", line 38, in reraise
+    raise value.with_traceback(tb)
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/connectionpool.py", line 493, in _make_request
+    conn.request(
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/connection.py", line 500, in request
+    self.endheaders()
+  File "/home/seongminju/miniforge3/envs/openhands/lib/python3.12/http/client.py", line 1333, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/home/seongminju/miniforge3/envs/openhands/lib/python3.12/http/client.py", line 1093, in _send_output
+    self.send(msg)
+  File "/home/seongminju/miniforge3/envs/openhands/lib/python3.12/http/client.py", line 1037, in send
+    self.connect()
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/transport/unixconn.py", line 26, in connect
+    sock.connect(self.unix_socket)
+urllib3.exceptions.ProtocolError: ('Connection aborted.', PermissionError(13, 'Permission denied'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/api/client.py", line 223, in _retrieve_server_version
+    return self.version(api_version=False)["ApiVersion"]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/api/daemon.py", line 181, in version
+    return self._result(self._get(url), json=True)
+                        ^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/utils/decorators.py", line 44, in inner
+    return f(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/api/client.py", line 246, in _get
+    return self.get(url, **self._set_request_timeout(kwargs))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/requests/sessions.py", line 602, in get
+    return self.request("GET", url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/requests/adapters.py", line 659, in send
+    raise ConnectionError(err, request=request)
+requests.exceptions.ConnectionError: ('Connection aborted.', PermissionError(13, 'Permission denied'))
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/seongminju/openhands/OpenHands-main/evaluation/utils/shared.py", line 414, in _process_instance_wrapper
+    result = process_instance_func(instance, metadata, use_mp, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/openhands/OpenHands-main/evaluation/benchmarks/multi_swe_bench/run_infer.py", line 654, in process_instance
+    runtime = create_runtime(config)
+              ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/openhands/OpenHands-main/openhands/core/setup.py", line 81, in create_runtime
+    runtime: Runtime = runtime_cls(
+                       ^^^^^^^^^^^^
+  File "/home/seongminju/openhands/OpenHands-main/openhands/runtime/impl/docker/docker_runtime.py", line 131, in __init__
+    self.docker_client: docker.DockerClient = self._init_docker_client()
+                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/openhands/OpenHands-main/openhands/runtime/impl/docker/docker_runtime.py", line 264, in _init_docker_client
+    raise ex
+  File "/home/seongminju/openhands/OpenHands-main/openhands/runtime/impl/docker/docker_runtime.py", line 259, in _init_docker_client
+    return docker.from_env()
+           ^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/client.py", line 94, in from_env
+    return cls(
+           ^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/client.py", line 45, in __init__
+    self.api = APIClient(*args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/api/client.py", line 207, in __init__
+    self._version = self._retrieve_server_version()
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/api/client.py", line 230, in _retrieve_server_version
+    raise DockerException(
+docker.errors.DockerException: Error while fetching server API version: ('Connection aborted.', PermissionError(13, 'Permission denied'))
+Instance googlecontainertools__jib-2688 - 2026-01-27 04:54:22,602 - ERROR - Error while fetching server API version: ('Connection aborted.', PermissionError(13, 'Permission denied'))
+Traceback (most recent call last):
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/connectionpool.py", line 493, in _make_request
+    conn.request(
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/connection.py", line 500, in request
+    self.endheaders()
+  File "/home/seongminju/miniforge3/envs/openhands/lib/python3.12/http/client.py", line 1333, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/home/seongminju/miniforge3/envs/openhands/lib/python3.12/http/client.py", line 1093, in _send_output
+    self.send(msg)
+  File "/home/seongminju/miniforge3/envs/openhands/lib/python3.12/http/client.py", line 1037, in send
+    self.connect()
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/transport/unixconn.py", line 26, in connect
+    sock.connect(self.unix_socket)
+PermissionError: [Errno 13] Permission denied
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/requests/adapters.py", line 644, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/util/retry.py", line 490, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/util/util.py", line 38, in reraise
+    raise value.with_traceback(tb)
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/connectionpool.py", line 493, in _make_request
+    conn.request(
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/connection.py", line 500, in request
+    self.endheaders()
+  File "/home/seongminju/miniforge3/envs/openhands/lib/python3.12/http/client.py", line 1333, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/home/seongminju/miniforge3/envs/openhands/lib/python3.12/http/client.py", line 1093, in _send_output
+    self.send(msg)
+  File "/home/seongminju/miniforge3/envs/openhands/lib/python3.12/http/client.py", line 1037, in send
+    self.connect()
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/transport/unixconn.py", line 26, in connect
+    sock.connect(self.unix_socket)
+urllib3.exceptions.ProtocolError: ('Connection aborted.', PermissionError(13, 'Permission denied'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/api/client.py", line 223, in _retrieve_server_version
+    return self.version(api_version=False)["ApiVersion"]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/api/daemon.py", line 181, in version
+    return self._result(self._get(url), json=True)
+                        ^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/utils/decorators.py", line 44, in inner
+    return f(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/api/client.py", line 246, in _get
+    return self.get(url, **self._set_request_timeout(kwargs))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/requests/sessions.py", line 602, in get
+    return self.request("GET", url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/requests/adapters.py", line 659, in send
+    raise ConnectionError(err, request=request)
+requests.exceptions.ConnectionError: ('Connection aborted.', PermissionError(13, 'Permission denied'))
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/seongminju/openhands/OpenHands-main/evaluation/utils/shared.py", line 414, in _process_instance_wrapper
+    result = process_instance_func(instance, metadata, use_mp, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/openhands/OpenHands-main/evaluation/benchmarks/multi_swe_bench/run_infer.py", line 654, in process_instance
+    runtime = create_runtime(config)
+              ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/openhands/OpenHands-main/openhands/core/setup.py", line 81, in create_runtime
+    runtime: Runtime = runtime_cls(
+                       ^^^^^^^^^^^^
+  File "/home/seongminju/openhands/OpenHands-main/openhands/runtime/impl/docker/docker_runtime.py", line 131, in __init__
+    self.docker_client: docker.DockerClient = self._init_docker_client()
+                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/openhands/OpenHands-main/openhands/runtime/impl/docker/docker_runtime.py", line 264, in _init_docker_client
+    raise ex
+  File "/home/seongminju/openhands/OpenHands-main/openhands/runtime/impl/docker/docker_runtime.py", line 259, in _init_docker_client
+    return docker.from_env()
+           ^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/client.py", line 94, in from_env
+    return cls(
+           ^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/client.py", line 45, in __init__
+    self.api = APIClient(*args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/api/client.py", line 207, in __init__
+    self._version = self._retrieve_server_version()
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/api/client.py", line 230, in _retrieve_server_version
+    raise DockerException(
+docker.errors.DockerException: Error while fetching server API version: ('Connection aborted.', PermissionError(13, 'Permission denied'))
+Instance googlecontainertools__jib-2542 - 2026-01-27 04:54:22,602 - ERROR - Error while fetching server API version: ('Connection aborted.', PermissionError(13, 'Permission denied'))
+Traceback (most recent call last):
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/connectionpool.py", line 493, in _make_request
+    conn.request(
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/connection.py", line 500, in request
+    self.endheaders()
+  File "/home/seongminju/miniforge3/envs/openhands/lib/python3.12/http/client.py", line 1333, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/home/seongminju/miniforge3/envs/openhands/lib/python3.12/http/client.py", line 1093, in _send_output
+    self.send(msg)
+  File "/home/seongminju/miniforge3/envs/openhands/lib/python3.12/http/client.py", line 1037, in send
+    self.connect()
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/transport/unixconn.py", line 26, in connect
+    sock.connect(self.unix_socket)
+PermissionError: [Errno 13] Permission denied
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/requests/adapters.py", line 644, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/util/retry.py", line 490, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/util/util.py", line 38, in reraise
+    raise value.with_traceback(tb)
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/connectionpool.py", line 493, in _make_request
+    conn.request(
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/connection.py", line 500, in request
+    self.endheaders()
+  File "/home/seongminju/miniforge3/envs/openhands/lib/python3.12/http/client.py", line 1333, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/home/seongminju/miniforge3/envs/openhands/lib/python3.12/http/client.py", line 1093, in _send_output
+    self.send(msg)
+  File "/home/seongminju/miniforge3/envs/openhands/lib/python3.12/http/client.py", line 1037, in send
+    self.connect()
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/transport/unixconn.py", line 26, in connect
+    sock.connect(self.unix_socket)
+urllib3.exceptions.ProtocolError: ('Connection aborted.', PermissionError(13, 'Permission denied'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/api/client.py", line 223, in _retrieve_server_version
+    return self.version(api_version=False)["ApiVersion"]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/api/daemon.py", line 181, in version
+    return self._result(self._get(url), json=True)
+                        ^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/utils/decorators.py", line 44, in inner
+    return f(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/api/client.py", line 246, in _get
+    return self.get(url, **self._set_request_timeout(kwargs))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/requests/sessions.py", line 602, in get
+    return self.request("GET", url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/requests/adapters.py", line 659, in send
+    raise ConnectionError(err, request=request)
+requests.exceptions.ConnectionError: ('Connection aborted.', PermissionError(13, 'Permission denied'))
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/seongminju/openhands/OpenHands-main/evaluation/utils/shared.py", line 414, in _process_instance_wrapper
+    result = process_instance_func(instance, metadata, use_mp, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/openhands/OpenHands-main/evaluation/benchmarks/multi_swe_bench/run_infer.py", line 654, in process_instance
+    runtime = create_runtime(config)
+              ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/openhands/OpenHands-main/openhands/core/setup.py", line 81, in create_runtime
+    runtime: Runtime = runtime_cls(
+                       ^^^^^^^^^^^^
+  File "/home/seongminju/openhands/OpenHands-main/openhands/runtime/impl/docker/docker_runtime.py", line 131, in __init__
+    self.docker_client: docker.DockerClient = self._init_docker_client()
+                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/openhands/OpenHands-main/openhands/runtime/impl/docker/docker_runtime.py", line 264, in _init_docker_client
+    raise ex
+  File "/home/seongminju/openhands/OpenHands-main/openhands/runtime/impl/docker/docker_runtime.py", line 259, in _init_docker_client
+    return docker.from_env()
+           ^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/client.py", line 94, in from_env
+    return cls(
+           ^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/client.py", line 45, in __init__
+    self.api = APIClient(*args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/api/client.py", line 207, in __init__
+    self._version = self._retrieve_server_version()
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/api/client.py", line 230, in _retrieve_server_version
+    raise DockerException(
+docker.errors.DockerException: Error while fetching server API version: ('Connection aborted.', PermissionError(13, 'Permission denied'))
+Instance googlecontainertools__jib-2536 - 2026-01-27 04:54:22,603 - ERROR - Error while fetching server API version: ('Connection aborted.', PermissionError(13, 'Permission denied'))
+Traceback (most recent call last):
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/connectionpool.py", line 493, in _make_request
+    conn.request(
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/connection.py", line 500, in request
+    self.endheaders()
+  File "/home/seongminju/miniforge3/envs/openhands/lib/python3.12/http/client.py", line 1333, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/home/seongminju/miniforge3/envs/openhands/lib/python3.12/http/client.py", line 1093, in _send_output
+    self.send(msg)
+  File "/home/seongminju/miniforge3/envs/openhands/lib/python3.12/http/client.py", line 1037, in send
+    self.connect()
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/transport/unixconn.py", line 26, in connect
+    sock.connect(self.unix_socket)
+PermissionError: [Errno 13] Permission denied
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/requests/adapters.py", line 644, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/util/retry.py", line 490, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/util/util.py", line 38, in reraise
+    raise value.with_traceback(tb)
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/connectionpool.py", line 493, in _make_request
+    conn.request(
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/connection.py", line 500, in request
+    self.endheaders()
+  File "/home/seongminju/miniforge3/envs/openhands/lib/python3.12/http/client.py", line 1333, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/home/seongminju/miniforge3/envs/openhands/lib/python3.12/http/client.py", line 1093, in _send_output
+    self.send(msg)
+  File "/home/seongminju/miniforge3/envs/openhands/lib/python3.12/http/client.py", line 1037, in send
+    self.connect()
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/transport/unixconn.py", line 26, in connect
+    sock.connect(self.unix_socket)
+urllib3.exceptions.ProtocolError: ('Connection aborted.', PermissionError(13, 'Permission denied'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/api/client.py", line 223, in _retrieve_server_version
+    return self.version(api_version=False)["ApiVersion"]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/api/daemon.py", line 181, in version
+    return self._result(self._get(url), json=True)
+                        ^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/utils/decorators.py", line 44, in inner
+    return f(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/api/client.py", line 246, in _get
+    return self.get(url, **self._set_request_timeout(kwargs))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/requests/sessions.py", line 602, in get
+    return self.request("GET", url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/requests/adapters.py", line 659, in send
+    raise ConnectionError(err, request=request)
+requests.exceptions.ConnectionError: ('Connection aborted.', PermissionError(13, 'Permission denied'))
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/seongminju/openhands/OpenHands-main/evaluation/utils/shared.py", line 414, in _process_instance_wrapper
+    result = process_instance_func(instance, metadata, use_mp, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/openhands/OpenHands-main/evaluation/benchmarks/multi_swe_bench/run_infer.py", line 654, in process_instance
+    runtime = create_runtime(config)
+              ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/openhands/OpenHands-main/openhands/core/setup.py", line 81, in create_runtime
+    runtime: Runtime = runtime_cls(
+                       ^^^^^^^^^^^^
+  File "/home/seongminju/openhands/OpenHands-main/openhands/runtime/impl/docker/docker_runtime.py", line 131, in __init__
+    self.docker_client: docker.DockerClient = self._init_docker_client()
+                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/openhands/OpenHands-main/openhands/runtime/impl/docker/docker_runtime.py", line 264, in _init_docker_client
+    raise ex
+  File "/home/seongminju/openhands/OpenHands-main/openhands/runtime/impl/docker/docker_runtime.py", line 259, in _init_docker_client
+    return docker.from_env()
+           ^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/client.py", line 94, in from_env
+    return cls(
+           ^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/client.py", line 45, in __init__
+    self.api = APIClient(*args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/api/client.py", line 207, in __init__
+    self._version = self._retrieve_server_version()
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/api/client.py", line 230, in _retrieve_server_version
+    raise DockerException(
+docker.errors.DockerException: Error while fetching server API version: ('Connection aborted.', PermissionError(13, 'Permission denied'))
+Instance fasterxml__jackson-core-1309 - 2026-01-27 04:54:22,610 - INFO - Starting evaluation for instance fasterxml__jackson-core-1309.
+Hint: run "tail -f evaluation/evaluation_outputs/outputs/__home__seongminju__openhands__OpenHands-main__evaluation__benchmarks__multi_swe_bench__processed_java_dataset.jsonl-train/CodeActAgent/claude-3-5-sonnet_maxiter_30/infer_logs/instance_fasterxml__jackson-core-1309.log" to see live logs in a separate shell
+[92m04:54:22 - openhands:ERROR[0m: logger.py:367 - Uncaught exception
+multiprocessing.pool.RemoteTraceback: 
+"""
+Traceback (most recent call last):
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/connectionpool.py", line 493, in _make_request
+    conn.request(
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/connection.py", line 500, in request
+    self.endheaders()
+  File "/home/seongminju/miniforge3/envs/openhands/lib/python3.12/http/client.py", line 1333, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/home/seongminju/miniforge3/envs/openhands/lib/python3.12/http/client.py", line 1093, in _send_output
+    self.send(msg)
+  File "/home/seongminju/miniforge3/envs/openhands/lib/python3.12/http/client.py", line 1037, in send
+    self.connect()
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/transport/unixconn.py", line 26, in connect
+    sock.connect(self.unix_socket)
+PermissionError: [Errno 13] Permission denied
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/requests/adapters.py", line 644, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/util/retry.py", line 490, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/util/util.py", line 38, in reraise
+    raise value.with_traceback(tb)
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/connectionpool.py", line 493, in _make_request
+    conn.request(
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/urllib3/connection.py", line 500, in request
+    self.endheaders()
+  File "/home/seongminju/miniforge3/envs/openhands/lib/python3.12/http/client.py", line 1333, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/home/seongminju/miniforge3/envs/openhands/lib/python3.12/http/client.py", line 1093, in _send_output
+    self.send(msg)
+  File "/home/seongminju/miniforge3/envs/openhands/lib/python3.12/http/client.py", line 1037, in send
+    self.connect()
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/transport/unixconn.py", line 26, in connect
+    sock.connect(self.unix_socket)
+urllib3.exceptions.ProtocolError: ('Connection aborted.', PermissionError(13, 'Permission denied'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/api/client.py", line 223, in _retrieve_server_version
+    return self.version(api_version=False)["ApiVersion"]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/api/daemon.py", line 181, in version
+    return self._result(self._get(url), json=True)
+                        ^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/utils/decorators.py", line 44, in inner
+    return f(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/api/client.py", line 246, in _get
+    return self.get(url, **self._set_request_timeout(kwargs))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/requests/sessions.py", line 602, in get
+    return self.request("GET", url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/requests/adapters.py", line 659, in send
+    raise ConnectionError(err, request=request)
+requests.exceptions.ConnectionError: ('Connection aborted.', PermissionError(13, 'Permission denied'))
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/seongminju/openhands/OpenHands-main/evaluation/utils/shared.py", line 414, in _process_instance_wrapper
+    result = process_instance_func(instance, metadata, use_mp, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/openhands/OpenHands-main/evaluation/benchmarks/multi_swe_bench/run_infer.py", line 654, in process_instance
+    runtime = create_runtime(config)
+              ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/openhands/OpenHands-main/openhands/core/setup.py", line 81, in create_runtime
+    runtime: Runtime = runtime_cls(
+                       ^^^^^^^^^^^^
+  File "/home/seongminju/openhands/OpenHands-main/openhands/runtime/impl/docker/docker_runtime.py", line 131, in __init__
+    self.docker_client: docker.DockerClient = self._init_docker_client()
+                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/openhands/OpenHands-main/openhands/runtime/impl/docker/docker_runtime.py", line 264, in _init_docker_client
+    raise ex
+  File "/home/seongminju/openhands/OpenHands-main/openhands/runtime/impl/docker/docker_runtime.py", line 259, in _init_docker_client
+    return docker.from_env()
+           ^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/client.py", line 94, in from_env
+    return cls(
+           ^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/client.py", line 45, in __init__
+    self.api = APIClient(*args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/api/client.py", line 207, in __init__
+    self._version = self._retrieve_server_version()
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/docker/api/client.py", line 230, in _retrieve_server_version
+    raise DockerException(
+docker.errors.DockerException: Error while fetching server API version: ('Connection aborted.', PermissionError(13, 'Permission denied'))
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/seongminju/miniforge3/envs/openhands/lib/python3.12/multiprocessing/pool.py", line 125, in worker
+    result = (True, func(*args, **kwds))
+                    ^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/openhands/OpenHands-main/evaluation/utils/shared.py", line 490, in _process_instance_wrapper_mp
+    return _process_instance_wrapper(*args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/openhands/OpenHands-main/evaluation/utils/shared.py", line 463, in _process_instance_wrapper
+    raise RuntimeError(
+RuntimeError: Maximum error retries reached for instance googlecontainertools__jib-4035
+"""
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/seongminju/openhands/OpenHands-main/evaluation/benchmarks/multi_swe_bench/run_infer.py", line 862, in <module>
+    run_evaluation(
+  File "/home/seongminju/openhands/OpenHands-main/evaluation/utils/shared.py", line 534, in run_evaluation
+    for result in results:
+                  ^^^^^^^
+  File "/home/seongminju/miniforge3/envs/openhands/lib/python3.12/multiprocessing/pool.py", line 873, in next
+    raise value
+RuntimeError: Maximum error retries reached for instance googlecontainertools__jib-4035
+/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/litellm/llms/custom_httpx/async_client_cleanup.py:66: DeprecationWarning: There is no current event loop
+  loop = asyncio.get_event_loop()
+Instances processed:   0%|          | 0/108 [00:15<?, ?it/s]

@@ -1,0 +1,120 @@
+cd /testbed && cat **/build/test-results/test/*.xml
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="edu.umd.cs.findbugs.ba.ch.Subtypes2Test" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-01-26T19:19:51" hostname="95a29982d2a5" time="3.223">
+  <properties/>
+  <testcase name="testInterfaces()" classname="edu.umd.cs.findbugs.ba.ch.Subtypes2Test" time="3.223"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="edu.umd.cs.findbugs.test.SpotBugsExtensionTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-01-26T19:06:55" hostname="95a29982d2a5" time="10.197">
+  <properties/>
+  <testcase name="test(SpotBugsRunner)" classname="edu.umd.cs.findbugs.test.SpotBugsExtensionTest" time="10.197"/>
+  <system-out><![CDATA[edu.umd.cs.findbugs.test.SpotBugsRunner.<init> : ()V
+  0 aload_0         []::[< Ledu/umd/cs/findbugs/test/SpotBugsRunner;, IP, r0 >]
+  1 invokespecial   [< Ledu/umd/cs/findbugs/test/SpotBugsRunner;, IP, r0 >]::[< Ledu/umd/cs/findbugs/test/SpotBugsRunner;, IP, r0 >]
+  4 aload_0         []::[< Ledu/umd/cs/findbugs/test/SpotBugsRunner;, IP, r0 >]
+  5 new             [< Ledu/umd/cs/findbugs/test/SpotBugsRunner;, IP, r0 >]::[< Ledu/umd/cs/findbugs/test/SpotBugsRunner;, IP, r0 >]
+  8 dup             [< Ledu/umd/cs/findbugs/test/SpotBugsRunner;, IP, r0 >, < Ledu/umd/cs/findbugs/test/AnalysisRunner;, new >]::[< Ledu/umd/cs/findbugs/test/SpotBugsRunner;, IP, r0 >]
+  9 invokespecial   [< Ledu/umd/cs/findbugs/test/SpotBugsRunner;, IP, r0 >, < Ledu/umd/cs/findbugs/test/AnalysisRunner;, new >, < Ledu/umd/cs/findbugs/test/AnalysisRunner;, new >]::[< Ledu/umd/cs/findbugs/test/SpotBugsRunner;, IP, r0 >]
+ 12 putfield        [< Ledu/umd/cs/findbugs/test/SpotBugsRunner;, IP, r0 >, < Ledu/umd/cs/findbugs/test/AnalysisRunner;, new, return value from edu.umd.cs.findbugs.test.AnalysisRunner.<init>() >]::[< Ledu/umd/cs/findbugs/test/SpotBugsRunner;, IP, r0 >]
+ 15 return          []::[< Ledu/umd/cs/findbugs/test/SpotBugsRunner;, IP, r0 >]
+
+edu.umd.cs.findbugs.test.SpotBugsRunner.addAuxClasspathEntry : (Ljava.util.function.Consumer;Ljava.nio.file.Path;)Ledu.umd.cs.findbugs.test.SpotBugsRunner;
+  0 aload_0         []::[< Ledu/umd/cs/findbugs/test/SpotBugsRunner;, IP, r0 >, < Ljava/util/function/Consumer;, IP, r1 >, < Ljava/nio/file/Path;, IP, r2 >]
+  1 getfield        [< Ledu/umd/cs/findbugs/test/SpotBugsRunner;, IP, r0 >]::[< Ledu/umd/cs/findbugs/test/SpotBugsRunner;, IP, r0 >, < Ljava/util/function/Consumer;, IP, r1 >, < Ljava/nio/file/Path;, IP, r2 >]
+  4 ifnonnull       [< Ledu/umd/cs/findbugs/test/AnalysisRunner;, 0:edu.umd.cs.findbugs.test.SpotBugsRunner.runner Ledu/umd/cs/findbugs/test/AnalysisRunner; >]::[< Ledu/umd/cs/findbugs/test/SpotBugsRunner;, IP, r0 >, < Ljava/util/function/Consumer;, IP, r1 >, < Ljava/nio/file/Path;, IP, r2 >]
+  7 new             []::[< Ledu/umd/cs/findbugs/test/SpotBugsRunner;, IP, r0 >, < Ljava/util/function/Consumer;, IP, r1 >, < Ljava/nio/file/Path;, IP, r2 >]
+ 10 dup             [< Ljava/lang/IllegalStateException;, new >]::[< Ledu/umd/cs/findbugs/test/SpotBugsRunner;, IP, r0 >, < Ljava/util/function/Consumer;, IP, r1 >, < Ljava/nio/file/Path;, IP, r2 >]
+ 11 ldc             [< Ljava/lang/IllegalStateException;, new >, < Ljava/lang/IllegalStateException;, new >]::[< Ledu/umd/cs/findbugs/test/SpotBugsRunner;, IP, r0 >, < Ljava/util/function/Consumer;, IP, r1 >, < Ljava/nio/file/Path;, IP, r2 >]
+ 13 invokespecial   [< Ljava/lang/IllegalStateException;, new >, < Ljava/lang/IllegalStateException;, new >, < Ljava/lang/String;, "Please call this addAuxClasspathEntry() method in @Before method or test method" >]::[< Ledu/umd/cs/findbugs/test/SpotBugsRunner;, IP, r0 >, < Ljava/util/function/Consumer;, IP, r1 >, < Ljava/nio/file/Path;, IP, r2 >]
+ 16 athrow          [< Ljava/lang/IllegalStateException;, new, return value from java.lang.IllegalStateException.<init>(Ljava/lang/String;)V >]::[< Ledu/umd/cs/findbugs/test/SpotBugsRunner;, IP, r0 >, < Ljava/util/function/Consumer;, IP, r1 >, < Ljava/nio/file/Path;, IP, r2 >]
+ 17 aload_0         []::[< Ledu/umd/cs/findbugs/test/SpotBugsRunner;, IP, r0 >, < Ljava/util/function/Consumer;, IP, r1 >, < Ljava/nio/file/Path;, IP, r2 >]
+ 18 getfield        [< Ledu/umd/cs/findbugs/test/SpotBugsRunner;, IP, r0 >]::[< Ledu/umd/cs/findbugs/test/SpotBugsRunner;, IP, r0 >, < Ljava/util/function/Consumer;, IP, r1 >, < Ljava/nio/file/Path;, IP, r2 >]
+ 21 aload_2         [< Ledu/umd/cs/findbugs/test/AnalysisRunner;, 0:edu.umd.cs.findbugs.test.SpotBugsRunner.runner Ledu/umd/cs/findbugs/test/AnalysisRunner; >]::[< Ledu/umd/cs/findbugs/test/SpotBugsRunner;, IP, r0 >, < Ljava/util/function/Consumer;, IP, r1 >, < Ljava/nio/file/Path;, IP, r2 >]
+ 22 invokevirtual   [< Ledu/umd/cs/findbugs/test/AnalysisRunner;, 0:edu.umd.cs.findbugs.test.SpotBugsRunner.runner Ledu/umd/cs/findbugs/test/AnalysisRunner; >, < Ljava/nio/file/Path;, IP, r2 >]::[< Ledu/umd/cs/findbugs/test/SpotBugsRunner;, IP, r0 >, < Ljava/util/function/Consumer;, IP, r1 >, < Ljava/nio/file/Path;, IP, r2 >]
+ 25 pop             [< Ledu/umd/cs/findbugs/test/AnalysisRunner;, return value from edu.umd.cs.findbugs.test.AnalysisRunner.addAuxClasspathEntry(java.nio.file.Path) >]::[< Ledu/umd/cs/findbugs/test/SpotBugsRunner;, IP, r0 >, < Ljava/util/function/Consumer;, IP, r1 >, < Ljava/nio/file/Path;, IP, r2 >]
+ 26 aload_0         []::[< Ledu/umd/cs/findbugs/test/SpotBugsRunner;, IP, r0 >, < Ljava/util/function/Consumer;, IP, r1 >, < Ljava/nio/file/Path;, IP, r2 >]
+ 27 areturn         [< Ledu/umd/cs/findbugs/test/SpotBugsRunner;, IP, r0 >]::[< Ledu/umd/cs/findbugs/test/SpotBugsRunner;, IP, r0 >, < Ljava/util/function/Consumer;, IP, r1 >, < Ljava/nio/file/Path;, IP, r2 >]
+
+edu.umd.cs.findbugs.test.SpotBugsRunner.performAnalysis : (Ljava.util.function.Consumer;[Ljava.nio.file.Path;)Ledu.umd.cs.findbugs.BugCollection;
+  0 aload_0         []::[< Ledu/umd/cs/findbugs/test/SpotBugsRunner;, IP, r0 >, < Ljava/util/function/Consumer;, IP, r1 >, < [Ljava/nio/file/Path;, IP, r2 >]
+  1 getfield        [< Ledu/umd/cs/findbugs/test/SpotBugsRunner;, IP, r0 >]::[< Ledu/umd/cs/findbugs/test/SpotBugsRunner;, IP, r0 >, < Ljava/util/function/Consumer;, IP, r1 >, < [Ljava/nio/file/Path;, IP, r2 >]
+  4 ifnonnull       [< Ledu/umd/cs/findbugs/test/AnalysisRunner;, 0:edu.umd.cs.findbugs.test.SpotBugsRunner.runner Ledu/umd/cs/findbugs/test/AnalysisRunner; >]::[< Ledu/umd/cs/findbugs/test/SpotBugsRunner;, IP, r0 >, < Ljava/util/function/Consumer;, IP, r1 >, < [Ljava/nio/file/Path;, IP, r2 >]
+  7 new             []::[< Ledu/umd/cs/findbugs/test/SpotBugsRunner;, IP, r0 >, < Ljava/util/function/Consumer;, IP, r1 >, < [Ljava/nio/file/Path;, IP, r2 >]
+ 10 dup             [< Ljava/lang/IllegalStateException;, new >]::[< Ledu/umd/cs/findbugs/test/SpotBugsRunner;, IP, r0 >, < Ljava/util/function/Consumer;, IP, r1 >, < [Ljava/nio/file/Path;, IP, r2 >]
+ 11 ldc             [< Ljava/lang/IllegalStateException;, new >, < Ljava/lang/IllegalStateException;, new >]::[< Ledu/umd/cs/findbugs/test/SpotBugsRunner;, IP, r0 >, < Ljava/util/function/Consumer;, IP, r1 >, < [Ljava/nio/file/Path;, IP, r2 >]
+ 13 invokespecial   [< Ljava/lang/IllegalStateException;, new >, < Ljava/lang/IllegalStateException;, new >, < Ljava/lang/String;, "Please call this performAnalysis() method in test method" >]::[< Ledu/umd/cs/findbugs/test/SpotBugsRunner;, IP, r0 >, < Ljava/util/function/Consumer;, IP, r1 >, < [Ljava/nio/file/Path;, IP, r2 >]
+ 16 athrow          [< Ljava/lang/IllegalStateException;, new, return value from java.lang.IllegalStateException.<init>(Ljava/lang/String;)V >]::[< Ledu/umd/cs/findbugs/test/SpotBugsRunner;, IP, r0 >, < Ljava/util/function/Consumer;, IP, r1 >, < [Ljava/nio/file/Path;, IP, r2 >]
+ 17 aload_0         []::[< Ledu/umd/cs/findbugs/test/SpotBugsRunner;, IP, r0 >, < Ljava/util/function/Consumer;, IP, r1 >, < [Ljava/nio/file/Path;, IP, r2 >]
+ 18 getfield        [< Ledu/umd/cs/findbugs/test/SpotBugsRunner;, IP, r0 >]::[< Ledu/umd/cs/findbugs/test/SpotBugsRunner;, IP, r0 >, < Ljava/util/function/Consumer;, IP, r1 >, < [Ljava/nio/file/Path;, IP, r2 >]
+ 21 aload_1         [< Ledu/umd/cs/findbugs/test/AnalysisRunner;, 0:edu.umd.cs.findbugs.test.SpotBugsRunner.runner Ledu/umd/cs/findbugs/test/AnalysisRunner; >]::[< Ledu/umd/cs/findbugs/test/SpotBugsRunner;, IP, r0 >, < Ljava/util/function/Consumer;, IP, r1 >, < [Ljava/nio/file/Path;, IP, r2 >]
+ 22 aload_2         [< Ledu/umd/cs/findbugs/test/AnalysisRunner;, 0:edu.umd.cs.findbugs.test.SpotBugsRunner.runner Ledu/umd/cs/findbugs/test/AnalysisRunner; >, < Ljava/util/function/Consumer;, IP, r1 >]::[< Ledu/umd/cs/findbugs/test/SpotBugsRunner;, IP, r0 >, < Ljava/util/function/Consumer;, IP, r1 >, < [Ljava/nio/file/Path;, IP, r2 >]
+ 23 invokevirtual   [< Ledu/umd/cs/findbugs/test/AnalysisRunner;, 0:edu.umd.cs.findbugs.test.SpotBugsRunner.runner Ledu/umd/cs/findbugs/test/AnalysisRunner; >, < Ljava/util/function/Consumer;, IP, r1 >, < [Ljava/nio/file/Path;, IP, r2 >]::[< Ledu/umd/cs/findbugs/test/SpotBugsRunner;, IP, r0 >, < Ljava/util/function/Consumer;, IP, r1 >, < [Ljava/nio/file/Path;, IP, r2 >]
+ 26 invokevirtual   [< Ledu/umd/cs/findbugs/BugCollectionBugReporter;, return value from edu.umd.cs.findbugs.test.AnalysisRunner.run(java.util.function.Consumer, java.nio.file.Path[]) >]::[< Ledu/umd/cs/findbugs/test/SpotBugsRunner;, IP, r0 >, < Ljava/util/function/Consumer;, IP, r1 >, < [Ljava/nio/file/Path;, IP, r2 >]
+ 29 areturn         [< Ledu/umd/cs/findbugs/BugCollection;, return value from edu.umd.cs.findbugs.BugCollectionBugReporter.getBugCollection() >]::[< Ledu/umd/cs/findbugs/test/SpotBugsRunner;, IP, r0 >, < Ljava/util/function/Consumer;, IP, r1 >, < [Ljava/nio/file/Path;, IP, r2 >]
+
+edu.umd.cs.findbugs.test.SpotBugsRunner.performAnalysis : ([Ljava.nio.file.Path;)Ledu.umd.cs.findbugs.BugCollection;
+  0 aload_0         []::[< Ledu/umd/cs/findbugs/test/SpotBugsRunner;, IP, r0 >, < [Ljava/nio/file/Path;, IP, r1 >]
+  1 invokedynamic   [< Ledu/umd/cs/findbugs/test/SpotBugsRunner;, IP, r0 >]::[< Ledu/umd/cs/findbugs/test/SpotBugsRunner;, IP, r0 >, < [Ljava/nio/file/Path;, IP, r1 >]
+  6 aload_1         [< Ledu/umd/cs/findbugs/test/SpotBugsRunner;, IP, r0 >, < Ljava/util/function/Consumer; >]::[< Ledu/umd/cs/findbugs/test/SpotBugsRunner;, IP, r0 >, < [Ljava/nio/file/Path;, IP, r1 >]
+  7 invokevirtual   [< Ledu/umd/cs/findbugs/test/SpotBugsRunner;, IP, r0 >, < Ljava/util/function/Consumer; >, < [Ljava/nio/file/Path;, IP, r1 >]::[< Ledu/umd/cs/findbugs/test/SpotBugsRunner;, IP, r0 >, < [Ljava/nio/file/Path;, IP, r1 >]
+ 10 areturn         [< Ledu/umd/cs/findbugs/BugCollection;, return value from edu.umd.cs.findbugs.test.SpotBugsRunner.performAnalysis(Ljava/util/function/Consumer;[Ljava/nio/file/Path;)Ledu/umd/cs/findbugs/BugCollection; >]::[< Ledu/umd/cs/findbugs/test/SpotBugsRunner;, IP, r0 >, < [Ljava/nio/file/Path;, IP, r1 >]
+
+edu.umd.cs.findbugs.test.SpotBugsRunner.lambda$performAnalysis$0 : (Ledu.umd.cs.findbugs.IFindBugsEngine;)V
+  0 return          []::[< Ledu/umd/cs/findbugs/IFindBugsEngine;, IP, r0 >]
+
+CFGs generated into directory: /tmp/cfg-6996434033446342368. Please do not forget to delete it.
+Analyzing edu.umd.cs.findbugs.test.SpotBugsRunner.<init>()
+
+*******************************************************
+
+Method invocation:    1: invokespecial[183](3) 1
+	Invoking: java.lang.Object.<init>()
+	Prototype method: class=java.lang.Object, method=public void <init>() [RuntimeVisibleAnnotations:
+  @Ljdk/internal/vm/annotation/IntrinsicCandidate;]
+	Target method set: [java.lang.Object.<init>()]
+
+*******************************************************
+
+Method invocation:    9: invokespecial[183](3) 9
+	Invoking: edu.umd.cs.findbugs.test.AnalysisRunner.<init>()
+Analyzing edu.umd.cs.findbugs.test.SpotBugsRunner.addAuxClasspathEntry(java.util.function.Consumer, java.nio.file.Path)
+
+*******************************************************
+
+Method invocation:   22: invokevirtual[182](3) 23
+	Invoking: edu.umd.cs.findbugs.test.AnalysisRunner.addAuxClasspathEntry(java.nio.file.Path)
+Analyzing edu.umd.cs.findbugs.test.SpotBugsRunner.performAnalysis(java.util.function.Consumer, java.nio.file.Path[])
+
+*******************************************************
+
+Method invocation:   23: invokevirtual[182](3) 29
+	Invoking: edu.umd.cs.findbugs.test.AnalysisRunner.run(java.util.function.Consumer, java.nio.file.Path[])
+Analyzing edu.umd.cs.findbugs.test.SpotBugsRunner.performAnalysis(java.nio.file.Path[])
+
+*******************************************************
+
+Method invocation:    1: invokedynamic[186](5) 39
+	Invoking: accept.accept()
+	Unknown prototype method
+	Target method set: []
+
+*******************************************************
+
+Method invocation:    7: invokevirtual[182](3) 43
+	Invoking: edu.umd.cs.findbugs.test.SpotBugsRunner.performAnalysis(java.util.function.Consumer, java.nio.file.Path[])
+	Prototype method: class=edu.umd.cs.findbugs.test.SpotBugsRunner, method=public transient edu.umd.cs.findbugs.BugCollection performAnalysis(java.util.function.Consumer engineCustomization, java.nio.file.Path[] paths) [Signature: (Ljava/util/function/Consumer<Ledu/umd/cs/findbugs/IFindBugsEngine;>;[Ljava/nio/file/Path;)Ledu/umd/cs/findbugs/BugCollection;] [RuntimeVisibleAnnotations:
+  @Ljavax/annotation/Nonnull;]
+	Target method set: [edu.umd.cs.findbugs.test.SpotBugsRunner.performAnalysis(java.util.function.Consumer, java.nio.file.Path[])]
+Analyzing edu.umd.cs.findbugs.test.SpotBugsRunner.lambda$performAnalysis$0(edu.umd.cs.findbugs.IFindBugsEngine)
+]]></system-out>
+  <system-err><![CDATA[SLF4J(W): No SLF4J providers were found.
+SLF4J(W): Defaulting to no-operation (NOP) logger implementation
+SLF4J(W): See https://www.slf4j.org/codes.html#noProviders for further details.
+The following classes needed for analysis were missing:
+  edu.umd.cs.findbugs.IFindBugsEngine
+  edu.umd.cs.findbugs.test.AnalysisRunner
+  edu.umd.cs.findbugs.BugCollectionBugReporter
+]]></system-err>
+</testsuite>

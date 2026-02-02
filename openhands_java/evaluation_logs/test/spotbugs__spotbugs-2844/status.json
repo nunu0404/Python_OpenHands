@@ -1,0 +1,4 @@
+{
+ "edu.umd.cs.findbugs.ba.ch.Subtypes2Test.testInterfaces()": "pass",
+ "edu.umd.cs.findbugs.test.SpotBugsExtensionTest.test(SpotBugsRunner)": "pass"
+}

@@ -1,0 +1,15 @@
+{
+ "instance_id": "spotbugs__spotbugs-2844",
+ "resolved": false,
+ "PASS_TO_PASS": {
+  "success": [
+   "edu.umd.cs.findbugs.test.SpotBugsExtensionTest.test(SpotBugsRunner)",
+   "edu.umd.cs.findbugs.ba.ch.Subtypes2Test.testInterfaces()"
+  ],
+  "failure": []
+ },
+ "FAIL_TO_PASS": {
+  "success": [],
+  "failure": []
+ }
+}

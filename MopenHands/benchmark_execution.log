@@ -1,0 +1,1078 @@
+==========================================
+Starting evaluation with gpt-4o-mini...
+==========================================
+The given hash is equivalent to the current HEAD
+RUN_WITH_BROWSING not specified, use default false
+LANUGUAGE not specified, use default python
+EVAL_DOCKER_IMAGE_PREFIX is docker.io/xingyaoww/ as default as LANUGUAGE is python
+EVAL_DOCKER_IMAGE_PREFIX: docker.io/xingyaoww/
+USE_INSTANCE_IMAGE: true
+RUN_WITH_BROWSING: false
+LANGUAGE: python
+AGENT: CodeActAgent
+OPENHANDS_VERSION: v0.25.0
+MODEL_CONFIG: llm.gpt-4o-mini
+DATASET: /home/seongminju/openhands/Python_examples.jsonl
+SPLIT: train
+USE_HINT_TEXT: false
+N_RUNS not specified, use default 1
+EVAL_NOTE: v0.25.0-no-hint-run_1
+EVAL_LIMIT: 3
+[92m03:22:57 - openhands:INFO[0m: run_infer.py:55 - Using docker image prefix: docker.io/xingyaoww/
+[92m03:23:00 - openhands:INFO[0m: run_infer.py:772 - Filtering 1 tasks from "SKIP_IDS"...
+[92m03:23:00 - openhands:INFO[0m: run_infer.py:801 - Loaded dataset ******/openhands/Python_examples.jsonl with split train: 6 tasks
+[92m03:23:00 - openhands:INFO[0m: shared.py:190 - Using evaluation output directory: evaluation/evaluation_outputs/outputs/__home__seongminju__openhands__Python_examples.jsonl-train/CodeActAgent/gpt-4o-mini_maxiter_30_N_v0.25.0-no-hint-run_1
+[92m03:23:00 - openhands:INFO[0m: shared.py:210 - Metadata: {"agent_class":"CodeActAgent","llm_config":{"model":"openai/gpt-4o-mini","api_key":"**********","base_url":"https://api.chatanywhere.org/v1","api_version":null,"embedding_model":"local","embedding_base_url":null,"embedding_deployment_name":null,"aws_access_key_id":null,"aws_secret_access_key":null,"aws_region_name":null,"openrouter_site_url":"https://docs.all-hands.dev/","openrouter_app_name":"OpenHands","num_retries":4,"retry_multiplier":2.0,"retry_min_wait":5,"retry_max_wait":30,"timeout":null,"max_message_chars":30000,"temperature":0.0,"top_p":1.0,"custom_llm_provider":null,"max_input_tokens":null,"max_output_tokens":null,"input_cost_per_token":null,"output_cost_per_token":null,"ollama_base_url":null,"drop_params":******,"modify_params":false,"disable_vision":null,"caching_prompt":******,"log_completions":******,"log_completions_folder":"******/openhands/MopenHands/logs/completions","custom_tokenizer":null,"native_tool_calling":null,"reasoning_effort":"high"},"agent_config":null,"max_iterations":30,"eval_output_dir":"evaluation/evaluation_outputs/outputs/__home__seongminju__openhands__Python_examples.jsonl-train/CodeActAgent/gpt-4o-mini_maxiter_30_N_v0.25.0-no-hint-run_1","start_time":"2026-01-30 03:23:00","git_commit":"50625e9ca449fce3990aae44a4046430adeb9de2","dataset":"__home__seongminju__openhands__Python_examples.jsonl-train","data_split":null,"details":{},"condenser_config":{"type":"noop"}}
+[92m03:23:00 - openhands:INFO[0m: shared.py:228 - Writing evaluation output to evaluation/evaluation_outputs/outputs/__home__seongminju__openhands__Python_examples.jsonl-train/CodeActAgent/gpt-4o-mini_maxiter_30_N_v0.25.0-no-hint-run_1/output.jsonl
+[92m03:23:00 - openhands:WARNING[0m: shared.py:235 - 
+Output file evaluation/evaluation_outputs/outputs/__home__seongminju__openhands__Python_examples.jsonl-train/CodeActAgent/gpt-4o-mini_maxiter_30_N_v0.25.0-no-hint-run_1/output.jsonl already exists. Loaded 0 finished instances.
+[92m03:23:00 - openhands:INFO[0m: shared.py:254 - Limiting evaluation to first 3 instances.
+[92m03:23:00 - openhands:INFO[0m: shared.py:261 - Finished instances: 0, Remaining instances: 3
+[92m03:23:00 - openhands:INFO[0m: shared.py:391 - Evaluation started with Agent CodeActAgent:
+model openai/gpt-4o-mini, max iterations 30.
+
+### OUTPUT FILE: evaluation/evaluation_outputs/outputs/__home__seongminju__openhands__Python_examples.jsonl-train/CodeActAgent/gpt-4o-mini_maxiter_30_N_v0.25.0-no-hint-run_1/output.jsonl ###
+Instances processed:   0%|          | 0/3 [00:00<?, ?it/s][92m03:23:00 - openhands:INFO[0m: run_infer.py:327 - Using instance container image: crpi-sa60h0lyaf80r3a1.cn-shenzhen.personal.cr.aliyuncs.com/xinzhou1997_env/repoenv_py1:aws-cloudformation__cfn-lint-3470_linux. Please make sure this image exists. Submit an issue on https://github.com/All-Hands-AI/OpenHands if you run into any issues.
+[92m03:23:00 - openhands:WARNING[0m: mapping.py:26 - Resource mapping for __home__seongminju__openhands__Python_examples.jsonl-train not found.
+[92m03:23:00 - openhands:INFO[0m: shared.py:491 - Logging LLM completions for instance aws-cloudformation__cfn-lint-3470 to evaluation/evaluation_outputs/outputs/__home__seongminju__openhands__Python_examples.jsonl-train/CodeActAgent/gpt-4o-mini_maxiter_30_N_v0.25.0-no-hint-run_1/llm_completions/aws-cloudformation__cfn-lint-3470
+[92m03:23:00 - openhands:INFO[0m: run_infer.py:657 - Starting evaluation for instance aws-cloudformation__cfn-lint-3470.
+[92m03:23:00 - openhands:INFO[0m: runtime_build.py:190 - Building image: crpi-sa60h0lyaf80r3a1.cn-shenzhen.personal.cr.aliyuncs.com/xinzhou1997_env/repoenv_py1:aws-cloudformation__cfn-lint-3470_linux_runtime
+[92m03:23:00 - openhands:INFO[0m: runtime_build.py:216 - Reusing Image [crpi-sa60h0lyaf80r3a1.cn-shenzhen.personal.cr.aliyuncs.com/xinzhou1997_env/repoenv_py1:aws-cloudformation__cfn-lint-3470_linux_runtime]
+[92m03:23:00 - openhands:INFO[0m: docker_runtime.py:140 - [runtime 17c19856-0233-4092-87bc-4708a3c4db85-81a61504894e9927] Starting runtime with image: crpi-sa60h0lyaf80r3a1.cn-shenzhen.personal.cr.aliyuncs.com/xinzhou1997_env/repoenv_py1:aws-cloudformation__cfn-lint-3470_linux_runtime
+[92m03:23:01 - openhands:INFO[0m: docker_runtime.py:144 - [runtime 17c19856-0233-4092-87bc-4708a3c4db85-81a61504894e9927] Container started: openhands-runtime-17c19856-0233-4092-87bc-4708a3c4db85-81a61504894e9927. VSCode URL: None
+[92m03:23:01 - openhands:INFO[0m: docker_runtime.py:155 - [runtime 17c19856-0233-4092-87bc-4708a3c4db85-81a61504894e9927] Waiting for client to become ready at http://localhost:35212...
+[92m03:25:01 - openhands:ERROR[0m: shared.py:368 - ----------
+Error in instance [aws-cloudformation__cfn-lint-3470]: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response')). Stacktrace:
+Traceback (most recent call last):
+  File "******/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "******/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/urllib3/connectionpool.py", line 534, in _make_request
+    response = conn.getresponse()
+               ^^^^^^^^^^^^^^^^^^
+  File "******/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/urllib3/connection.py", line 516, in getresponse
+    httplib_response = super().getresponse()
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "******/miniforge3/envs/mopenhands/lib/python3.12/http/client.py", line 1430, in getresponse
+    response.begin()
+  File "******/miniforge3/envs/mopenhands/lib/python3.12/http/client.py", line 331, in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+  File "******/miniforge3/envs/mopenhands/lib/python3.12/http/client.py", line 300, in _read_status
+    raise RemoteDisconnected("Remote end closed connection without"
+http.client.RemoteDisconnected: Remote end closed connection without response
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "******/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/requests/adapters.py", line 667, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "******/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "******/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/urllib3/util/retry.py", line 474, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "******/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/urllib3/util/util.py", line 38, in reraise
+    raise value.with_traceback(tb)
+  File "******/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "******/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/urllib3/connectionpool.py", line 534, in _make_request
+    response = conn.getresponse()
+               ^^^^^^^^^^^^^^^^^^
+  File "******/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/urllib3/connection.py", line 516, in getresponse
+    httplib_response = super().getresponse()
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "******/miniforge3/envs/mopenhands/lib/python3.12/http/client.py", line 1430, in getresponse
+    response.begin()
+  File "******/miniforge3/envs/mopenhands/lib/python3.12/http/client.py", line 331, in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+  File "******/miniforge3/envs/mopenhands/lib/python3.12/http/client.py", line 300, in _read_status
+    raise RemoteDisconnected("Remote end closed connection without"
+urllib3.exceptions.ProtocolError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "******/openhands/MopenHands/evaluation/utils/shared.py", line 315, in _process_instance_wrapper
+    result = process_instance_func(instance, metadata, use_mp, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "******/openhands/MopenHands/evaluation/benchmarks/swe_bench/run_infer.py", line 670, in process_instance
+    call_async_from_sync(runtime.connect)
+  File "******/openhands/MopenHands/openhands/utils/async_utils.py", line 50, in call_async_from_sync
+    result = future.result()
+             ^^^^^^^^^^^^^^^
+  File "******/miniforge3/envs/mopenhands/lib/python3.12/concurrent/futures/_base.py", line 456, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "******/miniforge3/envs/mopenhands/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "******/miniforge3/envs/mopenhands/lib/python3.12/concurrent/futures/thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "******/openhands/MopenHands/openhands/utils/async_utils.py", line 44, in run
+    return asyncio.run(arun())
+           ^^^^^^^^^^^^^^^^^^^
+  File "******/miniforge3/envs/mopenhands/lib/python3.12/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "******/miniforge3/envs/mopenhands/lib/python3.12/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "******/miniforge3/envs/mopenhands/lib/python3.12/asyncio/base_events.py", line 691, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "******/openhands/MopenHands/openhands/utils/async_utils.py", line 37, in arun
+    result = await coro
+             ^^^^^^^^^^
+  File "******/openhands/MopenHands/openhands/runtime/impl/docker/docker_runtime.py", line 158, in connect
+    await call_sync_from_async(self._wait_until_alive)
+  File "******/openhands/MopenHands/openhands/utils/async_utils.py", line 18, in call_sync_from_async
+    result = await coro
+             ^^^^^^^^^^
+  File "******/miniforge3/envs/mopenhands/lib/python3.12/concurrent/futures/thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "******/openhands/MopenHands/openhands/utils/async_utils.py", line 17, in <lambda>
+    coro = loop.run_in_executor(None, lambda: fn(*args, **kwargs))
+                                              ^^^^^^^^^^^^^^^^^^^
+  File "******/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/tenacity/__init__.py", line 336, in wrapped_f
+    return copy(f, *args, **kw)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "******/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/tenacity/__init__.py", line 475, in __call__
+    do = self.iter(retry_state=retry_state)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "******/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/tenacity/__init__.py", line 376, in iter
+    result = action(retry_state)
+             ^^^^^^^^^^^^^^^^^^^
+  File "******/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/tenacity/__init__.py", line 418, in exc_check
+    raise retry_exc.reraise()
+          ^^^^^^^^^^^^^^^^^^^
+  File "******/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/tenacity/__init__.py", line 185, in reraise
+    raise self.last_attempt.result()
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "******/miniforge3/envs/mopenhands/lib/python3.12/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "******/miniforge3/envs/mopenhands/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "******/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/tenacity/__init__.py", line 478, in __call__
+    result = fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^
+  File "******/openhands/MopenHands/openhands/runtime/impl/docker/docker_runtime.py", line 347, in _wait_until_alive
+    self.check_if_alive()
+  File "******/openhands/MopenHands/openhands/runtime/impl/action_execution/action_execution_client.py", line 107, in check_if_alive
+    with self._send_action_server_request(
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "******/openhands/MopenHands/openhands/runtime/impl/action_execution/action_execution_client.py", line 104, in _send_action_server_request
+    return send_request(self.session, method, url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "******/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/tenacity/__init__.py", line 336, in wrapped_f
+    return copy(f, *args, **kw)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "******/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/tenacity/__init__.py", line 475, in __call__
+    do = self.iter(retry_state=retry_state)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "******/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/tenacity/__init__.py", line 376, in iter
+    result = action(retry_state)
+             ^^^^^^^^^^^^^^^^^^^
+  File "******/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/tenacity/__init__.py", line 398, in <lambda>
+    self._add_action_func(lambda rs: rs.outcome.result())
+                                     ^^^^^^^^^^^^^^^^^^^
+  File "******/miniforge3/envs/mopenhands/lib/python3.12/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "******/miniforge3/envs/mopenhands/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "******/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/tenacity/__init__.py", line 478, in __call__
+    result = fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^
+  File "******/openhands/MopenHands/openhands/runtime/utils/request.py", line 44, in send_request
+    response = session.request(method, url, timeout=timeout, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "******/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "******/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "******/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/requests/adapters.py", line 682, in send
+    raise ConnectionError(err, request=request)
+requests.exceptions.ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+
+----------[The above error occurred. Retrying... (attempt 1 of 5)]----------
+
+[92m03:25:06 - openhands:INFO[0m: run_infer.py:327 - Using instance container image: crpi-sa60h0lyaf80r3a1.cn-shenzhen.personal.cr.aliyuncs.com/xinzhou1997_env/repoenv_py1:aws-cloudformation__cfn-lint-3470_linux. Please make sure this image exists. Submit an issue on https://github.com/All-Hands-AI/OpenHands if you run into any issues.
+[92m03:25:06 - openhands:WARNING[0m: mapping.py:26 - Resource mapping for __home__seongminju__openhands__Python_examples.jsonl-train not found.
+[92m03:25:06 - openhands:INFO[0m: shared.py:491 - Logging LLM completions for instance aws-cloudformation__cfn-lint-3470 to evaluation/evaluation_outputs/outputs/__home__seongminju__openhands__Python_examples.jsonl-train/CodeActAgent/gpt-4o-mini_maxiter_30_N_v0.25.0-no-hint-run_1/llm_completions/aws-cloudformation__cfn-lint-3470
+[92m03:25:06 - openhands:INFO[0m: run_infer.py:657 - Starting evaluation for instance aws-cloudformation__cfn-lint-3470.
+[92m03:25:06 - openhands:INFO[0m: runtime_build.py:190 - Building image: crpi-sa60h0lyaf80r3a1.cn-shenzhen.personal.cr.aliyuncs.com/xinzhou1997_env/repoenv_py1:aws-cloudformation__cfn-lint-3470_linux_runtime
+[92m03:25:06 - openhands:INFO[0m: runtime_build.py:216 - Reusing Image [crpi-sa60h0lyaf80r3a1.cn-shenzhen.personal.cr.aliyuncs.com/xinzhou1997_env/repoenv_py1:aws-cloudformation__cfn-lint-3470_linux_runtime]
+[92m03:25:06 - openhands:INFO[0m: docker_runtime.py:140 - [runtime 3e077463-73f8-40ad-8561-da56b948fe42-cc34fd651f94ad93] Starting runtime with image: crpi-sa60h0lyaf80r3a1.cn-shenzhen.personal.cr.aliyuncs.com/xinzhou1997_env/repoenv_py1:aws-cloudformation__cfn-lint-3470_linux_runtime
+[92m03:25:07 - openhands:INFO[0m: docker_runtime.py:144 - [runtime 3e077463-73f8-40ad-8561-da56b948fe42-cc34fd651f94ad93] Container started: openhands-runtime-3e077463-73f8-40ad-8561-da56b948fe42-cc34fd651f94ad93. VSCode URL: None
+[92m03:25:07 - openhands:INFO[0m: docker_runtime.py:155 - [runtime 3e077463-73f8-40ad-8561-da56b948fe42-cc34fd651f94ad93] Waiting for client to become ready at http://localhost:39388...
+[92m03:27:08 - openhands:ERROR[0m: shared.py:368 - ----------
+Error in instance [aws-cloudformation__cfn-lint-3470]: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response')). Stacktrace:
+Traceback (most recent call last):
+  File "******/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "******/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/urllib3/connectionpool.py", line 534, in _make_request
+    response = conn.getresponse()
+               ^^^^^^^^^^^^^^^^^^
+  File "******/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/urllib3/connection.py", line 516, in getresponse
+    httplib_response = super().getresponse()
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "******/miniforge3/envs/mopenhands/lib/python3.12/http/client.py", line 1430, in getresponse
+    response.begin()
+  File "******/miniforge3/envs/mopenhands/lib/python3.12/http/client.py", line 331, in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+  File "******/miniforge3/envs/mopenhands/lib/python3.12/http/client.py", line 300, in _read_status
+    raise RemoteDisconnected("Remote end closed connection without"
+http.client.RemoteDisconnected: Remote end closed connection without response
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "******/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/requests/adapters.py", line 667, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "******/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "******/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/urllib3/util/retry.py", line 474, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "******/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/urllib3/util/util.py", line 38, in reraise
+    raise value.with_traceback(tb)
+  File "******/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "******/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/urllib3/connectionpool.py", line 534, in _make_request
+    response = conn.getresponse()
+               ^^^^^^^^^^^^^^^^^^
+  File "******/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/urllib3/connection.py", line 516, in getresponse
+    httplib_response = super().getresponse()
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "******/miniforge3/envs/mopenhands/lib/python3.12/http/client.py", line 1430, in getresponse
+    response.begin()
+  File "******/miniforge3/envs/mopenhands/lib/python3.12/http/client.py", line 331, in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+  File "******/miniforge3/envs/mopenhands/lib/python3.12/http/client.py", line 300, in _read_status
+    raise RemoteDisconnected("Remote end closed connection without"
+urllib3.exceptions.ProtocolError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "******/openhands/MopenHands/evaluation/utils/shared.py", line 315, in _process_instance_wrapper
+    result = process_instance_func(instance, metadata, use_mp, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "******/openhands/MopenHands/evaluation/benchmarks/swe_bench/run_infer.py", line 670, in process_instance
+    call_async_from_sync(runtime.connect)
+  File "******/openhands/MopenHands/openhands/utils/async_utils.py", line 50, in call_async_from_sync
+    result = future.result()
+             ^^^^^^^^^^^^^^^
+  File "******/miniforge3/envs/mopenhands/lib/python3.12/concurrent/futures/_base.py", line 456, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "******/miniforge3/envs/mopenhands/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "******/miniforge3/envs/mopenhands/lib/python3.12/concurrent/futures/thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "******/openhands/MopenHands/openhands/utils/async_utils.py", line 44, in run
+    return asyncio.run(arun())
+           ^^^^^^^^^^^^^^^^^^^
+  File "******/miniforge3/envs/mopenhands/lib/python3.12/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "******/miniforge3/envs/mopenhands/lib/python3.12/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "******/miniforge3/envs/mopenhands/lib/python3.12/asyncio/base_events.py", line 691, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "******/openhands/MopenHands/openhands/utils/async_utils.py", line 37, in arun
+    result = await coro
+             ^^^^^^^^^^
+  File "******/openhands/MopenHands/openhands/runtime/impl/docker/docker_runtime.py", line 158, in connect
+    await call_sync_from_async(self._wait_until_alive)
+  File "******/openhands/MopenHands/openhands/utils/async_utils.py", line 18, in call_sync_from_async
+    result = await coro
+             ^^^^^^^^^^
+  File "******/miniforge3/envs/mopenhands/lib/python3.12/concurrent/futures/thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "******/openhands/MopenHands/openhands/utils/async_utils.py", line 17, in <lambda>
+    coro = loop.run_in_executor(None, lambda: fn(*args, **kwargs))
+                                              ^^^^^^^^^^^^^^^^^^^
+  File "******/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/tenacity/__init__.py", line 336, in wrapped_f
+    return copy(f, *args, **kw)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "******/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/tenacity/__init__.py", line 475, in __call__
+    do = self.iter(retry_state=retry_state)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "******/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/tenacity/__init__.py", line 376, in iter
+    result = action(retry_state)
+             ^^^^^^^^^^^^^^^^^^^
+  File "******/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/tenacity/__init__.py", line 418, in exc_check
+    raise retry_exc.reraise()
+          ^^^^^^^^^^^^^^^^^^^
+  File "******/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/tenacity/__init__.py", line 185, in reraise
+    raise self.last_attempt.result()
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "******/miniforge3/envs/mopenhands/lib/python3.12/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "******/miniforge3/envs/mopenhands/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "******/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/tenacity/__init__.py", line 478, in __call__
+    result = fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^
+  File "******/openhands/MopenHands/openhands/runtime/impl/docker/docker_runtime.py", line 347, in _wait_until_alive
+    self.check_if_alive()
+  File "******/openhands/MopenHands/openhands/runtime/impl/action_execution/action_execution_client.py", line 107, in check_if_alive
+    with self._send_action_server_request(
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "******/openhands/MopenHands/openhands/runtime/impl/action_execution/action_execution_client.py", line 104, in _send_action_server_request
+    return send_request(self.session, method, url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "******/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/tenacity/__init__.py", line 336, in wrapped_f
+    return copy(f, *args, **kw)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "******/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/tenacity/__init__.py", line 475, in __call__
+    do = self.iter(retry_state=retry_state)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "******/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/tenacity/__init__.py", line 376, in iter
+    result = action(retry_state)
+             ^^^^^^^^^^^^^^^^^^^
+  File "******/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/tenacity/__init__.py", line 398, in <lambda>
+    self._add_action_func(lambda rs: rs.outcome.result())
+                                     ^^^^^^^^^^^^^^^^^^^
+  File "******/miniforge3/envs/mopenhands/lib/python3.12/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "******/miniforge3/envs/mopenhands/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "******/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/tenacity/__init__.py", line 478, in __call__
+    result = fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^
+  File "******/openhands/MopenHands/openhands/runtime/utils/request.py", line 44, in send_request
+    response = session.request(method, url, timeout=timeout, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "******/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "******/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "******/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/requests/adapters.py", line 682, in send
+    raise ConnectionError(err, request=request)
+requests.exceptions.ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+
+----------[The above error occurred. Retrying... (attempt 2 of 5)]----------
+
+[92m03:27:13 - openhands:INFO[0m: run_infer.py:327 - Using instance container image: crpi-sa60h0lyaf80r3a1.cn-shenzhen.personal.cr.aliyuncs.com/xinzhou1997_env/repoenv_py1:aws-cloudformation__cfn-lint-3470_linux. Please make sure this image exists. Submit an issue on https://github.com/All-Hands-AI/OpenHands if you run into any issues.
+[92m03:27:13 - openhands:WARNING[0m: mapping.py:26 - Resource mapping for __home__seongminju__openhands__Python_examples.jsonl-train not found.
+[92m03:27:13 - openhands:INFO[0m: shared.py:491 - Logging LLM completions for instance aws-cloudformation__cfn-lint-3470 to evaluation/evaluation_outputs/outputs/__home__seongminju__openhands__Python_examples.jsonl-train/CodeActAgent/gpt-4o-mini_maxiter_30_N_v0.25.0-no-hint-run_1/llm_completions/aws-cloudformation__cfn-lint-3470
+[92m03:27:13 - openhands:INFO[0m: run_infer.py:657 - Starting evaluation for instance aws-cloudformation__cfn-lint-3470.
+[92m03:27:13 - openhands:INFO[0m: runtime_build.py:190 - Building image: crpi-sa60h0lyaf80r3a1.cn-shenzhen.personal.cr.aliyuncs.com/xinzhou1997_env/repoenv_py1:aws-cloudformation__cfn-lint-3470_linux_runtime
+[92m03:27:13 - openhands:INFO[0m: runtime_build.py:216 - Reusing Image [crpi-sa60h0lyaf80r3a1.cn-shenzhen.personal.cr.aliyuncs.com/xinzhou1997_env/repoenv_py1:aws-cloudformation__cfn-lint-3470_linux_runtime]
+[92m03:27:13 - openhands:INFO[0m: docker_runtime.py:140 - [runtime 76b04870-8896-4b75-ad21-67bc82ede7e1-4fcaa36c5f603f8e] Starting runtime with image: crpi-sa60h0lyaf80r3a1.cn-shenzhen.personal.cr.aliyuncs.com/xinzhou1997_env/repoenv_py1:aws-cloudformation__cfn-lint-3470_linux_runtime
+[92m03:27:13 - openhands:INFO[0m: docker_runtime.py:144 - [runtime 76b04870-8896-4b75-ad21-67bc82ede7e1-4fcaa36c5f603f8e] Container started: openhands-runtime-76b04870-8896-4b75-ad21-67bc82ede7e1-4fcaa36c5f603f8e. VSCode URL: None
+[92m03:27:13 - openhands:INFO[0m: docker_runtime.py:155 - [runtime 76b04870-8896-4b75-ad21-67bc82ede7e1-4fcaa36c5f603f8e] Waiting for client to become ready at http://localhost:34656...
+[92m03:29:14 - openhands:ERROR[0m: shared.py:368 - ----------
+Error in instance [aws-cloudformation__cfn-lint-3470]: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response')). Stacktrace:
+Traceback (most recent call last):
+  File "******/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "******/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/urllib3/connectionpool.py", line 534, in _make_request
+    response = conn.getresponse()
+               ^^^^^^^^^^^^^^^^^^
+  File "******/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/urllib3/connection.py", line 516, in getresponse
+    httplib_response = super().getresponse()
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "******/miniforge3/envs/mopenhands/lib/python3.12/http/client.py", line 1430, in getresponse
+    response.begin()
+  File "******/miniforge3/envs/mopenhands/lib/python3.12/http/client.py", line 331, in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+  File "******/miniforge3/envs/mopenhands/lib/python3.12/http/client.py", line 300, in _read_status
+    raise RemoteDisconnected("Remote end closed connection without"
+http.client.RemoteDisconnected: Remote end closed connection without response
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "******/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/requests/adapters.py", line 667, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "******/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "******/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/urllib3/util/retry.py", line 474, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "******/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/urllib3/util/util.py", line 38, in reraise
+    raise value.with_traceback(tb)
+  File "******/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "******/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/urllib3/connectionpool.py", line 534, in _make_request
+    response = conn.getresponse()
+               ^^^^^^^^^^^^^^^^^^
+  File "******/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/urllib3/connection.py", line 516, in getresponse
+    httplib_response = super().getresponse()
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "******/miniforge3/envs/mopenhands/lib/python3.12/http/client.py", line 1430, in getresponse
+    response.begin()
+  File "******/miniforge3/envs/mopenhands/lib/python3.12/http/client.py", line 331, in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+  File "******/miniforge3/envs/mopenhands/lib/python3.12/http/client.py", line 300, in _read_status
+    raise RemoteDisconnected("Remote end closed connection without"
+urllib3.exceptions.ProtocolError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "******/openhands/MopenHands/evaluation/utils/shared.py", line 315, in _process_instance_wrapper
+    result = process_instance_func(instance, metadata, use_mp, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "******/openhands/MopenHands/evaluation/benchmarks/swe_bench/run_infer.py", line 670, in process_instance
+    call_async_from_sync(runtime.connect)
+  File "******/openhands/MopenHands/openhands/utils/async_utils.py", line 50, in call_async_from_sync
+    result = future.result()
+             ^^^^^^^^^^^^^^^
+  File "******/miniforge3/envs/mopenhands/lib/python3.12/concurrent/futures/_base.py", line 456, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "******/miniforge3/envs/mopenhands/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "******/miniforge3/envs/mopenhands/lib/python3.12/concurrent/futures/thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "******/openhands/MopenHands/openhands/utils/async_utils.py", line 44, in run
+    return asyncio.run(arun())
+           ^^^^^^^^^^^^^^^^^^^
+  File "******/miniforge3/envs/mopenhands/lib/python3.12/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "******/miniforge3/envs/mopenhands/lib/python3.12/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "******/miniforge3/envs/mopenhands/lib/python3.12/asyncio/base_events.py", line 691, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "******/openhands/MopenHands/openhands/utils/async_utils.py", line 37, in arun
+    result = await coro
+             ^^^^^^^^^^
+  File "******/openhands/MopenHands/openhands/runtime/impl/docker/docker_runtime.py", line 158, in connect
+    await call_sync_from_async(self._wait_until_alive)
+  File "******/openhands/MopenHands/openhands/utils/async_utils.py", line 18, in call_sync_from_async
+    result = await coro
+             ^^^^^^^^^^
+  File "******/miniforge3/envs/mopenhands/lib/python3.12/concurrent/futures/thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "******/openhands/MopenHands/openhands/utils/async_utils.py", line 17, in <lambda>
+    coro = loop.run_in_executor(None, lambda: fn(*args, **kwargs))
+                                              ^^^^^^^^^^^^^^^^^^^
+  File "******/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/tenacity/__init__.py", line 336, in wrapped_f
+    return copy(f, *args, **kw)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "******/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/tenacity/__init__.py", line 475, in __call__
+    do = self.iter(retry_state=retry_state)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "******/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/tenacity/__init__.py", line 376, in iter
+    result = action(retry_state)
+             ^^^^^^^^^^^^^^^^^^^
+  File "******/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/tenacity/__init__.py", line 418, in exc_check
+    raise retry_exc.reraise()
+          ^^^^^^^^^^^^^^^^^^^
+  File "******/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/tenacity/__init__.py", line 185, in reraise
+    raise self.last_attempt.result()
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "******/miniforge3/envs/mopenhands/lib/python3.12/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "******/miniforge3/envs/mopenhands/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "******/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/tenacity/__init__.py", line 478, in __call__
+    result = fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^
+  File "******/openhands/MopenHands/openhands/runtime/impl/docker/docker_runtime.py", line 347, in _wait_until_alive
+    self.check_if_alive()
+  File "******/openhands/MopenHands/openhands/runtime/impl/action_execution/action_execution_client.py", line 107, in check_if_alive
+    with self._send_action_server_request(
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "******/openhands/MopenHands/openhands/runtime/impl/action_execution/action_execution_client.py", line 104, in _send_action_server_request
+    return send_request(self.session, method, url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "******/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/tenacity/__init__.py", line 336, in wrapped_f
+    return copy(f, *args, **kw)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "******/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/tenacity/__init__.py", line 475, in __call__
+    do = self.iter(retry_state=retry_state)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "******/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/tenacity/__init__.py", line 376, in iter
+    result = action(retry_state)
+             ^^^^^^^^^^^^^^^^^^^
+  File "******/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/tenacity/__init__.py", line 398, in <lambda>
+    self._add_action_func(lambda rs: rs.outcome.result())
+                                     ^^^^^^^^^^^^^^^^^^^
+  File "******/miniforge3/envs/mopenhands/lib/python3.12/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "******/miniforge3/envs/mopenhands/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "******/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/tenacity/__init__.py", line 478, in __call__
+    result = fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^
+  File "******/openhands/MopenHands/openhands/runtime/utils/request.py", line 44, in send_request
+    response = session.request(method, url, timeout=timeout, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "******/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "******/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "******/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/requests/adapters.py", line 682, in send
+    raise ConnectionError(err, request=request)
+requests.exceptions.ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+
+----------[The above error occurred. Retrying... (attempt 3 of 5)]----------
+
+[92m03:29:19 - openhands:INFO[0m: run_infer.py:327 - Using instance container image: crpi-sa60h0lyaf80r3a1.cn-shenzhen.personal.cr.aliyuncs.com/xinzhou1997_env/repoenv_py1:aws-cloudformation__cfn-lint-3470_linux. Please make sure this image exists. Submit an issue on https://github.com/All-Hands-AI/OpenHands if you run into any issues.
+[92m03:29:19 - openhands:WARNING[0m: mapping.py:26 - Resource mapping for __home__seongminju__openhands__Python_examples.jsonl-train not found.
+[92m03:29:19 - openhands:INFO[0m: shared.py:491 - Logging LLM completions for instance aws-cloudformation__cfn-lint-3470 to evaluation/evaluation_outputs/outputs/__home__seongminju__openhands__Python_examples.jsonl-train/CodeActAgent/gpt-4o-mini_maxiter_30_N_v0.25.0-no-hint-run_1/llm_completions/aws-cloudformation__cfn-lint-3470
+[92m03:29:19 - openhands:INFO[0m: run_infer.py:657 - Starting evaluation for instance aws-cloudformation__cfn-lint-3470.
+[92m03:29:19 - openhands:INFO[0m: runtime_build.py:190 - Building image: crpi-sa60h0lyaf80r3a1.cn-shenzhen.personal.cr.aliyuncs.com/xinzhou1997_env/repoenv_py1:aws-cloudformation__cfn-lint-3470_linux_runtime
+[92m03:29:19 - openhands:INFO[0m: runtime_build.py:216 - Reusing Image [crpi-sa60h0lyaf80r3a1.cn-shenzhen.personal.cr.aliyuncs.com/xinzhou1997_env/repoenv_py1:aws-cloudformation__cfn-lint-3470_linux_runtime]
+[92m03:29:19 - openhands:INFO[0m: docker_runtime.py:140 - [runtime 06f3c580-6189-437a-997a-77098e1d1e25-e94454f9e124ab1d] Starting runtime with image: crpi-sa60h0lyaf80r3a1.cn-shenzhen.personal.cr.aliyuncs.com/xinzhou1997_env/repoenv_py1:aws-cloudformation__cfn-lint-3470_linux_runtime
+[92m03:29:20 - openhands:INFO[0m: docker_runtime.py:144 - [runtime 06f3c580-6189-437a-997a-77098e1d1e25-e94454f9e124ab1d] Container started: openhands-runtime-06f3c580-6189-437a-997a-77098e1d1e25-e94454f9e124ab1d. VSCode URL: None
+[92m03:29:20 - openhands:INFO[0m: docker_runtime.py:155 - [runtime 06f3c580-6189-437a-997a-77098e1d1e25-e94454f9e124ab1d] Waiting for client to become ready at http://localhost:35774...
+[92m03:31:20 - openhands:ERROR[0m: shared.py:368 - ----------
+Error in instance [aws-cloudformation__cfn-lint-3470]: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response')). Stacktrace:
+Traceback (most recent call last):
+  File "******/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "******/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/urllib3/connectionpool.py", line 534, in _make_request
+    response = conn.getresponse()
+               ^^^^^^^^^^^^^^^^^^
+  File "******/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/urllib3/connection.py", line 516, in getresponse
+    httplib_response = super().getresponse()
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "******/miniforge3/envs/mopenhands/lib/python3.12/http/client.py", line 1430, in getresponse
+    response.begin()
+  File "******/miniforge3/envs/mopenhands/lib/python3.12/http/client.py", line 331, in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+  File "******/miniforge3/envs/mopenhands/lib/python3.12/http/client.py", line 300, in _read_status
+    raise RemoteDisconnected("Remote end closed connection without"
+http.client.RemoteDisconnected: Remote end closed connection without response
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "******/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/requests/adapters.py", line 667, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "******/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "******/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/urllib3/util/retry.py", line 474, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "******/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/urllib3/util/util.py", line 38, in reraise
+    raise value.with_traceback(tb)
+  File "******/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "******/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/urllib3/connectionpool.py", line 534, in _make_request
+    response = conn.getresponse()
+               ^^^^^^^^^^^^^^^^^^
+  File "******/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/urllib3/connection.py", line 516, in getresponse
+    httplib_response = super().getresponse()
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "******/miniforge3/envs/mopenhands/lib/python3.12/http/client.py", line 1430, in getresponse
+    response.begin()
+  File "******/miniforge3/envs/mopenhands/lib/python3.12/http/client.py", line 331, in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+  File "******/miniforge3/envs/mopenhands/lib/python3.12/http/client.py", line 300, in _read_status
+    raise RemoteDisconnected("Remote end closed connection without"
+urllib3.exceptions.ProtocolError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "******/openhands/MopenHands/evaluation/utils/shared.py", line 315, in _process_instance_wrapper
+    result = process_instance_func(instance, metadata, use_mp, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "******/openhands/MopenHands/evaluation/benchmarks/swe_bench/run_infer.py", line 670, in process_instance
+    call_async_from_sync(runtime.connect)
+  File "******/openhands/MopenHands/openhands/utils/async_utils.py", line 50, in call_async_from_sync
+    result = future.result()
+             ^^^^^^^^^^^^^^^
+  File "******/miniforge3/envs/mopenhands/lib/python3.12/concurrent/futures/_base.py", line 456, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "******/miniforge3/envs/mopenhands/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "******/miniforge3/envs/mopenhands/lib/python3.12/concurrent/futures/thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "******/openhands/MopenHands/openhands/utils/async_utils.py", line 44, in run
+    return asyncio.run(arun())
+           ^^^^^^^^^^^^^^^^^^^
+  File "******/miniforge3/envs/mopenhands/lib/python3.12/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "******/miniforge3/envs/mopenhands/lib/python3.12/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "******/miniforge3/envs/mopenhands/lib/python3.12/asyncio/base_events.py", line 691, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "******/openhands/MopenHands/openhands/utils/async_utils.py", line 37, in arun
+    result = await coro
+             ^^^^^^^^^^
+  File "******/openhands/MopenHands/openhands/runtime/impl/docker/docker_runtime.py", line 158, in connect
+    await call_sync_from_async(self._wait_until_alive)
+  File "******/openhands/MopenHands/openhands/utils/async_utils.py", line 18, in call_sync_from_async
+    result = await coro
+             ^^^^^^^^^^
+  File "******/miniforge3/envs/mopenhands/lib/python3.12/concurrent/futures/thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "******/openhands/MopenHands/openhands/utils/async_utils.py", line 17, in <lambda>
+    coro = loop.run_in_executor(None, lambda: fn(*args, **kwargs))
+                                              ^^^^^^^^^^^^^^^^^^^
+  File "******/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/tenacity/__init__.py", line 336, in wrapped_f
+    return copy(f, *args, **kw)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "******/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/tenacity/__init__.py", line 475, in __call__
+    do = self.iter(retry_state=retry_state)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "******/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/tenacity/__init__.py", line 376, in iter
+    result = action(retry_state)
+             ^^^^^^^^^^^^^^^^^^^
+  File "******/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/tenacity/__init__.py", line 418, in exc_check
+    raise retry_exc.reraise()
+          ^^^^^^^^^^^^^^^^^^^
+  File "******/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/tenacity/__init__.py", line 185, in reraise
+    raise self.last_attempt.result()
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "******/miniforge3/envs/mopenhands/lib/python3.12/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "******/miniforge3/envs/mopenhands/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "******/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/tenacity/__init__.py", line 478, in __call__
+    result = fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^
+  File "******/openhands/MopenHands/openhands/runtime/impl/docker/docker_runtime.py", line 347, in _wait_until_alive
+    self.check_if_alive()
+  File "******/openhands/MopenHands/openhands/runtime/impl/action_execution/action_execution_client.py", line 107, in check_if_alive
+    with self._send_action_server_request(
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "******/openhands/MopenHands/openhands/runtime/impl/action_execution/action_execution_client.py", line 104, in _send_action_server_request
+    return send_request(self.session, method, url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "******/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/tenacity/__init__.py", line 336, in wrapped_f
+    return copy(f, *args, **kw)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "******/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/tenacity/__init__.py", line 475, in __call__
+    do = self.iter(retry_state=retry_state)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "******/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/tenacity/__init__.py", line 376, in iter
+    result = action(retry_state)
+             ^^^^^^^^^^^^^^^^^^^
+  File "******/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/tenacity/__init__.py", line 398, in <lambda>
+    self._add_action_func(lambda rs: rs.outcome.result())
+                                     ^^^^^^^^^^^^^^^^^^^
+  File "******/miniforge3/envs/mopenhands/lib/python3.12/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "******/miniforge3/envs/mopenhands/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "******/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/tenacity/__init__.py", line 478, in __call__
+    result = fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^
+  File "******/openhands/MopenHands/openhands/runtime/utils/request.py", line 44, in send_request
+    response = session.request(method, url, timeout=timeout, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "******/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "******/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "******/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/requests/adapters.py", line 682, in send
+    raise ConnectionError(err, request=request)
+requests.exceptions.ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+
+----------[The above error occurred. Retrying... (attempt 4 of 5)]----------
+
+[92m03:31:25 - openhands:INFO[0m: run_infer.py:327 - Using instance container image: crpi-sa60h0lyaf80r3a1.cn-shenzhen.personal.cr.aliyuncs.com/xinzhou1997_env/repoenv_py1:aws-cloudformation__cfn-lint-3470_linux. Please make sure this image exists. Submit an issue on https://github.com/All-Hands-AI/OpenHands if you run into any issues.
+[92m03:31:25 - openhands:WARNING[0m: mapping.py:26 - Resource mapping for __home__seongminju__openhands__Python_examples.jsonl-train not found.
+[92m03:31:25 - openhands:INFO[0m: shared.py:491 - Logging LLM completions for instance aws-cloudformation__cfn-lint-3470 to evaluation/evaluation_outputs/outputs/__home__seongminju__openhands__Python_examples.jsonl-train/CodeActAgent/gpt-4o-mini_maxiter_30_N_v0.25.0-no-hint-run_1/llm_completions/aws-cloudformation__cfn-lint-3470
+[92m03:31:25 - openhands:INFO[0m: run_infer.py:657 - Starting evaluation for instance aws-cloudformation__cfn-lint-3470.
+[92m03:31:25 - openhands:INFO[0m: runtime_build.py:190 - Building image: crpi-sa60h0lyaf80r3a1.cn-shenzhen.personal.cr.aliyuncs.com/xinzhou1997_env/repoenv_py1:aws-cloudformation__cfn-lint-3470_linux_runtime
+[92m03:31:25 - openhands:INFO[0m: runtime_build.py:216 - Reusing Image [crpi-sa60h0lyaf80r3a1.cn-shenzhen.personal.cr.aliyuncs.com/xinzhou1997_env/repoenv_py1:aws-cloudformation__cfn-lint-3470_linux_runtime]
+[92m03:31:25 - openhands:INFO[0m: docker_runtime.py:140 - [runtime be68dcbd-d879-481c-91ca-1e901d68d285-750db289e1379bb3] Starting runtime with image: crpi-sa60h0lyaf80r3a1.cn-shenzhen.personal.cr.aliyuncs.com/xinzhou1997_env/repoenv_py1:aws-cloudformation__cfn-lint-3470_linux_runtime
+[92m03:31:26 - openhands:INFO[0m: docker_runtime.py:144 - [runtime be68dcbd-d879-481c-91ca-1e901d68d285-750db289e1379bb3] Container started: openhands-runtime-be68dcbd-d879-481c-91ca-1e901d68d285-750db289e1379bb3. VSCode URL: None
+[92m03:31:26 - openhands:INFO[0m: docker_runtime.py:155 - [runtime be68dcbd-d879-481c-91ca-1e901d68d285-750db289e1379bb3] Waiting for client to become ready at http://localhost:34518...
+[92m03:33:27 - openhands:ERROR[0m: shared.py:368 - ----------
+Error in instance [aws-cloudformation__cfn-lint-3470]: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response')). Stacktrace:
+Traceback (most recent call last):
+  File "******/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "******/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/urllib3/connectionpool.py", line 534, in _make_request
+    response = conn.getresponse()
+               ^^^^^^^^^^^^^^^^^^
+  File "******/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/urllib3/connection.py", line 516, in getresponse
+    httplib_response = super().getresponse()
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "******/miniforge3/envs/mopenhands/lib/python3.12/http/client.py", line 1430, in getresponse
+    response.begin()
+  File "******/miniforge3/envs/mopenhands/lib/python3.12/http/client.py", line 331, in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+  File "******/miniforge3/envs/mopenhands/lib/python3.12/http/client.py", line 300, in _read_status
+    raise RemoteDisconnected("Remote end closed connection without"
+http.client.RemoteDisconnected: Remote end closed connection without response
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "******/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/requests/adapters.py", line 667, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "******/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "******/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/urllib3/util/retry.py", line 474, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "******/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/urllib3/util/util.py", line 38, in reraise
+    raise value.with_traceback(tb)
+  File "******/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "******/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/urllib3/connectionpool.py", line 534, in _make_request
+    response = conn.getresponse()
+               ^^^^^^^^^^^^^^^^^^
+  File "******/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/urllib3/connection.py", line 516, in getresponse
+    httplib_response = super().getresponse()
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "******/miniforge3/envs/mopenhands/lib/python3.12/http/client.py", line 1430, in getresponse
+    response.begin()
+  File "******/miniforge3/envs/mopenhands/lib/python3.12/http/client.py", line 331, in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+  File "******/miniforge3/envs/mopenhands/lib/python3.12/http/client.py", line 300, in _read_status
+    raise RemoteDisconnected("Remote end closed connection without"
+urllib3.exceptions.ProtocolError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "******/openhands/MopenHands/evaluation/utils/shared.py", line 315, in _process_instance_wrapper
+    result = process_instance_func(instance, metadata, use_mp, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "******/openhands/MopenHands/evaluation/benchmarks/swe_bench/run_infer.py", line 670, in process_instance
+    call_async_from_sync(runtime.connect)
+  File "******/openhands/MopenHands/openhands/utils/async_utils.py", line 50, in call_async_from_sync
+    result = future.result()
+             ^^^^^^^^^^^^^^^
+  File "******/miniforge3/envs/mopenhands/lib/python3.12/concurrent/futures/_base.py", line 456, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "******/miniforge3/envs/mopenhands/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "******/miniforge3/envs/mopenhands/lib/python3.12/concurrent/futures/thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "******/openhands/MopenHands/openhands/utils/async_utils.py", line 44, in run
+    return asyncio.run(arun())
+           ^^^^^^^^^^^^^^^^^^^
+  File "******/miniforge3/envs/mopenhands/lib/python3.12/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "******/miniforge3/envs/mopenhands/lib/python3.12/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "******/miniforge3/envs/mopenhands/lib/python3.12/asyncio/base_events.py", line 691, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "******/openhands/MopenHands/openhands/utils/async_utils.py", line 37, in arun
+    result = await coro
+             ^^^^^^^^^^
+  File "******/openhands/MopenHands/openhands/runtime/impl/docker/docker_runtime.py", line 158, in connect
+    await call_sync_from_async(self._wait_until_alive)
+  File "******/openhands/MopenHands/openhands/utils/async_utils.py", line 18, in call_sync_from_async
+    result = await coro
+             ^^^^^^^^^^
+  File "******/miniforge3/envs/mopenhands/lib/python3.12/concurrent/futures/thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "******/openhands/MopenHands/openhands/utils/async_utils.py", line 17, in <lambda>
+    coro = loop.run_in_executor(None, lambda: fn(*args, **kwargs))
+                                              ^^^^^^^^^^^^^^^^^^^
+  File "******/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/tenacity/__init__.py", line 336, in wrapped_f
+    return copy(f, *args, **kw)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "******/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/tenacity/__init__.py", line 475, in __call__
+    do = self.iter(retry_state=retry_state)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "******/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/tenacity/__init__.py", line 376, in iter
+    result = action(retry_state)
+             ^^^^^^^^^^^^^^^^^^^
+  File "******/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/tenacity/__init__.py", line 418, in exc_check
+    raise retry_exc.reraise()
+          ^^^^^^^^^^^^^^^^^^^
+  File "******/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/tenacity/__init__.py", line 185, in reraise
+    raise self.last_attempt.result()
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "******/miniforge3/envs/mopenhands/lib/python3.12/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "******/miniforge3/envs/mopenhands/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "******/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/tenacity/__init__.py", line 478, in __call__
+    result = fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^
+  File "******/openhands/MopenHands/openhands/runtime/impl/docker/docker_runtime.py", line 347, in _wait_until_alive
+    self.check_if_alive()
+  File "******/openhands/MopenHands/openhands/runtime/impl/action_execution/action_execution_client.py", line 107, in check_if_alive
+    with self._send_action_server_request(
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "******/openhands/MopenHands/openhands/runtime/impl/action_execution/action_execution_client.py", line 104, in _send_action_server_request
+    return send_request(self.session, method, url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "******/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/tenacity/__init__.py", line 336, in wrapped_f
+    return copy(f, *args, **kw)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "******/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/tenacity/__init__.py", line 475, in __call__
+    do = self.iter(retry_state=retry_state)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "******/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/tenacity/__init__.py", line 376, in iter
+    result = action(retry_state)
+             ^^^^^^^^^^^^^^^^^^^
+  File "******/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/tenacity/__init__.py", line 398, in <lambda>
+    self._add_action_func(lambda rs: rs.outcome.result())
+                                     ^^^^^^^^^^^^^^^^^^^
+  File "******/miniforge3/envs/mopenhands/lib/python3.12/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "******/miniforge3/envs/mopenhands/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "******/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/tenacity/__init__.py", line 478, in __call__
+    result = fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^
+  File "******/openhands/MopenHands/openhands/runtime/utils/request.py", line 44, in send_request
+    response = session.request(method, url, timeout=timeout, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "******/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "******/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "******/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/requests/adapters.py", line 682, in send
+    raise ConnectionError(err, request=request)
+requests.exceptions.ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+
+----------[The above error occurred. Retrying... (attempt 5 of 5)]----------
+
+[92m03:33:32 - openhands:INFO[0m: run_infer.py:327 - Using instance container image: crpi-sa60h0lyaf80r3a1.cn-shenzhen.personal.cr.aliyuncs.com/xinzhou1997_env/repoenv_py1:aws-cloudformation__cfn-lint-3470_linux. Please make sure this image exists. Submit an issue on https://github.com/All-Hands-AI/OpenHands if you run into any issues.
+[92m03:33:32 - openhands:WARNING[0m: mapping.py:26 - Resource mapping for __home__seongminju__openhands__Python_examples.jsonl-train not found.
+[92m03:33:32 - openhands:INFO[0m: shared.py:491 - Logging LLM completions for instance aws-cloudformation__cfn-lint-3470 to evaluation/evaluation_outputs/outputs/__home__seongminju__openhands__Python_examples.jsonl-train/CodeActAgent/gpt-4o-mini_maxiter_30_N_v0.25.0-no-hint-run_1/llm_completions/aws-cloudformation__cfn-lint-3470
+[92m03:33:32 - openhands:INFO[0m: run_infer.py:657 - Starting evaluation for instance aws-cloudformation__cfn-lint-3470.
+[92m03:33:32 - openhands:INFO[0m: runtime_build.py:190 - Building image: crpi-sa60h0lyaf80r3a1.cn-shenzhen.personal.cr.aliyuncs.com/xinzhou1997_env/repoenv_py1:aws-cloudformation__cfn-lint-3470_linux_runtime
+[92m03:33:32 - openhands:INFO[0m: runtime_build.py:216 - Reusing Image [crpi-sa60h0lyaf80r3a1.cn-shenzhen.personal.cr.aliyuncs.com/xinzhou1997_env/repoenv_py1:aws-cloudformation__cfn-lint-3470_linux_runtime]
+[92m03:33:32 - openhands:INFO[0m: docker_runtime.py:140 - [runtime f4497a81-7c0e-47fa-92c7-c120fc6df52f-d939cbbc4a564cb1] Starting runtime with image: crpi-sa60h0lyaf80r3a1.cn-shenzhen.personal.cr.aliyuncs.com/xinzhou1997_env/repoenv_py1:aws-cloudformation__cfn-lint-3470_linux_runtime
+[92m03:33:33 - openhands:INFO[0m: docker_runtime.py:144 - [runtime f4497a81-7c0e-47fa-92c7-c120fc6df52f-d939cbbc4a564cb1] Container started: openhands-runtime-f4497a81-7c0e-47fa-92c7-c120fc6df52f-d939cbbc4a564cb1. VSCode URL: None
+[92m03:33:33 - openhands:INFO[0m: docker_runtime.py:155 - [runtime f4497a81-7c0e-47fa-92c7-c120fc6df52f-d939cbbc4a564cb1] Waiting for client to become ready at http://localhost:36396...
+[92m03:35:33 - openhands:ERROR[0m: shared.py:346 - ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+Traceback (most recent call last):
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/urllib3/connectionpool.py", line 534, in _make_request
+    response = conn.getresponse()
+               ^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/urllib3/connection.py", line 516, in getresponse
+    httplib_response = super().getresponse()
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/miniforge3/envs/mopenhands/lib/python3.12/http/client.py", line 1430, in getresponse
+    response.begin()
+  File "/home/seongminju/miniforge3/envs/mopenhands/lib/python3.12/http/client.py", line 331, in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/miniforge3/envs/mopenhands/lib/python3.12/http/client.py", line 300, in _read_status
+    raise RemoteDisconnected("Remote end closed connection without"
+http.client.RemoteDisconnected: Remote end closed connection without response
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/requests/adapters.py", line 667, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/urllib3/util/retry.py", line 474, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/urllib3/util/util.py", line 38, in reraise
+    raise value.with_traceback(tb)
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/urllib3/connectionpool.py", line 534, in _make_request
+    response = conn.getresponse()
+               ^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/urllib3/connection.py", line 516, in getresponse
+    httplib_response = super().getresponse()
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/miniforge3/envs/mopenhands/lib/python3.12/http/client.py", line 1430, in getresponse
+    response.begin()
+  File "/home/seongminju/miniforge3/envs/mopenhands/lib/python3.12/http/client.py", line 331, in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/miniforge3/envs/mopenhands/lib/python3.12/http/client.py", line 300, in _read_status
+    raise RemoteDisconnected("Remote end closed connection without"
+urllib3.exceptions.ProtocolError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/seongminju/openhands/MopenHands/evaluation/utils/shared.py", line 315, in _process_instance_wrapper
+    result = process_instance_func(instance, metadata, use_mp, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/openhands/MopenHands/evaluation/benchmarks/swe_bench/run_infer.py", line 670, in process_instance
+    call_async_from_sync(runtime.connect)
+  File "/home/seongminju/openhands/MopenHands/openhands/utils/async_utils.py", line 50, in call_async_from_sync
+    result = future.result()
+             ^^^^^^^^^^^^^^^
+  File "/home/seongminju/miniforge3/envs/mopenhands/lib/python3.12/concurrent/futures/_base.py", line 456, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/miniforge3/envs/mopenhands/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/home/seongminju/miniforge3/envs/mopenhands/lib/python3.12/concurrent/futures/thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/openhands/MopenHands/openhands/utils/async_utils.py", line 44, in run
+    return asyncio.run(arun())
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/miniforge3/envs/mopenhands/lib/python3.12/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "/home/seongminju/miniforge3/envs/mopenhands/lib/python3.12/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/miniforge3/envs/mopenhands/lib/python3.12/asyncio/base_events.py", line 691, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/home/seongminju/openhands/MopenHands/openhands/utils/async_utils.py", line 37, in arun
+    result = await coro
+             ^^^^^^^^^^
+  File "/home/seongminju/openhands/MopenHands/openhands/runtime/impl/docker/docker_runtime.py", line 158, in connect
+    await call_sync_from_async(self._wait_until_alive)
+  File "/home/seongminju/openhands/MopenHands/openhands/utils/async_utils.py", line 18, in call_sync_from_async
+    result = await coro
+             ^^^^^^^^^^
+  File "/home/seongminju/miniforge3/envs/mopenhands/lib/python3.12/concurrent/futures/thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/openhands/MopenHands/openhands/utils/async_utils.py", line 17, in <lambda>
+    coro = loop.run_in_executor(None, lambda: fn(*args, **kwargs))
+                                              ^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/tenacity/__init__.py", line 336, in wrapped_f
+    return copy(f, *args, **kw)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/tenacity/__init__.py", line 475, in __call__
+    do = self.iter(retry_state=retry_state)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/tenacity/__init__.py", line 376, in iter
+    result = action(retry_state)
+             ^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/tenacity/__init__.py", line 418, in exc_check
+    raise retry_exc.reraise()
+          ^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/tenacity/__init__.py", line 185, in reraise
+    raise self.last_attempt.result()
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/miniforge3/envs/mopenhands/lib/python3.12/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/miniforge3/envs/mopenhands/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/tenacity/__init__.py", line 478, in __call__
+    result = fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/openhands/MopenHands/openhands/runtime/impl/docker/docker_runtime.py", line 347, in _wait_until_alive
+    self.check_if_alive()
+  File "/home/seongminju/openhands/MopenHands/openhands/runtime/impl/action_execution/action_execution_client.py", line 107, in check_if_alive
+    with self._send_action_server_request(
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/openhands/MopenHands/openhands/runtime/impl/action_execution/action_execution_client.py", line 104, in _send_action_server_request
+    return send_request(self.session, method, url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/tenacity/__init__.py", line 336, in wrapped_f
+    return copy(f, *args, **kw)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/tenacity/__init__.py", line 475, in __call__
+    do = self.iter(retry_state=retry_state)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/tenacity/__init__.py", line 376, in iter
+    result = action(retry_state)
+             ^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/tenacity/__init__.py", line 398, in <lambda>
+    self._add_action_func(lambda rs: rs.outcome.result())
+                                     ^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/miniforge3/envs/mopenhands/lib/python3.12/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/miniforge3/envs/mopenhands/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/tenacity/__init__.py", line 478, in __call__
+    result = fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/openhands/MopenHands/openhands/runtime/utils/request.py", line 44, in send_request
+    response = session.request(method, url, timeout=timeout, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai-TpsQNpgt-py3.12/lib/python3.12/site-packages/requests/adapters.py", line 682, in send
+    raise ConnectionError(err, request=request)
+requests.exceptions.ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+ERROR:root:  File "/home/seongminju/openhands/MopenHands/evaluation/benchmarks/swe_bench/run_infer.py", line 843, in <module>
+    run_evaluation(
+  File "/home/seongminju/openhands/MopenHands/evaluation/utils/shared.py", line 422, in run_evaluation
+    result = _process_instance_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/openhands/MopenHands/evaluation/utils/shared.py", line 347, in _process_instance_wrapper
+    raise RuntimeError(
+
+ERROR:root:<class 'RuntimeError'>: Maximum error retries reached for instance aws-cloudformation__cfn-lint-3470
+Instances processed:   0%|          | 0/3 [13:01<?, ?it/s]

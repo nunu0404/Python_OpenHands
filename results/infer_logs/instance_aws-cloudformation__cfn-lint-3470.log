@@ -1,0 +1,1416 @@
+2026-02-02 04:23:42,087 - INFO - [LLM registry 9678646d-8f0b-4bde-adfb-850089cb2931]: Registering service for agent
+2026-02-02 04:23:42,113 - ERROR - Launch docker client failed. Please make sure you have installed docker and started docker desktop/daemon.
+2026-02-02 04:23:42,119 - ERROR - ----------
+Error in instance [aws-cloudformation__cfn-lint-3470]: Error while fetching server API version: ('Connection aborted.', PermissionError(13, 'Permission denied')). Stacktrace:
+Traceback (most recent call last):
+  File "/home/seongminju/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+  File "/home/seongminju/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 493, in _make_request
+    conn.request(
+  File "/home/seongminju/.local/lib/python3.10/site-packages/urllib3/connection.py", line 500, in request
+    self.endheaders()
+  File "/usr/lib/python3.10/http/client.py", line 1278, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3.10/http/client.py", line 1038, in _send_output
+    self.send(msg)
+  File "/usr/lib/python3.10/http/client.py", line 976, in send
+    self.connect()
+  File "/home/seongminju/.local/lib/python3.10/site-packages/docker/transport/unixconn.py", line 26, in connect
+    sock.connect(self.unix_socket)
+PermissionError: [Errno 13] Permission denied
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/seongminju/.local/lib/python3.10/site-packages/requests/adapters.py", line 644, in send
+    resp = conn.urlopen(
+  File "/home/seongminju/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+  File "/home/seongminju/.local/lib/python3.10/site-packages/urllib3/util/retry.py", line 490, in increment
+    raise reraise(type(error), error, _stacktrace)
+  File "/home/seongminju/.local/lib/python3.10/site-packages/urllib3/util/util.py", line 38, in reraise
+    raise value.with_traceback(tb)
+  File "/home/seongminju/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+  File "/home/seongminju/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 493, in _make_request
+    conn.request(
+  File "/home/seongminju/.local/lib/python3.10/site-packages/urllib3/connection.py", line 500, in request
+    self.endheaders()
+  File "/usr/lib/python3.10/http/client.py", line 1278, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3.10/http/client.py", line 1038, in _send_output
+    self.send(msg)
+  File "/usr/lib/python3.10/http/client.py", line 976, in send
+    self.connect()
+  File "/home/seongminju/.local/lib/python3.10/site-packages/docker/transport/unixconn.py", line 26, in connect
+    sock.connect(self.unix_socket)
+urllib3.exceptions.ProtocolError: ('Connection aborted.', PermissionError(13, 'Permission denied'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/seongminju/.local/lib/python3.10/site-packages/docker/api/client.py", line 223, in _retrieve_server_version
+    return self.version(api_version=False)["ApiVersion"]
+  File "/home/seongminju/.local/lib/python3.10/site-packages/docker/api/daemon.py", line 181, in version
+    return self._result(self._get(url), json=True)
+  File "/home/seongminju/.local/lib/python3.10/site-packages/docker/utils/decorators.py", line 44, in inner
+    return f(self, *args, **kwargs)
+  File "/home/seongminju/.local/lib/python3.10/site-packages/docker/api/client.py", line 246, in _get
+    return self.get(url, **self._set_request_timeout(kwargs))
+  File "/home/seongminju/.local/lib/python3.10/site-packages/requests/sessions.py", line 602, in get
+    return self.request("GET", url, **kwargs)
+  File "/home/seongminju/.local/lib/python3.10/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/seongminju/.local/lib/python3.10/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/seongminju/.local/lib/python3.10/site-packages/requests/adapters.py", line 659, in send
+    raise ConnectionError(err, request=request)
+requests.exceptions.ConnectionError: ('Connection aborted.', PermissionError(13, 'Permission denied'))
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/seongminju/openhands/OpenHands-main/evaluation/utils/shared.py", line 414, in _process_instance_wrapper
+    result = process_instance_func(instance, metadata, use_mp, **kwargs)
+  File "/home/seongminju/openhands/MopenHands/evaluation/benchmarks/swe_bench/run_infer.py", line 666, in process_instance
+    runtime = create_runtime(config)
+  File "/home/seongminju/openhands/OpenHands-main/openhands/core/setup.py", line 81, in create_runtime
+    runtime: Runtime = runtime_cls(
+  File "/home/seongminju/openhands/OpenHands-main/openhands/runtime/impl/docker/docker_runtime.py", line 131, in __init__
+    self.docker_client: docker.DockerClient = self._init_docker_client()
+  File "/home/seongminju/openhands/OpenHands-main/openhands/runtime/impl/docker/docker_runtime.py", line 264, in _init_docker_client
+    raise ex
+  File "/home/seongminju/openhands/OpenHands-main/openhands/runtime/impl/docker/docker_runtime.py", line 259, in _init_docker_client
+    return docker.from_env()
+  File "/home/seongminju/.local/lib/python3.10/site-packages/docker/client.py", line 94, in from_env
+    return cls(
+  File "/home/seongminju/.local/lib/python3.10/site-packages/docker/client.py", line 45, in __init__
+    self.api = APIClient(*args, **kwargs)
+  File "/home/seongminju/.local/lib/python3.10/site-packages/docker/api/client.py", line 207, in __init__
+    self._version = self._retrieve_server_version()
+  File "/home/seongminju/.local/lib/python3.10/site-packages/docker/api/client.py", line 230, in _retrieve_server_version
+    raise DockerException(
+docker.errors.DockerException: Error while fetching server API version: ('Connection aborted.', PermissionError(13, 'Permission denied'))
+
+----------[The above error occurred. Retrying... (attempt 1 of 5)]----------
+
+2026-02-02 04:23:47,125 - INFO - Using instance container image: crpi-sa60h0lyaf80r3a1.cn-shenzhen.personal.cr.aliyuncs.com/xinzhou1997_env/repoenv_py1:aws-cloudformation__cfn-lint-3470_linux. Please make sure this image exists. Submit an issue on https://github.com/All-Hands-AI/OpenHands if you run into any issues.
+2026-02-02 04:23:47,126 - INFO - Resource mapping for __home__seongminju__openhands__Python_examples.jsonl-train not found.
+2026-02-02 04:23:47,127 - INFO - Logging LLM completions for instance aws-cloudformation__cfn-lint-3470 to evaluation/evaluation_outputs/outputs/__home__seongminju__openhands__Python_examples.jsonl-train/CodeActAgent/gpt-4o_maxiter_30/llm_completions/aws-cloudformation__cfn-lint-3470
+2026-02-02 04:23:47,130 - INFO - [LLM registry 89310202-d40b-4089-8656-97720e2fd781]: Registering service for agent
+2026-02-02 04:23:47,134 - ERROR - Launch docker client failed. Please make sure you have installed docker and started docker desktop/daemon.
+2026-02-02 04:23:47,138 - ERROR - ----------
+Error in instance [aws-cloudformation__cfn-lint-3470]: Error while fetching server API version: ('Connection aborted.', PermissionError(13, 'Permission denied')). Stacktrace:
+Traceback (most recent call last):
+  File "/home/seongminju/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+  File "/home/seongminju/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 493, in _make_request
+    conn.request(
+  File "/home/seongminju/.local/lib/python3.10/site-packages/urllib3/connection.py", line 500, in request
+    self.endheaders()
+  File "/usr/lib/python3.10/http/client.py", line 1278, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3.10/http/client.py", line 1038, in _send_output
+    self.send(msg)
+  File "/usr/lib/python3.10/http/client.py", line 976, in send
+    self.connect()
+  File "/home/seongminju/.local/lib/python3.10/site-packages/docker/transport/unixconn.py", line 26, in connect
+    sock.connect(self.unix_socket)
+PermissionError: [Errno 13] Permission denied
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/seongminju/.local/lib/python3.10/site-packages/requests/adapters.py", line 644, in send
+    resp = conn.urlopen(
+  File "/home/seongminju/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+  File "/home/seongminju/.local/lib/python3.10/site-packages/urllib3/util/retry.py", line 490, in increment
+    raise reraise(type(error), error, _stacktrace)
+  File "/home/seongminju/.local/lib/python3.10/site-packages/urllib3/util/util.py", line 38, in reraise
+    raise value.with_traceback(tb)
+  File "/home/seongminju/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+  File "/home/seongminju/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 493, in _make_request
+    conn.request(
+  File "/home/seongminju/.local/lib/python3.10/site-packages/urllib3/connection.py", line 500, in request
+    self.endheaders()
+  File "/usr/lib/python3.10/http/client.py", line 1278, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3.10/http/client.py", line 1038, in _send_output
+    self.send(msg)
+  File "/usr/lib/python3.10/http/client.py", line 976, in send
+    self.connect()
+  File "/home/seongminju/.local/lib/python3.10/site-packages/docker/transport/unixconn.py", line 26, in connect
+    sock.connect(self.unix_socket)
+urllib3.exceptions.ProtocolError: ('Connection aborted.', PermissionError(13, 'Permission denied'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/seongminju/.local/lib/python3.10/site-packages/docker/api/client.py", line 223, in _retrieve_server_version
+    return self.version(api_version=False)["ApiVersion"]
+  File "/home/seongminju/.local/lib/python3.10/site-packages/docker/api/daemon.py", line 181, in version
+    return self._result(self._get(url), json=True)
+  File "/home/seongminju/.local/lib/python3.10/site-packages/docker/utils/decorators.py", line 44, in inner
+    return f(self, *args, **kwargs)
+  File "/home/seongminju/.local/lib/python3.10/site-packages/docker/api/client.py", line 246, in _get
+    return self.get(url, **self._set_request_timeout(kwargs))
+  File "/home/seongminju/.local/lib/python3.10/site-packages/requests/sessions.py", line 602, in get
+    return self.request("GET", url, **kwargs)
+  File "/home/seongminju/.local/lib/python3.10/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/seongminju/.local/lib/python3.10/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/seongminju/.local/lib/python3.10/site-packages/requests/adapters.py", line 659, in send
+    raise ConnectionError(err, request=request)
+requests.exceptions.ConnectionError: ('Connection aborted.', PermissionError(13, 'Permission denied'))
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/seongminju/openhands/OpenHands-main/evaluation/utils/shared.py", line 414, in _process_instance_wrapper
+    result = process_instance_func(instance, metadata, use_mp, **kwargs)
+  File "/home/seongminju/openhands/MopenHands/evaluation/benchmarks/swe_bench/run_infer.py", line 666, in process_instance
+    runtime = create_runtime(config)
+  File "/home/seongminju/openhands/OpenHands-main/openhands/core/setup.py", line 81, in create_runtime
+    runtime: Runtime = runtime_cls(
+  File "/home/seongminju/openhands/OpenHands-main/openhands/runtime/impl/docker/docker_runtime.py", line 131, in __init__
+    self.docker_client: docker.DockerClient = self._init_docker_client()
+  File "/home/seongminju/openhands/OpenHands-main/openhands/runtime/impl/docker/docker_runtime.py", line 264, in _init_docker_client
+    raise ex
+  File "/home/seongminju/openhands/OpenHands-main/openhands/runtime/impl/docker/docker_runtime.py", line 259, in _init_docker_client
+    return docker.from_env()
+  File "/home/seongminju/.local/lib/python3.10/site-packages/docker/client.py", line 94, in from_env
+    return cls(
+  File "/home/seongminju/.local/lib/python3.10/site-packages/docker/client.py", line 45, in __init__
+    self.api = APIClient(*args, **kwargs)
+  File "/home/seongminju/.local/lib/python3.10/site-packages/docker/api/client.py", line 207, in __init__
+    self._version = self._retrieve_server_version()
+  File "/home/seongminju/.local/lib/python3.10/site-packages/docker/api/client.py", line 230, in _retrieve_server_version
+    raise DockerException(
+docker.errors.DockerException: Error while fetching server API version: ('Connection aborted.', PermissionError(13, 'Permission denied'))
+
+----------[The above error occurred. Retrying... (attempt 2 of 5)]----------
+
+2026-02-02 04:23:52,144 - INFO - Using instance container image: crpi-sa60h0lyaf80r3a1.cn-shenzhen.personal.cr.aliyuncs.com/xinzhou1997_env/repoenv_py1:aws-cloudformation__cfn-lint-3470_linux. Please make sure this image exists. Submit an issue on https://github.com/All-Hands-AI/OpenHands if you run into any issues.
+2026-02-02 04:23:52,145 - INFO - Resource mapping for __home__seongminju__openhands__Python_examples.jsonl-train not found.
+2026-02-02 04:23:52,146 - INFO - Logging LLM completions for instance aws-cloudformation__cfn-lint-3470 to evaluation/evaluation_outputs/outputs/__home__seongminju__openhands__Python_examples.jsonl-train/CodeActAgent/gpt-4o_maxiter_30/llm_completions/aws-cloudformation__cfn-lint-3470
+2026-02-02 04:23:52,149 - INFO - [LLM registry 057d6879-4c0f-4357-971a-ce90735f77af]: Registering service for agent
+2026-02-02 04:23:52,154 - ERROR - Launch docker client failed. Please make sure you have installed docker and started docker desktop/daemon.
+2026-02-02 04:23:52,156 - ERROR - ----------
+Error in instance [aws-cloudformation__cfn-lint-3470]: Error while fetching server API version: ('Connection aborted.', PermissionError(13, 'Permission denied')). Stacktrace:
+Traceback (most recent call last):
+  File "/home/seongminju/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+  File "/home/seongminju/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 493, in _make_request
+    conn.request(
+  File "/home/seongminju/.local/lib/python3.10/site-packages/urllib3/connection.py", line 500, in request
+    self.endheaders()
+  File "/usr/lib/python3.10/http/client.py", line 1278, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3.10/http/client.py", line 1038, in _send_output
+    self.send(msg)
+  File "/usr/lib/python3.10/http/client.py", line 976, in send
+    self.connect()
+  File "/home/seongminju/.local/lib/python3.10/site-packages/docker/transport/unixconn.py", line 26, in connect
+    sock.connect(self.unix_socket)
+PermissionError: [Errno 13] Permission denied
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/seongminju/.local/lib/python3.10/site-packages/requests/adapters.py", line 644, in send
+    resp = conn.urlopen(
+  File "/home/seongminju/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+  File "/home/seongminju/.local/lib/python3.10/site-packages/urllib3/util/retry.py", line 490, in increment
+    raise reraise(type(error), error, _stacktrace)
+  File "/home/seongminju/.local/lib/python3.10/site-packages/urllib3/util/util.py", line 38, in reraise
+    raise value.with_traceback(tb)
+  File "/home/seongminju/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+  File "/home/seongminju/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 493, in _make_request
+    conn.request(
+  File "/home/seongminju/.local/lib/python3.10/site-packages/urllib3/connection.py", line 500, in request
+    self.endheaders()
+  File "/usr/lib/python3.10/http/client.py", line 1278, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3.10/http/client.py", line 1038, in _send_output
+    self.send(msg)
+  File "/usr/lib/python3.10/http/client.py", line 976, in send
+    self.connect()
+  File "/home/seongminju/.local/lib/python3.10/site-packages/docker/transport/unixconn.py", line 26, in connect
+    sock.connect(self.unix_socket)
+urllib3.exceptions.ProtocolError: ('Connection aborted.', PermissionError(13, 'Permission denied'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/seongminju/.local/lib/python3.10/site-packages/docker/api/client.py", line 223, in _retrieve_server_version
+    return self.version(api_version=False)["ApiVersion"]
+  File "/home/seongminju/.local/lib/python3.10/site-packages/docker/api/daemon.py", line 181, in version
+    return self._result(self._get(url), json=True)
+  File "/home/seongminju/.local/lib/python3.10/site-packages/docker/utils/decorators.py", line 44, in inner
+    return f(self, *args, **kwargs)
+  File "/home/seongminju/.local/lib/python3.10/site-packages/docker/api/client.py", line 246, in _get
+    return self.get(url, **self._set_request_timeout(kwargs))
+  File "/home/seongminju/.local/lib/python3.10/site-packages/requests/sessions.py", line 602, in get
+    return self.request("GET", url, **kwargs)
+  File "/home/seongminju/.local/lib/python3.10/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/seongminju/.local/lib/python3.10/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/seongminju/.local/lib/python3.10/site-packages/requests/adapters.py", line 659, in send
+    raise ConnectionError(err, request=request)
+requests.exceptions.ConnectionError: ('Connection aborted.', PermissionError(13, 'Permission denied'))
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/seongminju/openhands/OpenHands-main/evaluation/utils/shared.py", line 414, in _process_instance_wrapper
+    result = process_instance_func(instance, metadata, use_mp, **kwargs)
+  File "/home/seongminju/openhands/MopenHands/evaluation/benchmarks/swe_bench/run_infer.py", line 666, in process_instance
+    runtime = create_runtime(config)
+  File "/home/seongminju/openhands/OpenHands-main/openhands/core/setup.py", line 81, in create_runtime
+    runtime: Runtime = runtime_cls(
+  File "/home/seongminju/openhands/OpenHands-main/openhands/runtime/impl/docker/docker_runtime.py", line 131, in __init__
+    self.docker_client: docker.DockerClient = self._init_docker_client()
+  File "/home/seongminju/openhands/OpenHands-main/openhands/runtime/impl/docker/docker_runtime.py", line 264, in _init_docker_client
+    raise ex
+  File "/home/seongminju/openhands/OpenHands-main/openhands/runtime/impl/docker/docker_runtime.py", line 259, in _init_docker_client
+    return docker.from_env()
+  File "/home/seongminju/.local/lib/python3.10/site-packages/docker/client.py", line 94, in from_env
+    return cls(
+  File "/home/seongminju/.local/lib/python3.10/site-packages/docker/client.py", line 45, in __init__
+    self.api = APIClient(*args, **kwargs)
+  File "/home/seongminju/.local/lib/python3.10/site-packages/docker/api/client.py", line 207, in __init__
+    self._version = self._retrieve_server_version()
+  File "/home/seongminju/.local/lib/python3.10/site-packages/docker/api/client.py", line 230, in _retrieve_server_version
+    raise DockerException(
+docker.errors.DockerException: Error while fetching server API version: ('Connection aborted.', PermissionError(13, 'Permission denied'))
+
+----------[The above error occurred. Retrying... (attempt 3 of 5)]----------
+
+2026-02-02 04:23:57,163 - INFO - Using instance container image: crpi-sa60h0lyaf80r3a1.cn-shenzhen.personal.cr.aliyuncs.com/xinzhou1997_env/repoenv_py1:aws-cloudformation__cfn-lint-3470_linux. Please make sure this image exists. Submit an issue on https://github.com/All-Hands-AI/OpenHands if you run into any issues.
+2026-02-02 04:23:57,164 - INFO - Resource mapping for __home__seongminju__openhands__Python_examples.jsonl-train not found.
+2026-02-02 04:23:57,164 - INFO - Logging LLM completions for instance aws-cloudformation__cfn-lint-3470 to evaluation/evaluation_outputs/outputs/__home__seongminju__openhands__Python_examples.jsonl-train/CodeActAgent/gpt-4o_maxiter_30/llm_completions/aws-cloudformation__cfn-lint-3470
+2026-02-02 04:23:57,168 - INFO - [LLM registry 12cd7bd8-ba53-4a51-a71e-9deb76f49c07]: Registering service for agent
+2026-02-02 04:23:57,173 - ERROR - Launch docker client failed. Please make sure you have installed docker and started docker desktop/daemon.
+2026-02-02 04:23:57,175 - ERROR - ----------
+Error in instance [aws-cloudformation__cfn-lint-3470]: Error while fetching server API version: ('Connection aborted.', PermissionError(13, 'Permission denied')). Stacktrace:
+Traceback (most recent call last):
+  File "/home/seongminju/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+  File "/home/seongminju/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 493, in _make_request
+    conn.request(
+  File "/home/seongminju/.local/lib/python3.10/site-packages/urllib3/connection.py", line 500, in request
+    self.endheaders()
+  File "/usr/lib/python3.10/http/client.py", line 1278, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3.10/http/client.py", line 1038, in _send_output
+    self.send(msg)
+  File "/usr/lib/python3.10/http/client.py", line 976, in send
+    self.connect()
+  File "/home/seongminju/.local/lib/python3.10/site-packages/docker/transport/unixconn.py", line 26, in connect
+    sock.connect(self.unix_socket)
+PermissionError: [Errno 13] Permission denied
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/seongminju/.local/lib/python3.10/site-packages/requests/adapters.py", line 644, in send
+    resp = conn.urlopen(
+  File "/home/seongminju/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+  File "/home/seongminju/.local/lib/python3.10/site-packages/urllib3/util/retry.py", line 490, in increment
+    raise reraise(type(error), error, _stacktrace)
+  File "/home/seongminju/.local/lib/python3.10/site-packages/urllib3/util/util.py", line 38, in reraise
+    raise value.with_traceback(tb)
+  File "/home/seongminju/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+  File "/home/seongminju/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 493, in _make_request
+    conn.request(
+  File "/home/seongminju/.local/lib/python3.10/site-packages/urllib3/connection.py", line 500, in request
+    self.endheaders()
+  File "/usr/lib/python3.10/http/client.py", line 1278, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3.10/http/client.py", line 1038, in _send_output
+    self.send(msg)
+  File "/usr/lib/python3.10/http/client.py", line 976, in send
+    self.connect()
+  File "/home/seongminju/.local/lib/python3.10/site-packages/docker/transport/unixconn.py", line 26, in connect
+    sock.connect(self.unix_socket)
+urllib3.exceptions.ProtocolError: ('Connection aborted.', PermissionError(13, 'Permission denied'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/seongminju/.local/lib/python3.10/site-packages/docker/api/client.py", line 223, in _retrieve_server_version
+    return self.version(api_version=False)["ApiVersion"]
+  File "/home/seongminju/.local/lib/python3.10/site-packages/docker/api/daemon.py", line 181, in version
+    return self._result(self._get(url), json=True)
+  File "/home/seongminju/.local/lib/python3.10/site-packages/docker/utils/decorators.py", line 44, in inner
+    return f(self, *args, **kwargs)
+  File "/home/seongminju/.local/lib/python3.10/site-packages/docker/api/client.py", line 246, in _get
+    return self.get(url, **self._set_request_timeout(kwargs))
+  File "/home/seongminju/.local/lib/python3.10/site-packages/requests/sessions.py", line 602, in get
+    return self.request("GET", url, **kwargs)
+  File "/home/seongminju/.local/lib/python3.10/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/seongminju/.local/lib/python3.10/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/seongminju/.local/lib/python3.10/site-packages/requests/adapters.py", line 659, in send
+    raise ConnectionError(err, request=request)
+requests.exceptions.ConnectionError: ('Connection aborted.', PermissionError(13, 'Permission denied'))
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/seongminju/openhands/OpenHands-main/evaluation/utils/shared.py", line 414, in _process_instance_wrapper
+    result = process_instance_func(instance, metadata, use_mp, **kwargs)
+  File "/home/seongminju/openhands/MopenHands/evaluation/benchmarks/swe_bench/run_infer.py", line 666, in process_instance
+    runtime = create_runtime(config)
+  File "/home/seongminju/openhands/OpenHands-main/openhands/core/setup.py", line 81, in create_runtime
+    runtime: Runtime = runtime_cls(
+  File "/home/seongminju/openhands/OpenHands-main/openhands/runtime/impl/docker/docker_runtime.py", line 131, in __init__
+    self.docker_client: docker.DockerClient = self._init_docker_client()
+  File "/home/seongminju/openhands/OpenHands-main/openhands/runtime/impl/docker/docker_runtime.py", line 264, in _init_docker_client
+    raise ex
+  File "/home/seongminju/openhands/OpenHands-main/openhands/runtime/impl/docker/docker_runtime.py", line 259, in _init_docker_client
+    return docker.from_env()
+  File "/home/seongminju/.local/lib/python3.10/site-packages/docker/client.py", line 94, in from_env
+    return cls(
+  File "/home/seongminju/.local/lib/python3.10/site-packages/docker/client.py", line 45, in __init__
+    self.api = APIClient(*args, **kwargs)
+  File "/home/seongminju/.local/lib/python3.10/site-packages/docker/api/client.py", line 207, in __init__
+    self._version = self._retrieve_server_version()
+  File "/home/seongminju/.local/lib/python3.10/site-packages/docker/api/client.py", line 230, in _retrieve_server_version
+    raise DockerException(
+docker.errors.DockerException: Error while fetching server API version: ('Connection aborted.', PermissionError(13, 'Permission denied'))
+
+----------[The above error occurred. Retrying... (attempt 4 of 5)]----------
+
+2026-02-02 04:24:02,177 - INFO - Using instance container image: crpi-sa60h0lyaf80r3a1.cn-shenzhen.personal.cr.aliyuncs.com/xinzhou1997_env/repoenv_py1:aws-cloudformation__cfn-lint-3470_linux. Please make sure this image exists. Submit an issue on https://github.com/All-Hands-AI/OpenHands if you run into any issues.
+2026-02-02 04:24:02,178 - INFO - Resource mapping for __home__seongminju__openhands__Python_examples.jsonl-train not found.
+2026-02-02 04:24:02,178 - INFO - Logging LLM completions for instance aws-cloudformation__cfn-lint-3470 to evaluation/evaluation_outputs/outputs/__home__seongminju__openhands__Python_examples.jsonl-train/CodeActAgent/gpt-4o_maxiter_30/llm_completions/aws-cloudformation__cfn-lint-3470
+2026-02-02 04:24:02,182 - INFO - [LLM registry a94fde65-c9f1-4556-a881-e0b7e197992d]: Registering service for agent
+2026-02-02 04:24:02,186 - ERROR - Launch docker client failed. Please make sure you have installed docker and started docker desktop/daemon.
+2026-02-02 04:24:02,189 - ERROR - ----------
+Error in instance [aws-cloudformation__cfn-lint-3470]: Error while fetching server API version: ('Connection aborted.', PermissionError(13, 'Permission denied')). Stacktrace:
+Traceback (most recent call last):
+  File "/home/seongminju/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+  File "/home/seongminju/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 493, in _make_request
+    conn.request(
+  File "/home/seongminju/.local/lib/python3.10/site-packages/urllib3/connection.py", line 500, in request
+    self.endheaders()
+  File "/usr/lib/python3.10/http/client.py", line 1278, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3.10/http/client.py", line 1038, in _send_output
+    self.send(msg)
+  File "/usr/lib/python3.10/http/client.py", line 976, in send
+    self.connect()
+  File "/home/seongminju/.local/lib/python3.10/site-packages/docker/transport/unixconn.py", line 26, in connect
+    sock.connect(self.unix_socket)
+PermissionError: [Errno 13] Permission denied
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/seongminju/.local/lib/python3.10/site-packages/requests/adapters.py", line 644, in send
+    resp = conn.urlopen(
+  File "/home/seongminju/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+  File "/home/seongminju/.local/lib/python3.10/site-packages/urllib3/util/retry.py", line 490, in increment
+    raise reraise(type(error), error, _stacktrace)
+  File "/home/seongminju/.local/lib/python3.10/site-packages/urllib3/util/util.py", line 38, in reraise
+    raise value.with_traceback(tb)
+  File "/home/seongminju/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+  File "/home/seongminju/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 493, in _make_request
+    conn.request(
+  File "/home/seongminju/.local/lib/python3.10/site-packages/urllib3/connection.py", line 500, in request
+    self.endheaders()
+  File "/usr/lib/python3.10/http/client.py", line 1278, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3.10/http/client.py", line 1038, in _send_output
+    self.send(msg)
+  File "/usr/lib/python3.10/http/client.py", line 976, in send
+    self.connect()
+  File "/home/seongminju/.local/lib/python3.10/site-packages/docker/transport/unixconn.py", line 26, in connect
+    sock.connect(self.unix_socket)
+urllib3.exceptions.ProtocolError: ('Connection aborted.', PermissionError(13, 'Permission denied'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/seongminju/.local/lib/python3.10/site-packages/docker/api/client.py", line 223, in _retrieve_server_version
+    return self.version(api_version=False)["ApiVersion"]
+  File "/home/seongminju/.local/lib/python3.10/site-packages/docker/api/daemon.py", line 181, in version
+    return self._result(self._get(url), json=True)
+  File "/home/seongminju/.local/lib/python3.10/site-packages/docker/utils/decorators.py", line 44, in inner
+    return f(self, *args, **kwargs)
+  File "/home/seongminju/.local/lib/python3.10/site-packages/docker/api/client.py", line 246, in _get
+    return self.get(url, **self._set_request_timeout(kwargs))
+  File "/home/seongminju/.local/lib/python3.10/site-packages/requests/sessions.py", line 602, in get
+    return self.request("GET", url, **kwargs)
+  File "/home/seongminju/.local/lib/python3.10/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/seongminju/.local/lib/python3.10/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/seongminju/.local/lib/python3.10/site-packages/requests/adapters.py", line 659, in send
+    raise ConnectionError(err, request=request)
+requests.exceptions.ConnectionError: ('Connection aborted.', PermissionError(13, 'Permission denied'))
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/seongminju/openhands/OpenHands-main/evaluation/utils/shared.py", line 414, in _process_instance_wrapper
+    result = process_instance_func(instance, metadata, use_mp, **kwargs)
+  File "/home/seongminju/openhands/MopenHands/evaluation/benchmarks/swe_bench/run_infer.py", line 666, in process_instance
+    runtime = create_runtime(config)
+  File "/home/seongminju/openhands/OpenHands-main/openhands/core/setup.py", line 81, in create_runtime
+    runtime: Runtime = runtime_cls(
+  File "/home/seongminju/openhands/OpenHands-main/openhands/runtime/impl/docker/docker_runtime.py", line 131, in __init__
+    self.docker_client: docker.DockerClient = self._init_docker_client()
+  File "/home/seongminju/openhands/OpenHands-main/openhands/runtime/impl/docker/docker_runtime.py", line 264, in _init_docker_client
+    raise ex
+  File "/home/seongminju/openhands/OpenHands-main/openhands/runtime/impl/docker/docker_runtime.py", line 259, in _init_docker_client
+    return docker.from_env()
+  File "/home/seongminju/.local/lib/python3.10/site-packages/docker/client.py", line 94, in from_env
+    return cls(
+  File "/home/seongminju/.local/lib/python3.10/site-packages/docker/client.py", line 45, in __init__
+    self.api = APIClient(*args, **kwargs)
+  File "/home/seongminju/.local/lib/python3.10/site-packages/docker/api/client.py", line 207, in __init__
+    self._version = self._retrieve_server_version()
+  File "/home/seongminju/.local/lib/python3.10/site-packages/docker/api/client.py", line 230, in _retrieve_server_version
+    raise DockerException(
+docker.errors.DockerException: Error while fetching server API version: ('Connection aborted.', PermissionError(13, 'Permission denied'))
+
+----------[The above error occurred. Retrying... (attempt 5 of 5)]----------
+
+2026-02-02 04:24:07,195 - INFO - Using instance container image: crpi-sa60h0lyaf80r3a1.cn-shenzhen.personal.cr.aliyuncs.com/xinzhou1997_env/repoenv_py1:aws-cloudformation__cfn-lint-3470_linux. Please make sure this image exists. Submit an issue on https://github.com/All-Hands-AI/OpenHands if you run into any issues.
+2026-02-02 04:24:07,196 - INFO - Resource mapping for __home__seongminju__openhands__Python_examples.jsonl-train not found.
+2026-02-02 04:24:07,197 - INFO - Logging LLM completions for instance aws-cloudformation__cfn-lint-3470 to evaluation/evaluation_outputs/outputs/__home__seongminju__openhands__Python_examples.jsonl-train/CodeActAgent/gpt-4o_maxiter_30/llm_completions/aws-cloudformation__cfn-lint-3470
+2026-02-02 04:24:07,200 - INFO - [LLM registry 13f5a5c5-b6f0-4f28-bbde-ad0d8e0c6ecd]: Registering service for agent
+2026-02-02 04:24:07,206 - ERROR - Launch docker client failed. Please make sure you have installed docker and started docker desktop/daemon.
+2026-02-02 04:24:07,208 - ERROR - Error while fetching server API version: ('Connection aborted.', PermissionError(13, 'Permission denied'))
+Traceback (most recent call last):
+  File "/home/seongminju/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+  File "/home/seongminju/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 493, in _make_request
+    conn.request(
+  File "/home/seongminju/.local/lib/python3.10/site-packages/urllib3/connection.py", line 500, in request
+    self.endheaders()
+  File "/usr/lib/python3.10/http/client.py", line 1278, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3.10/http/client.py", line 1038, in _send_output
+    self.send(msg)
+  File "/usr/lib/python3.10/http/client.py", line 976, in send
+    self.connect()
+  File "/home/seongminju/.local/lib/python3.10/site-packages/docker/transport/unixconn.py", line 26, in connect
+    sock.connect(self.unix_socket)
+PermissionError: [Errno 13] Permission denied
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/seongminju/.local/lib/python3.10/site-packages/requests/adapters.py", line 644, in send
+    resp = conn.urlopen(
+  File "/home/seongminju/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+  File "/home/seongminju/.local/lib/python3.10/site-packages/urllib3/util/retry.py", line 490, in increment
+    raise reraise(type(error), error, _stacktrace)
+  File "/home/seongminju/.local/lib/python3.10/site-packages/urllib3/util/util.py", line 38, in reraise
+    raise value.with_traceback(tb)
+  File "/home/seongminju/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+  File "/home/seongminju/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 493, in _make_request
+    conn.request(
+  File "/home/seongminju/.local/lib/python3.10/site-packages/urllib3/connection.py", line 500, in request
+    self.endheaders()
+  File "/usr/lib/python3.10/http/client.py", line 1278, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3.10/http/client.py", line 1038, in _send_output
+    self.send(msg)
+  File "/usr/lib/python3.10/http/client.py", line 976, in send
+    self.connect()
+  File "/home/seongminju/.local/lib/python3.10/site-packages/docker/transport/unixconn.py", line 26, in connect
+    sock.connect(self.unix_socket)
+urllib3.exceptions.ProtocolError: ('Connection aborted.', PermissionError(13, 'Permission denied'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/seongminju/.local/lib/python3.10/site-packages/docker/api/client.py", line 223, in _retrieve_server_version
+    return self.version(api_version=False)["ApiVersion"]
+  File "/home/seongminju/.local/lib/python3.10/site-packages/docker/api/daemon.py", line 181, in version
+    return self._result(self._get(url), json=True)
+  File "/home/seongminju/.local/lib/python3.10/site-packages/docker/utils/decorators.py", line 44, in inner
+    return f(self, *args, **kwargs)
+  File "/home/seongminju/.local/lib/python3.10/site-packages/docker/api/client.py", line 246, in _get
+    return self.get(url, **self._set_request_timeout(kwargs))
+  File "/home/seongminju/.local/lib/python3.10/site-packages/requests/sessions.py", line 602, in get
+    return self.request("GET", url, **kwargs)
+  File "/home/seongminju/.local/lib/python3.10/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/seongminju/.local/lib/python3.10/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/seongminju/.local/lib/python3.10/site-packages/requests/adapters.py", line 659, in send
+    raise ConnectionError(err, request=request)
+requests.exceptions.ConnectionError: ('Connection aborted.', PermissionError(13, 'Permission denied'))
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/seongminju/openhands/OpenHands-main/evaluation/utils/shared.py", line 414, in _process_instance_wrapper
+    result = process_instance_func(instance, metadata, use_mp, **kwargs)
+  File "/home/seongminju/openhands/MopenHands/evaluation/benchmarks/swe_bench/run_infer.py", line 666, in process_instance
+    runtime = create_runtime(config)
+  File "/home/seongminju/openhands/OpenHands-main/openhands/core/setup.py", line 81, in create_runtime
+    runtime: Runtime = runtime_cls(
+  File "/home/seongminju/openhands/OpenHands-main/openhands/runtime/impl/docker/docker_runtime.py", line 131, in __init__
+    self.docker_client: docker.DockerClient = self._init_docker_client()
+  File "/home/seongminju/openhands/OpenHands-main/openhands/runtime/impl/docker/docker_runtime.py", line 264, in _init_docker_client
+    raise ex
+  File "/home/seongminju/openhands/OpenHands-main/openhands/runtime/impl/docker/docker_runtime.py", line 259, in _init_docker_client
+    return docker.from_env()
+  File "/home/seongminju/.local/lib/python3.10/site-packages/docker/client.py", line 94, in from_env
+    return cls(
+  File "/home/seongminju/.local/lib/python3.10/site-packages/docker/client.py", line 45, in __init__
+    self.api = APIClient(*args, **kwargs)
+  File "/home/seongminju/.local/lib/python3.10/site-packages/docker/api/client.py", line 207, in __init__
+    self._version = self._retrieve_server_version()
+  File "/home/seongminju/.local/lib/python3.10/site-packages/docker/api/client.py", line 230, in _retrieve_server_version
+    raise DockerException(
+docker.errors.DockerException: Error while fetching server API version: ('Connection aborted.', PermissionError(13, 'Permission denied'))
+2026-02-02 04:24:17,329 - INFO - [LLM registry 1f40c81f-d469-49d1-8185-3aa45e48afc2]: Registering service for agent
+2026-02-02 04:24:17,356 - INFO - Using DOCKER_HOST: unix:///run/user/1005/docker.sock
+2026-02-02 04:24:17,414 - INFO - Loaded plugins for runtime e79439f0-e9e0-41-466a7d14a7215e0: [AgentSkillsRequirement(name='agent_skills', documentation="open_file(path: str, line_number: int | None = 1, context_lines: int | None = 100) -> None:\n    Opens a file in the editor and optionally positions at a specific line.\n    The function displays a limited window of content, centered around the specified line\n    number if provided. To view the complete file content, the agent should use scroll_down and scroll_up\n    commands iteratively.\n    Args:\n    path: The path to the file to open. Absolute path is recommended.\n    line_number: The target line number to center the view on (if possible).\n    Defaults to 1.\n    context_lines: Maximum number of lines to display in the view window.\n    Limited to 100 lines. Defaults to 100.\n\ngoto_line(line_number: int) -> None:\n    Moves the window to show the specified line number.\n    Args:\n    line_number: int: The line number to move to.\n\nscroll_down() -> None:\n    Moves the window down by 100 lines.\n    Args:\n    None\n\nscroll_up() -> None:\n    Moves the window up by 100 lines.\n    Args:\n    None\n\nsearch_dir(search_term: str, dir_path: str = './') -> None:\n    Searches for search_term in all files in dir. If dir is not provided, searches in the current directory.\n    Args:\n    search_term: str: The term to search for.\n    dir_path: str: The path to the directory to search.\n\nsearch_file(search_term: str, file_path: str | None = None) -> None:\n    Searches for search_term in file. If file is not provided, searches in the current open file.\n    Args:\n    search_term: The term to search for.\n    file_path: The path to the file to search.\n\nfind_file(file_name: str, dir_path: str = './') -> None:\n    Finds all files with the given name in the specified directory.\n    Args:\n    file_name: str: The name of the file to find.\n    dir_path: str: The path to the directory to search.\n\nparse_pdf(file_path: str) -> None:\n    Parses the content of a PDF file and prints it.\n    Args:\n    file_path: str: The path to the file to open.\n\nparse_docx(file_path: str) -> None:\n    Parses the content of a DOCX file and prints it.\n    Args:\n    file_path: str: The path to the file to open.\n\nparse_latex(file_path: str) -> None:\n    Parses the content of a LaTex file and prints it.\n    Args:\n    file_path: str: The path to the file to open.\n\nparse_pptx(file_path: str) -> None:\n    Parses the content of a pptx file and prints it.\n    Args:\n    file_path: str: The path to the file to open.\n\n"), JupyterRequirement(name='jupyter')]
+2026-02-02 04:24:17,518 - INFO - Building image: ghcr.io/openhands/runtime:oh_v1.2.1_1tyqju72xni2ii43_8tf54wobavipolqs
+2026-02-02 04:33:52,755 - INFO - Image [ghcr.io/openhands/runtime:oh_v1.2.1_1tyqju72xni2ii43_8tf54wobavipolqs] build finished.
+2026-02-02 04:33:52,774 - INFO - Re-tagged image [ghcr.io/openhands/runtime:oh_v1.2.1_1tyqju72xni2ii43_8tf54wobavipolqs] with more generic tag [oh_v1.2.1_1tyqju72xni2ii43]
+2026-02-02 04:33:52,781 - INFO - Image ghcr.io/openhands/runtime with tags [oh_v1.2.1_1tyqju72xni2ii43_8tf54wobavipolqs, oh_v1.2.1_1tyqju72xni2ii43] built successfully
+2026-02-02 04:33:52,801 - INFO - [runtime e79439f0-e9e0-41-466a7d14a7215e0] Starting runtime with image: ghcr.io/openhands/runtime:oh_v1.2.1_1tyqju72xni2ii43_8tf54wobavipolqs
+2026-02-02 04:33:52,809 - ERROR - Could not find and lock available port in range 30000-39999 after 5 attempts
+2026-02-02 04:33:52,809 - WARNING - Port locking failed for range (30000, 39999), falling back to original method
+2026-02-02 04:33:52,896 - ERROR - Could not find and lock available port in range 40000-49999 after 5 attempts
+2026-02-02 04:33:52,897 - WARNING - Port locking failed for range (40000, 49999), falling back to original method
+2026-02-02 04:33:52,966 - ERROR - Could not find and lock available port in range 50000-54999 after 5 attempts
+2026-02-02 04:33:52,966 - WARNING - Port locking failed for range (50000, 54999), falling back to original method
+2026-02-02 04:33:53,012 - ERROR - Could not find and lock available port in range 55000-59999 after 5 attempts
+2026-02-02 04:33:53,013 - WARNING - Port locking failed for range (55000, 59999), falling back to original method
+2026-02-02 04:33:53,054 - INFO - [runtime e79439f0-e9e0-41-466a7d14a7215e0] Starting server with command: ['/openhands/micromamba/bin/micromamba', 'run', '-n', 'openhands', 'poetry', 'run', 'python', '-u', '-m', 'openhands.runtime.action_execution_server', '35617', '--working-dir', '/workspace', '--plugins', 'agent_skills', 'jupyter', '--username', 'root', '--user-id', '0']
+2026-02-02 04:33:53,760 - INFO - [runtime e79439f0-e9e0-41-466a7d14a7215e0] Container started: openhands-runtime-e79439f0-e9e0-41-466a7d14a7215e0. VSCode URL: None
+2026-02-02 04:33:53,761 - INFO - [runtime e79439f0-e9e0-41-466a7d14a7215e0] Waiting for client to become ready at http://localhost:35617...
+2026-02-02 04:34:23,931 - INFO - [runtime e79439f0-e9e0-41-466a7d14a7215e0] Runtime is ready.
+2026-02-02 04:34:26,388 - INFO - Successfully configured git: name=openhands, email=openhands@all-hands.dev
+2026-02-02 04:34:26,392 - INFO - ------------------------------
+2026-02-02 04:34:26,393 - INFO - BEGIN Runtime Initialization Fn
+2026-02-02 04:34:26,393 - INFO - ------------------------------
+2026-02-02 04:34:26,394 - INFO - **CmdRunAction (source=None, is_input=False)**
+COMMAND:
+echo 'export SWE_INSTANCE_ID=aws-cloudformation__cfn-lint-3470' >> ~/.bashrc && echo 'export PIP_CACHE_DIR=~/.cache/pip' >> ~/.bashrc && echo "alias git='git --no-pager'" >> ~/.bashrc && echo 'export REPO_NAME=cfn-lint' >> ~/.bashrc
+2026-02-02 04:34:26,573 - INFO - **CmdOutputObservation (source=None, exit code=0, metadata={
+  "exit_code": 0,
+  "pid": -1,
+  "username": "root",
+  "hostname": "f0f08f8fb1d3",
+  "working_dir": "/workspace",
+  "py_interpreter_path": "/openhands/micromamba/envs/openhands/bin/python",
+  "prefix": "",
+  "suffix": "\n[The command completed with exit code 0.]"
+})**
+--BEGIN AGENT OBSERVATION--
+
+[The command completed with exit code 0.]
+[Current working directory: /workspace]
+[Python interpreter: /openhands/micromamba/envs/openhands/bin/python]
+[Command finished with exit code 0]
+--END AGENT OBSERVATION--
+2026-02-02 04:34:26,574 - INFO - **CmdRunAction (source=None, is_input=False)**
+COMMAND:
+export USER=$(whoami); echo USER=${USER} 
+2026-02-02 04:34:27,260 - INFO - **CmdOutputObservation (source=None, exit code=0, metadata={
+  "exit_code": 0,
+  "pid": -1,
+  "username": "root",
+  "hostname": "f0f08f8fb1d3",
+  "working_dir": "/workspace",
+  "py_interpreter_path": "/openhands/micromamba/envs/openhands/bin/python",
+  "prefix": "",
+  "suffix": "\n[The command completed with exit code 0.]"
+})**
+--BEGIN AGENT OBSERVATION--
+USER=root
+[The command completed with exit code 0.]
+[Current working directory: /workspace]
+[Python interpreter: /openhands/micromamba/envs/openhands/bin/python]
+[Command finished with exit code 0]
+--END AGENT OBSERVATION--
+2026-02-02 04:34:27,261 - INFO - **CmdRunAction (source=None, is_input=False)**
+COMMAND:
+mkdir -p /swe_util/eval_data/instances
+2026-02-02 04:34:27,942 - INFO - **CmdOutputObservation (source=None, exit code=0, metadata={
+  "exit_code": 0,
+  "pid": -1,
+  "username": "root",
+  "hostname": "f0f08f8fb1d3",
+  "working_dir": "/workspace",
+  "py_interpreter_path": "/openhands/micromamba/envs/openhands/bin/python",
+  "prefix": "",
+  "suffix": "\n[The command completed with exit code 0.]"
+})**
+--BEGIN AGENT OBSERVATION--
+
+[The command completed with exit code 0.]
+[Current working directory: /workspace]
+[Python interpreter: /openhands/micromamba/envs/openhands/bin/python]
+[Command finished with exit code 0]
+--END AGENT OBSERVATION--
+2026-02-02 04:34:28,053 - INFO - **CmdRunAction (source=None, is_input=False)**
+COMMAND:
+cat ~/.bashrc
+2026-02-02 04:34:28,737 - INFO - **CmdOutputObservation (source=None, exit code=0, metadata={
+  "exit_code": 0,
+  "pid": -1,
+  "username": "root",
+  "hostname": "f0f08f8fb1d3",
+  "working_dir": "/workspace",
+  "py_interpreter_path": "/openhands/micromamba/envs/openhands/bin/python",
+  "prefix": "",
+  "suffix": "\n[The command completed with exit code 0.]"
+})**
+--BEGIN AGENT OBSERVATION--
+# ~/.bashrc: executed by bash(1) for non-login shells.
+
+# Note: PS1 is set in /etc/profile, and the default umask is defined
+# in /etc/login.defs. You should not need this unless you want different
+# defaults for root.
+# PS1='${debian_chroot:+($debian_chroot)}\h:\w\$ '
+# umask 022
+
+# You may uncomment the following lines if you want `ls' to be colorized:
+# export LS_OPTIONS='--color=auto'
+# eval "$(dircolors)"
+# alias ls='ls $LS_OPTIONS'
+# alias ll='ls $LS_OPTIONS -l'
+# alias l='ls $LS_OPTIONS -lA'
+#
+# Some more alias to avoid making mistakes:
+# alias rm='rm -i'
+# alias cp='cp -i'
+# alias mv='mv -i'
+
+. "/openhands/bin/env"
+export PATH="/usr/bin:/bin:/usr/sbin:/sbin:/openhands/micromamba/bin:$PATH"
+export PLAYWRIGHT_BROWSERS_PATH=/opt/playwright-browsers
+eval "$(/openhands/micromamba/bin/micromamba shell hook --shell bash)"
+micromamba activate openhands 2>/dev/null || true
+export ENABLE_AUTO_LINT=true
+export NO_CHANGE_TIMEOUT_SECONDS=30
+export SWE_INSTANCE_ID=aws-cloudformation__cfn-lint-3470
+export PIP_CACHE_DIR=~/.cache/pip
+alias git='git --no-pager'
+export REPO_NAME=cfn-lint
+[The command completed with exit code 0.]
+[Current working directory: /workspace]
+[Python interpreter: /openhands/micromamba/envs/openhands/bin/python]
+[Command finished with exit code 0]
+--END AGENT OBSERVATION--
+2026-02-02 04:34:28,738 - INFO - **CmdRunAction (source=None, is_input=False)**
+COMMAND:
+source ~/.bashrc
+2026-02-02 04:34:29,425 - INFO - **CmdOutputObservation (source=None, exit code=0, metadata={
+  "exit_code": 0,
+  "pid": -1,
+  "username": "root",
+  "hostname": "f0f08f8fb1d3",
+  "working_dir": "/workspace",
+  "py_interpreter_path": "/openhands/micromamba/envs/openhands/bin/python",
+  "prefix": "",
+  "suffix": "\n[The command completed with exit code 0.]"
+})**
+--BEGIN AGENT OBSERVATION--
+
+[The command completed with exit code 0.]
+[Current working directory: /workspace]
+[Python interpreter: /openhands/micromamba/envs/openhands/bin/python]
+[Command finished with exit code 0]
+--END AGENT OBSERVATION--
+2026-02-02 04:34:29,426 - INFO - **CmdRunAction (source=None, is_input=False)**
+COMMAND:
+source /swe_util/instance_swe_entry.sh
+2026-02-02 04:34:30,621 - INFO - **CmdOutputObservation (source=None, exit code=0, metadata={
+  "exit_code": 0,
+  "pid": -1,
+  "username": "root",
+  "hostname": "f0f08f8fb1d3",
+  "working_dir": "/workspace",
+  "py_interpreter_path": "/openhands/micromamba/envs/openhands/bin/python",
+  "prefix": "",
+  "suffix": "\n[The command completed with exit code 0.]"
+})**
+--BEGIN AGENT OBSERVATION--
+WORKSPACE_NAME: aws-cloudformation__cfn-lint__d598742504a6a6af0e5d882b6876f2f30007b851
+[The command completed with exit code 0.]
+[Current working directory: /workspace]
+[Python interpreter: /openhands/micromamba/envs/openhands/bin/python]
+[Command finished with exit code 0]
+--END AGENT OBSERVATION--
+2026-02-02 04:34:30,622 - INFO - **CmdRunAction (source=None, is_input=False)**
+COMMAND:
+cd /workspace/aws-cloudformation__cfn-lint__d598742504a6a6af0e5d882b6876f2f30007b851
+2026-02-02 04:34:30,794 - INFO - **CmdOutputObservation (source=None, exit code=0, metadata={
+  "exit_code": 0,
+  "pid": -1,
+  "username": "root",
+  "hostname": "f0f08f8fb1d3",
+  "working_dir": "/workspace/aws-cloudformation__cfn-lint__d598742504a6a6af0e5d882b6876f2f30007b851",
+  "py_interpreter_path": "/openhands/micromamba/envs/openhands/bin/python",
+  "prefix": "",
+  "suffix": "\n[The command completed with exit code 0.]"
+})**
+--BEGIN AGENT OBSERVATION--
+
+[The command completed with exit code 0.]
+[Current working directory: /workspace/aws-cloudformation__cfn-lint__d598742504a6a6af0e5d882b6876f2f30007b851]
+[Python interpreter: /openhands/micromamba/envs/openhands/bin/python]
+[Command finished with exit code 0]
+--END AGENT OBSERVATION--
+2026-02-02 04:34:30,794 - INFO - **CmdRunAction (source=None, is_input=False)**
+COMMAND:
+git reset --hard
+2026-02-02 04:34:31,479 - INFO - **CmdOutputObservation (source=None, exit code=0, metadata={
+  "exit_code": 0,
+  "pid": -1,
+  "username": "root",
+  "hostname": "f0f08f8fb1d3",
+  "working_dir": "/workspace/aws-cloudformation__cfn-lint__d598742504a6a6af0e5d882b6876f2f30007b851",
+  "py_interpreter_path": "/openhands/micromamba/envs/openhands/bin/python",
+  "prefix": "",
+  "suffix": "\n[The command completed with exit code 0.]"
+})**
+--BEGIN AGENT OBSERVATION--
+HEAD is now at d59874250 Don't fail anyOf on warnings (#3469)
+[The command completed with exit code 0.]
+[Current working directory: /workspace/aws-cloudformation__cfn-lint__d598742504a6a6af0e5d882b6876f2f30007b851]
+[Python interpreter: /openhands/micromamba/envs/openhands/bin/python]
+[Command finished with exit code 0]
+--END AGENT OBSERVATION--
+2026-02-02 04:34:31,480 - INFO - **CmdRunAction (source=None, is_input=False)**
+COMMAND:
+for remote_name in $(git remote); do git remote remove "${remote_name}"; done
+2026-02-02 04:34:32,170 - INFO - **CmdOutputObservation (source=None, exit code=0, metadata={
+  "exit_code": 0,
+  "pid": -1,
+  "username": "root",
+  "hostname": "f0f08f8fb1d3",
+  "working_dir": "/workspace/aws-cloudformation__cfn-lint__d598742504a6a6af0e5d882b6876f2f30007b851",
+  "py_interpreter_path": "/openhands/micromamba/envs/openhands/bin/python",
+  "prefix": "",
+  "suffix": "\n[The command completed with exit code 0.]"
+})**
+--BEGIN AGENT OBSERVATION--
+
+[The command completed with exit code 0.]
+[Current working directory: /workspace/aws-cloudformation__cfn-lint__d598742504a6a6af0e5d882b6876f2f30007b851]
+[Python interpreter: /openhands/micromamba/envs/openhands/bin/python]
+[Command finished with exit code 0]
+--END AGENT OBSERVATION--
+2026-02-02 04:34:32,170 - INFO - ------------------------------
+2026-02-02 04:34:32,171 - INFO - END Runtime Initialization Fn
+2026-02-02 04:34:32,171 - INFO - ------------------------------
+2026-02-02 04:34:32,174 - INFO - [LLM registry e20069ae-fc9d-4e3e-ab0f-17cb79322c92]: Registering service for agent
+2026-02-02 04:34:32,225 - INFO - [runtime e79439f0-e9e0-41-466a7d14a7215e0] Selected repo: None, loading microagents from /workspace/.openhands/microagents (inside runtime)
+2026-02-02 04:34:32,234 - INFO - [runtime e79439f0-e9e0-41-466a7d14a7215e0] Attempting to list files in repository microagents directory: /workspace/.openhands/microagents
+2026-02-02 04:34:32,243 - INFO - Loading user workspace microagents: []
+2026-02-02 04:34:32,243 - WARNING - No search engine API key found, skipping search engine
+2026-02-02 04:34:32,244 - WARNING - Added microagent stdio server: fetch
+2026-02-02 04:34:32,316 - INFO - [runtime e79439f0-e9e0-41-466a7d14a7215e0] Updated MCP config: []
+2026-02-02 04:34:32,317 - INFO - Initializing MCP agent for url='http://localhost:35617/mcp/sse' api_key='******' with SSE connection...
+2026-02-02 04:34:38,649 - INFO - Connected to server with tools: ['fetch']
+2026-02-02 04:34:38,650 - INFO - Loaded 1 MCP tools: ['fetch']
+2026-02-02 04:34:38,651 - INFO - Setting 1 MCP tools for agent CodeActAgent: ['fetch']
+2026-02-02 04:34:38,651 - INFO - Tools updated for agent CodeActAgent, total 6: ['execute_bash', 'think', 'finish', 'task_tracker', 'str_replace_editor', 'fetch']
+2026-02-02 04:34:38,652 - INFO - AgentController e79439f0-e9e0-41-466a7d14a7215e0 - created new state. start_id: 0
+2026-02-02 04:34:38,676 - INFO - [Agent Controller e79439f0-e9e0-41-466a7d14a7215e0] Setting agent(CodeActAgent) state from loading to running
+2026-02-02 04:34:38,684 - INFO - Saved conversation stats
+2026-02-02 04:37:43,822 - INFO - [Agent Controller e79439f0-e9e0-41-466a7d14a7215e0] Setting agent(CodeActAgent) state from running to awaiting_user_input
+2026-02-02 04:37:43,828 - INFO - Saved conversation stats
+2026-02-02 04:37:43,833 - INFO - [Agent Controller e79439f0-e9e0-41-466a7d14a7215e0] Setting agent(CodeActAgent) state from awaiting_user_input to running
+2026-02-02 04:37:43,838 - INFO - Saved conversation stats
+2026-02-02 04:37:43,842 - WARNING - Control flag limits hit
+2026-02-02 04:37:43,843 - ERROR - RuntimeError: Agent reached maximum iteration. Current iteration: 30, max iteration: 30
+2026-02-02 04:37:43,844 - INFO - [Agent Controller e79439f0-e9e0-41-466a7d14a7215e0] Setting agent(CodeActAgent) state from running to error
+2026-02-02 04:37:43,846 - INFO - Saved conversation stats
+2026-02-02 04:37:43,847 - INFO - [Agent Controller e79439f0-e9e0-41-466a7d14a7215e0] Setting agent(CodeActAgent) state from error to error
+2026-02-02 04:37:43,949 - INFO - ------------------------------
+2026-02-02 04:37:43,950 - INFO - BEGIN Runtime Completion Fn
+2026-02-02 04:37:43,950 - INFO - ------------------------------
+2026-02-02 04:37:43,951 - INFO - **CmdRunAction (source=None, is_input=False)**
+COMMAND:
+cd /workspace/aws-cloudformation__cfn-lint__d598742504a6a6af0e5d882b6876f2f30007b851
+2026-02-02 04:37:44,122 - INFO - **CmdOutputObservation (source=None, exit code=0, metadata={
+  "exit_code": 0,
+  "pid": -1,
+  "username": "root",
+  "hostname": "f0f08f8fb1d3",
+  "working_dir": "/workspace/aws-cloudformation__cfn-lint__d598742504a6a6af0e5d882b6876f2f30007b851",
+  "py_interpreter_path": "/openhands/micromamba/envs/openhands/bin/python",
+  "prefix": "",
+  "suffix": "\n[The command completed with exit code 0.]"
+})**
+--BEGIN AGENT OBSERVATION--
+
+[The command completed with exit code 0.]
+[Current working directory: /workspace/aws-cloudformation__cfn-lint__d598742504a6a6af0e5d882b6876f2f30007b851]
+[Python interpreter: /openhands/micromamba/envs/openhands/bin/python]
+[Command finished with exit code 0]
+--END AGENT OBSERVATION--
+2026-02-02 04:37:44,122 - INFO - **CmdRunAction (source=None, is_input=False)**
+COMMAND:
+git config --global core.pager ""
+2026-02-02 04:37:44,800 - INFO - **CmdOutputObservation (source=None, exit code=0, metadata={
+  "exit_code": 0,
+  "pid": -1,
+  "username": "root",
+  "hostname": "f0f08f8fb1d3",
+  "working_dir": "/workspace/aws-cloudformation__cfn-lint__d598742504a6a6af0e5d882b6876f2f30007b851",
+  "py_interpreter_path": "/openhands/micromamba/envs/openhands/bin/python",
+  "prefix": "",
+  "suffix": "\n[The command completed with exit code 0.]"
+})**
+--BEGIN AGENT OBSERVATION--
+
+[The command completed with exit code 0.]
+[Current working directory: /workspace/aws-cloudformation__cfn-lint__d598742504a6a6af0e5d882b6876f2f30007b851]
+[Python interpreter: /openhands/micromamba/envs/openhands/bin/python]
+[Command finished with exit code 0]
+--END AGENT OBSERVATION--
+2026-02-02 04:37:44,801 - INFO - **CmdRunAction (source=None, is_input=False)**
+COMMAND:
+git add -A
+2026-02-02 04:37:45,483 - INFO - **CmdOutputObservation (source=None, exit code=0, metadata={
+  "exit_code": 0,
+  "pid": -1,
+  "username": "root",
+  "hostname": "f0f08f8fb1d3",
+  "working_dir": "/workspace/aws-cloudformation__cfn-lint__d598742504a6a6af0e5d882b6876f2f30007b851",
+  "py_interpreter_path": "/openhands/micromamba/envs/openhands/bin/python",
+  "prefix": "",
+  "suffix": "\n[The command completed with exit code 0.]"
+})**
+--BEGIN AGENT OBSERVATION--
+
+[The command completed with exit code 0.]
+[Current working directory: /workspace/aws-cloudformation__cfn-lint__d598742504a6a6af0e5d882b6876f2f30007b851]
+[Python interpreter: /openhands/micromamba/envs/openhands/bin/python]
+[Command finished with exit code 0]
+--END AGENT OBSERVATION--
+2026-02-02 04:37:45,484 - INFO - **CmdRunAction (source=None, is_input=False)**
+COMMAND:
+
+        for file in $(git status --porcelain | grep -E "^(M| M|\?\?|A| A)" | cut -c4-); do
+            if [ -f "$file" ] && (file "$file" | grep -q "executable" || git check-attr binary "$file" | grep -q "binary: set"); then
+                git rm -f "$file" 2>/dev/null || rm -f "$file"
+                echo "Removed: $file"
+            fi
+        done
+        
+2026-02-02 04:37:46,182 - INFO - **CmdOutputObservation (source=None, exit code=0, metadata={
+  "exit_code": 0,
+  "pid": -1,
+  "username": "root",
+  "hostname": "f0f08f8fb1d3",
+  "working_dir": "/workspace/aws-cloudformation__cfn-lint__d598742504a6a6af0e5d882b6876f2f30007b851",
+  "py_interpreter_path": "/openhands/micromamba/envs/openhands/bin/python",
+  "prefix": "",
+  "suffix": "\n[The command completed with exit code 0.]"
+})**
+--BEGIN AGENT OBSERVATION--
+rm 'src/cfnlint/context/context.py'
+Removed: src/cfnlint/context/context.py
+rm 'test_reproduction.py'
+Removed: test_reproduction.py
+[The command completed with exit code 0.]
+[Current working directory: /workspace/aws-cloudformation__cfn-lint__d598742504a6a6af0e5d882b6876f2f30007b851]
+[Python interpreter: /openhands/micromamba/envs/openhands/bin/python]
+[Command finished with exit code 0]
+--END AGENT OBSERVATION--
+2026-02-02 04:37:46,184 - INFO - **CmdRunAction (source=None, is_input=False)**
+COMMAND:
+git diff --no-color --cached d598742504a6a6af0e5d882b6876f2f30007b851 > patch.diff
+2026-02-02 04:37:46,867 - INFO - **CmdOutputObservation (source=None, exit code=0, metadata={
+  "exit_code": 0,
+  "pid": -1,
+  "username": "root",
+  "hostname": "f0f08f8fb1d3",
+  "working_dir": "/workspace/aws-cloudformation__cfn-lint__d598742504a6a6af0e5d882b6876f2f30007b851",
+  "py_interpreter_path": "/openhands/micromamba/envs/openhands/bin/python",
+  "prefix": "",
+  "suffix": "\n[The command completed with exit code 0.]"
+})**
+--BEGIN AGENT OBSERVATION--
+
+[The command completed with exit code 0.]
+[Current working directory: /workspace/aws-cloudformation__cfn-lint__d598742504a6a6af0e5d882b6876f2f30007b851]
+[Python interpreter: /openhands/micromamba/envs/openhands/bin/python]
+[Command finished with exit code 0]
+--END AGENT OBSERVATION--
+2026-02-02 04:37:46,868 - INFO - FileReadAction(path='patch.diff', start=0, end=-1, thought='', action=<ActionType.READ: 'read'>, security_risk=<ActionSecurityRisk.UNKNOWN: -1>, impl_source=<FileReadSource.DEFAULT: 'default'>, view_range=None)
+2026-02-02 04:37:46,878 - INFO - ------------------------------
+2026-02-02 04:37:46,879 - INFO - END Runtime Completion Fn
+2026-02-02 04:37:46,879 - INFO - ------------------------------
+2026-02-02 04:37:46,879 - INFO - Got git diff for instance aws-cloudformation__cfn-lint-3470:
+--------
+diff --git a/src/cfnlint/context/context.py b/src/cfnlint/context/context.py
+deleted file mode 100644
+index e3aaeba8d..000000000
+--- a/src/cfnlint/context/context.py
++++ /dev/null
+@@ -1,441 +0,0 @@
+-"""
+-Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+-SPDX-License-Identifier: MIT-0
+-"""
+-
+-from __future__ import annotations
+-
+-from abc import ABC, abstractmethod
+-from collections import deque
+-from dataclasses import InitVar, dataclass, field, fields
+-from typing import Any, Deque, Iterator, Sequence, Set, Tuple
+-
+-from cfnlint.context._conditions import Conditions
+-from cfnlint.context._mappings import Mappings
+-from cfnlint.helpers import (
+-    BOOLEAN_STRINGS_TRUE,
+-    FUNCTIONS,
+-    PSEUDOPARAMS,
+-    REGION_PRIMARY,
+-    TRANSFORM_SAM,
+-)
+-from cfnlint.schema import PROVIDER_SCHEMA_MANAGER, AttributeDict
+-
+-_PSEUDOPARAMS_NON_REGION = ["AWS::AccountId", "AWS::NoValue", "AWS::StackName"]
+-
+-
+-@dataclass
+-class Transforms:
+-    # Template level parameters
+-    transforms: InitVar[str | list[str] | None]
+-    _transforms: list[str] = field(init=False, default_factory=list)
+-
+-    def __post_init__(self, transforms) -> None:
+-        if transforms is None:
+-            return
+-        if not isinstance(transforms, list):
+-            transforms = [transforms]
+-
+-        for transform in transforms:
+-            if not isinstance(transform, str):
+-                raise ValueError("Transform must be a string")
+-            self._transforms.append(transform)
+-
+-    def has_language_extensions_transform(self):
+-        lang_extensions_transform = "AWS::LanguageExtensions"
+-        return bool(lang_extensions_transform in self._transforms)
+-
+-    def has_sam_transform(self):
+-        return bool(TRANSFORM_SAM in self._transforms)
+-
+-
+-@dataclass(frozen=True)
+-class Path:
+-    """
+-    A `Path` keeps track of the different Path values
+-    """
+-
+-    # path keeps track of the path as we move down the template
+-    # Example: Resources, MyResource, Properties, Name, ...
+-    path: Deque[str | int] = field(init=True, default_factory=deque)
+-
+-    # value_path is an override of the value if we got it from another place
+-    # like a Parameter default value
+-    # Example: Parameters, MyParameter, Default, ...
+-    value_path: Deque[str | int] = field(init=True, default_factory=deque)
+-
+-    # cfn_path is a generic path used by cfn-lint to help make
+-    # writing rules easier.  The resource name is replaced by the type
+-    # lists are replaced with a *
+-    # Example: Resources, AWS::S3::Bucket, Properties, Name, ...
+-    # Example: Resources, *, Type
+-    cfn_path: Deque[str] = field(init=True, default_factory=deque)
+-
+-    def descend(self, **kwargs) -> "Path":
+-        """
+-        Create a new Path by appending values
+-        """
+-        cls = self.__class__
+-
+-        if kwargs.get("cfn_path") in FUNCTIONS:
+-            raise ValueError(f"{kwargs['cfn_path']!r} cannot be in 'cfn_path'")
+-        elif isinstance(kwargs.get("cfn_path"), int):
+-            raise ValueError(f"{kwargs['cfn_path']!r} cannot be an integer")
+-
+-        for f in fields(Path):
+-            if kwargs.get(f.name) is not None:
+-                kwargs[f.name] = getattr(self, f.name) + deque([kwargs[f.name]])
+-            else:
+-                kwargs[f.name] = getattr(self, f.name)
+-
+-        return cls(**kwargs)
+-
+-    def evolve(self, **kwargs):
+-        """
+-        Create a new path without appending values
+-        """
+-        cls = self.__class__
+-
+-        for f in fields(Path):
+-            kwargs.setdefault(f.name, getattr(self, f.name))
+-
+-        return cls(**kwargs)
+-
+-    @property
+-    def path_string(self):
+-        return "/".join(str(p) for p in self.path)
+-
+-    @property
+-    def cfn_path_string(self):
+-        return "/".join(self.cfn_path)
+-
+-
+-@dataclass(frozen=True)
+-class Context:
+-    """
+-    A `Context` keeps track of the current context that we are evaluating against
+-    Arguments:
+-
+-        region:
+-
+-            The region being evaluated against.
+-
+-        conditions:
+-
+-            The conditions being used and their current state
+-    """
+-
+-    # what regions we are processing
+-    regions: Sequence[str] = field(
+-        init=True, default_factory=lambda: list([REGION_PRIMARY])
+-    )
+-
+-    # supported functions at this point in the template
+-    functions: Sequence[str] = field(init=True, default_factory=list)
+-
+-    path: Path = field(init=True, default_factory=Path)
+-
+-    # cfn-lint Template class
+-    parameters: dict[str, "Parameter"] = field(init=True, default_factory=dict)
+-    resources: dict[str, "Resource"] = field(init=True, default_factory=dict)
+-    conditions: Conditions = field(init=True, default_factory=Conditions)
+-    mappings: Mappings = field(init=True, default_factory=Mappings)
+-
+-    strict_types: bool = field(init=True, default=True)
+-
+-    pseudo_parameters: Set[str] = field(
+-        init=True, default_factory=lambda: set(PSEUDOPARAMS)
+-    )
+-
+-    # Combiniation of storing any resolved ref
+-    # and adds in any Refs available from things like Fn::Sub
+-    ref_values: dict[str, Any] = field(init=True, default_factory=dict)
+-
+-    transforms: Transforms = field(init=True, default_factory=lambda: Transforms([]))
+-
+-    def evolve(self, **kwargs) -> "Context":
+-        """
+-        Create a new context without merging together attributes
+-        """
+-        cls = self.__class__
+-
+-        if "ref_values" in kwargs:
+-            new_ref_values = self.ref_values.copy()
+-            new_ref_values.update(kwargs["ref_values"])
+-            kwargs["ref_values"] = new_ref_values
+-
+-        for f in fields(Context):
+-            if f.init:
+-                kwargs.setdefault(f.name, getattr(self, f.name))
+-
+-        return cls(**kwargs)
+-
+-    def ref_value(self, instance: str) -> Iterator[Tuple[str | list[str], "Context"]]:
+-        if instance in PSEUDOPARAMS and instance not in self.pseudo_parameters:
+-            return
+-
+-        if instance in self.ref_values:
+-            yield self.ref_values[instance], self
+-            return
+-
+-        # Non regionalized items first
+-        if instance in _PSEUDOPARAMS_NON_REGION and instance in self.pseudo_parameters:
+-            pseudo_value = _get_pseudo_value(instance)
+-            if pseudo_value is not None:
+-                yield pseudo_value, self.evolve(ref_values={instance: pseudo_value})
+-            return
+-        if instance in self.parameters:
+-            for v, path in self.parameters[instance].ref(self):
+-
+-                # validate that ref is possible with path
+-                # need to evaluate if Fn::If would be not true if value is
+-                # what it is
+-                yield v, self.evolve(
+-                    path=self.path.evolve(
+-                        value_path=deque(["Parameters", instance]) + path
+-                    ),
+-                    ref_values={instance: v},
+-                )
+-            return
+-
+-        # Regionalized values second
+-        if instance in PSEUDOPARAMS and instance in self.pseudo_parameters:
+-            for region in self.regions:
+-                # We can resolve all region based pseudo values
+-                # as we are now deciding on a region.
+-                yield _get_pseudo_value_by_region(instance, region), self.evolve(
+-                    regions=[region],
+-                    ref_values={
+-                        p: _get_pseudo_value_by_region(p, region)
+-                        for p in PSEUDOPARAMS
+-                        if p not in _PSEUDOPARAMS_NON_REGION
+-                    },
+-                )
+-
+-    @property
+-    def refs(self):
+-        pseudo_params = list(self.pseudo_parameters)
+-        pseudo_params.sort()
+-        return (
+-            list(self.parameters.keys())
+-            + list(self.resources.keys())
+-            + pseudo_params
+-            + list(self.ref_values.keys())
+-        )
+-
+-
+-def _get_pseudo_value(parameter: str) -> str | list[str] | None:
+-    if parameter == "AWS::AccountId":
+-        return "123456789012"
+-    if parameter == "AWS::StackName":
+-        return "teststack"
+-    return None
+-
+-
+-def _get_pseudo_value_by_region(parameter: str, region: str) -> str | list[str]:
+-    if parameter == "AWS::NotificationARNs":
+-        return [f"arn:{_get_partition(region)}:sns:{region}:123456789012:notification"]
+-    if parameter == "AWS::Partition":
+-        return _get_partition(region)
+-    if parameter == "AWS::Region":
+-        return region
+-    if parameter == "AWS::StackId":
+-        return (
+-            f"arn:{_get_partition(region)}:cloudformation:{region}"
+-            ":123456789012:stack/teststack/51af3dc0-da77-11e4-872e-1234567db123"
+-        )
+-    if region in ("cn-north-1", "cn-northwest-1"):
+-        return "amazonaws.com.cn"
+-    else:
+-        return "amazonaws.com"
+-
+-
+-def _get_partition(region) -> str:
+-    if region in ("us-gov-east-1", "us-gov-west-1"):
+-        return "aws-us-gov"
+-    if region in ("cn-north-1", "cn-northwest-1"):
+-        return "aws-cn"
+-    else:
+-        return "aws"
+-
+-
+-class _Ref(ABC):
+-    """
+-    Abstract class for all ref types
+-    """
+-
+-    @abstractmethod
+-    def ref(self, context: Context) -> Iterator[Any]:
+-        pass
+-
+-
+-@dataclass
+-class Parameter(_Ref):
+-    """
+-    This class holds a parameter and its attributes
+-    """
+-
+-    type: str = field(init=False)
+-    default: Any = field(init=False)
+-    allowed_values: Any = field(init=False)
+-    description: str | None = field(init=False)
+-
+-    parameter: InitVar[Any]
+-
+-    def __post_init__(self, parameter) -> None:
+-        if not isinstance(parameter, dict):
+-            raise ValueError("Parameter must be a object")
+-        self.default = None
+-        self.allowed_values = []
+-        self.min_value = None
+-        self.max_value = None
+-        self.no_echo = False
+-
+-        t = parameter.get("Type")
+-        if not isinstance(t, str):
+-            raise ValueError("Type must be a string")
+-        self.type = t
+-
+-        self.description = parameter.get("Description")
+-
+-        # SSM Parameter defaults and allowed values point to
+-        # SSM paths not to the actual values
+-        if self.type.startswith("AWS::SSM::Parameter::"):
+-            return
+-
+-        if self.type == "CommaDelimitedList" or self.type.startswith("List<"):
+-            if "Default" in parameter:
+-                default = parameter.get("Default", "")
+-                if isinstance(default, str):
+-                    self.default = default.split(",")
+-                else:
+-                    self.default = [default]
+-            for allowed_value in parameter.get("AllowedValues", []):
+-                if isinstance(allowed_value, str):
+-                    self.allowed_values.append(allowed_value.split(","))
+-                else:
+-                    self.allowed_values.append([allowed_value])
+-        else:
+-            self.default = parameter.get("Default")
+-            self.allowed_values = parameter.get("AllowedValues")
+-
+-        self.min_value = parameter.get("MinValue")
+-        self.max_value = parameter.get("MaxValue")
+-        if parameter.get("NoEcho") in list(BOOLEAN_STRINGS_TRUE) + [True]:
+-            self.no_echo = True
+-
+-    def ref(self, context: Context) -> Iterator[Tuple[Any, deque]]:
+-        if self.allowed_values:
+-            for i, allowed_value in enumerate(self.allowed_values):
+-                if isinstance(allowed_value, list):
+-                    yield [str(x) for x in allowed_value], deque(["AllowedValues", i])
+-                else:
+-                    yield str(allowed_value), deque(["AllowedValues", i])
+-            # assume default is an allowed value so we skip it
+-            return
+-
+-        if self.default is not None:
+-            if isinstance(self.default, list):
+-                yield [str(x) for x in self.default], deque(["Default"])
+-            else:
+-                yield str(self.default), deque(["Default"])
+-
+-        if self.min_value is not None:
+-            yield str(self.min_value), deque(["MinValue"])
+-
+-        if self.max_value is not None:
+-            yield str(self.max_value), deque(["MaxValue"])
+-
+-
+-@dataclass
+-class Resource(_Ref):
+-    """
+-    This class holds a resources and its type
+-    """
+-
+-    type: str = field(init=False)
+-    resource: InitVar[Any]
+-
+-    def __post_init__(self, resource) -> None:
+-        if not isinstance(resource, dict):
+-            raise ValueError("Resource must be a object")
+-        t = resource.get("Type")
+-        if not isinstance(t, str):
+-            raise ValueError("Type must be a string")
+-        self.type = t
+-        if self.type.startswith("Custom::"):
+-            self.type = "AWS::CloudFormation::CustomResource"
+-
+-    @property
+-    def get_atts(self, region: str = "us-east-1") -> AttributeDict:
+-        return PROVIDER_SCHEMA_MANAGER.get_type_getatts(self.type, region)
+-
+-    def ref(self, context: Context) -> Iterator[Any]:
+-        return
+-        yield
+-
+-
+-def _init_parameters(parameters: Any) -> dict[str, Parameter]:
+-    obj = {}
+-    if not isinstance(parameters, dict):
+-        raise ValueError("Parameters must be a object")
+-    for k, v in parameters.items():
+-        try:
+-            obj[k] = Parameter(v)
+-        except ValueError:
+-            pass
+-
+-    return obj
+-
+-
+-def _init_resources(resources: Any) -> dict[str, Resource]:
+-    obj = {}
+-    if not isinstance(resources, dict):
+-        raise ValueError("Resource must be a object")
+-    for k, v in resources.items():
+-        try:
+-            obj[k] = Resource(v)
+-        except ValueError:
+-            pass
+-    return obj
+-
+-
+-def _init_transforms(transforms: Any) -> Transforms:
+-    if isinstance(transforms, (str, list)):
+-        return Transforms(transforms)
+-    return Transforms([])
+-
+-
+-def create_context_for_template(cfn):
+-    parameters = {}
+-    try:
+-        parameters = _init_parameters(cfn.template.get("Parameters", {}))
+-    except (ValueError, AttributeError):
+-        pass
+-
+-    resources = {}
+-    try:
+-        resources = _init_resources(cfn.template.get("Resources", {}))
+-    except (ValueError, AttributeError):
+-        pass
+-
+-    transforms = _init_transforms(cfn.template.get("Transform", []))
+-
+-    conditions = Conditions({})
+-    try:
+-        conditions = Conditions.create_from_instance(cfn.template.get("Conditions", {}))
+-    except (ValueError, AttributeError):
+-        pass
+-
+-    mappings = Mappings.create_from_dict(cfn.template.get("Mappings", {}))
+-
+-    return Context(
+-        parameters=parameters,
+-        resources=resources,
+-        conditions=conditions,
+-        transforms=transforms,
+-        mappings=mappings,
+-        regions=cfn.regions,
+-        path=Path(),
+-        functions=["Fn::Transform"],
+-    )
+
+--------

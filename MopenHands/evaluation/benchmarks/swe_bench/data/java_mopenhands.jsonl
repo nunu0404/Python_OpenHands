@@ -1,0 +1,3 @@
+{"instance_id": "fasterxml__jackson-core-174", "repo": "fasterxml/jackson-core", "base_commit": "HEAD", "problem_statement": "Add JsonPointer.last() method to get the leaf segment of the pointer.", "version": "0.1", "PASS_TO_PASS": "[]", "FAIL_TO_PASS": "[]"}
+{"instance_id": "fasterxml__jackson-core-1016", "repo": "fasterxml/jackson-core", "base_commit": "HEAD", "problem_statement": "JsonParser.getNumberType() returns incorrect result.", "version": "0.1", "PASS_TO_PASS": "[]", "FAIL_TO_PASS": "[]"}
+{"instance_id": "fasterxml__jackson-core-1053", "repo": "fasterxml/jackson-core", "base_commit": "HEAD", "problem_statement": "JsonParser issue with stream.", "version": "0.1", "PASS_TO_PASS": "[]", "FAIL_TO_PASS": "[]"}

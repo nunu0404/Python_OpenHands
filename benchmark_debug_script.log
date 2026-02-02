@@ -1,0 +1,351 @@
+[92m04:56:50 - openhands:INFO[0m: run_infer.py:56 - Using docker image prefix: mswebench
+[92m04:56:50 - openhands:INFO[0m: run_infer.py:792 - Loading dataset /home/seongminju/openhands/OpenHands-main/evaluation/benchmarks/multi_swe_bench/processed_java_dataset.jsonl with split train 
+[92m04:57:06 - openhands:INFO[0m: run_infer.py:813 - Loaded dataset /home/seongminju/openhands/OpenHands-main/evaluation/benchmarks/multi_swe_bench/processed_java_dataset.jsonl with split train: 128 tasks
+[92m04:57:06 - openhands:INFO[0m: shared.py:191 - Using evaluation output directory: evaluation/evaluation_outputs/outputs/__home__seongminju__openhands__OpenHands-main__evaluation__benchmarks__multi_swe_bench__processed_java_dataset.jsonl-train/CodeActAgent/claude-3-5-sonnet_maxiter_30
+[92m04:57:06 - openhands:INFO[0m: shared.py:212 - Metadata: {"agent_class":"CodeActAgent","llm_config":{"model":"anthropic/claude-3-5-sonnet","api_key":"**********","base_url":null,"api_version":null,"aws_access_key_id":null,"aws_secret_access_key":null,"aws_region_name":null,"openrouter_site_url":"https://docs.all-hands.dev/","openrouter_app_name":"OpenHands","num_retries":5,"retry_multiplier":8.0,"retry_min_wait":8,"retry_max_wait":64,"timeout":null,"max_message_chars":30000,"temperature":0.0,"top_p":1.0,"top_k":null,"custom_llm_provider":null,"max_input_tokens":null,"max_output_tokens":null,"input_cost_per_token":null,"output_cost_per_token":null,"ollama_base_url":null,"drop_params":true,"modify_params":false,"disable_vision":null,"disable_stop_word":false,"caching_prompt":true,"log_completions":true,"log_completions_folder":"/home/seongminju/openhands/OpenHands-main/logs/completions","custom_tokenizer":null,"native_tool_calling":null,"reasoning_effort":null,"seed":null,"safety_settings":null,"for_routing":false,"correct_num":5,"completion_kwargs":null},"agent_config":null,"max_iterations":30,"eval_output_dir":"evaluation/evaluation_outputs/outputs/__home__seongminju__openhands__OpenHands-main__evaluation__benchmarks__multi_swe_bench__processed_java_dataset.jsonl-train/CodeActAgent/claude-3-5-sonnet_maxiter_30","start_time":"2026-01-27 04:57:06","git_commit":"dc6061a0384a13837752e445a86f644811902c3c","dataset":"__home__seongminju__openhands__OpenHands-main__evaluation__benchmarks__multi_swe_bench__processed_java_dataset.jsonl-train","data_split":null,"details":{},"condenser_config":{"type":"noop"},"instruction_template_name":null}
+[92m04:57:06 - openhands:INFO[0m: shared.py:231 - Writing evaluation output to evaluation/evaluation_outputs/outputs/__home__seongminju__openhands__OpenHands-main__evaluation__benchmarks__multi_swe_bench__processed_java_dataset.jsonl-train/CodeActAgent/claude-3-5-sonnet_maxiter_30/output.jsonl
+[92m04:57:06 - openhands:WARNING[0m: shared.py:238 - 
+Output file evaluation/evaluation_outputs/outputs/__home__seongminju__openhands__OpenHands-main__evaluation__benchmarks__multi_swe_bench__processed_java_dataset.jsonl-train/CodeActAgent/claude-3-5-sonnet_maxiter_30/output.jsonl already exists. Loaded 20 finished instances.
+[92m04:57:06 - openhands:INFO[0m: shared.py:292 - Finished instances: 20, Remaining instances: 108
+[92m04:57:06 - openhands:INFO[0m: shared.py:507 - Evaluation started with Agent CodeActAgent:
+model anthropic/claude-3-5-sonnet, max iterations 30.
+
+DEBUG: Loaded LLM Config: model='anthropic/claude-3-5-sonnet' api_key=SecretStr('**********') base_url=None api_version=None aws_access_key_id=None aws_secret_access_key=None aws_region_name=None openrouter_site_url='https://docs.all-hands.dev/' openrouter_app_name='OpenHands' num_retries=5 retry_multiplier=8 retry_min_wait=8 retry_max_wait=64 timeout=None max_message_chars=30000 temperature=0.0 top_p=1.0 top_k=None custom_llm_provider=None max_input_tokens=None max_output_tokens=None input_cost_per_token=None output_cost_per_token=None ollama_base_url=None drop_params=True modify_params=False disable_vision=None disable_stop_word=False caching_prompt=True log_completions=True log_completions_folder='/home/seongminju/openhands/OpenHands-main/logs/completions' custom_tokenizer=None native_tool_calling=None reasoning_effort=None seed=None safety_settings=None for_routing=False correct_num=5 completion_kwargs=None
+DEBUG: Model Name: anthropic/claude-3-5-sonnet
+DEBUG: CWD: /home/seongminju/openhands/OpenHands-main
+### OUTPUT FILE: evaluation/evaluation_outputs/outputs/__home__seongminju__openhands__OpenHands-main__evaluation__benchmarks__multi_swe_bench__processed_java_dataset.jsonl-train/CodeActAgent/claude-3-5-sonnet_maxiter_30/output.jsonl ###
+Instances processed:   0%|          | 0/108 [00:00<?, ?it/s]/home/seongminju/miniforge3/envs/openhands/lib/python3.12/multiprocessing/popen_fork.py:66: DeprecationWarning: This process (pid=651911) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  self.pid = os.fork()
+[92m04:57:06 - openhands:INFO[0m: run_infer.py:322 - Using instance container image: mswebench/googlecontainertools_m_jib:pr-2542. Please make sure this image exists. Submit an issue on https://github.com/OpenHands/OpenHands if you run into any issues.
+[92m04:57:06 - openhands:INFO[0m: run_infer.py:322 - Using instance container image: mswebench/googlecontainertools_m_jib:pr-4035. Please make sure this image exists. Submit an issue on https://github.com/OpenHands/OpenHands if you run into any issues.
+[92m04:57:06 - openhands:INFO[0m: mapping.py:26 - Resource mapping for __home__seongminju__openhands__OpenHands-main__evaluation__benchmarks__multi_swe_bench__processed_java_dataset.jsonl-train not found.
+[92m04:57:06 - openhands:INFO[0m: mapping.py:26 - Resource mapping for __home__seongminju__openhands__OpenHands-main__evaluation__benchmarks__multi_swe_bench__processed_java_dataset.jsonl-train not found.
+[92m04:57:06 - openhands:INFO[0m: shared.py:611 - Logging LLM completions for instance googlecontainertools__jib-2542 to evaluation/evaluation_outputs/outputs/__home__seongminju__openhands__OpenHands-main__evaluation__benchmarks__multi_swe_bench__processed_java_dataset.jsonl-train/CodeActAgent/claude-3-5-sonnet_maxiter_30/llm_completions/googlecontainertools__jib-2542
+Instance googlecontainertools__jib-2542 - 2026-01-27 04:57:06,820 - INFO - Starting evaluation for instance googlecontainertools__jib-2542.
+Hint: run "tail -f evaluation/evaluation_outputs/outputs/__home__seongminju__openhands__OpenHands-main__evaluation__benchmarks__multi_swe_bench__processed_java_dataset.jsonl-train/CodeActAgent/claude-3-5-sonnet_maxiter_30/infer_logs/instance_googlecontainertools__jib-2542.log" to see live logs in a separate shell
+[92m04:57:06 - openhands:INFO[0m: run_infer.py:322 - Using instance container image: mswebench/googlecontainertools_m_jib:pr-2536. Please make sure this image exists. Submit an issue on https://github.com/OpenHands/OpenHands if you run into any issues.
+[92m04:57:06 - openhands:INFO[0m: run_infer.py:322 - Using instance container image: mswebench/googlecontainertools_m_jib:pr-2688. Please make sure this image exists. Submit an issue on https://github.com/OpenHands/OpenHands if you run into any issues.
+[92m04:57:06 - openhands:INFO[0m: shared.py:611 - Logging LLM completions for instance googlecontainertools__jib-4035 to evaluation/evaluation_outputs/outputs/__home__seongminju__openhands__OpenHands-main__evaluation__benchmarks__multi_swe_bench__processed_java_dataset.jsonl-train/CodeActAgent/claude-3-5-sonnet_maxiter_30/llm_completions/googlecontainertools__jib-4035
+[92m04:57:06 - openhands:INFO[0m: mapping.py:26 - Resource mapping for __home__seongminju__openhands__OpenHands-main__evaluation__benchmarks__multi_swe_bench__processed_java_dataset.jsonl-train not found.
+Instance googlecontainertools__jib-4035 - 2026-01-27 04:57:06,822 - INFO - Starting evaluation for instance googlecontainertools__jib-4035.
+Hint: run "tail -f evaluation/evaluation_outputs/outputs/__home__seongminju__openhands__OpenHands-main__evaluation__benchmarks__multi_swe_bench__processed_java_dataset.jsonl-train/CodeActAgent/claude-3-5-sonnet_maxiter_30/infer_logs/instance_googlecontainertools__jib-4035.log" to see live logs in a separate shell
+[92m04:57:06 - openhands:INFO[0m: mapping.py:26 - Resource mapping for __home__seongminju__openhands__OpenHands-main__evaluation__benchmarks__multi_swe_bench__processed_java_dataset.jsonl-train not found.
+[92m04:57:06 - openhands:INFO[0m: shared.py:611 - Logging LLM completions for instance googlecontainertools__jib-2536 to evaluation/evaluation_outputs/outputs/__home__seongminju__openhands__OpenHands-main__evaluation__benchmarks__multi_swe_bench__processed_java_dataset.jsonl-train/CodeActAgent/claude-3-5-sonnet_maxiter_30/llm_completions/googlecontainertools__jib-2536
+Instance googlecontainertools__jib-2536 - 2026-01-27 04:57:06,823 - INFO - Starting evaluation for instance googlecontainertools__jib-2536.
+Hint: run "tail -f evaluation/evaluation_outputs/outputs/__home__seongminju__openhands__OpenHands-main__evaluation__benchmarks__multi_swe_bench__processed_java_dataset.jsonl-train/CodeActAgent/claude-3-5-sonnet_maxiter_30/infer_logs/instance_googlecontainertools__jib-2536.log" to see live logs in a separate shell
+[92m04:57:06 - openhands:INFO[0m: shared.py:611 - Logging LLM completions for instance googlecontainertools__jib-2688 to evaluation/evaluation_outputs/outputs/__home__seongminju__openhands__OpenHands-main__evaluation__benchmarks__multi_swe_bench__processed_java_dataset.jsonl-train/CodeActAgent/claude-3-5-sonnet_maxiter_30/llm_completions/googlecontainertools__jib-2688
+Instance googlecontainertools__jib-2688 - 2026-01-27 04:57:06,825 - INFO - Starting evaluation for instance googlecontainertools__jib-2688.
+Hint: run "tail -f evaluation/evaluation_outputs/outputs/__home__seongminju__openhands__OpenHands-main__evaluation__benchmarks__multi_swe_bench__processed_java_dataset.jsonl-train/CodeActAgent/claude-3-5-sonnet_maxiter_30/infer_logs/instance_googlecontainertools__jib-2688.log" to see live logs in a separate shell
+Instance googlecontainertools__jib-4035 - 2026-01-27 04:58:45,827 - WARNING - No search engine API key found, skipping search engine
+Instance googlecontainertools__jib-4035 - 2026-01-27 04:58:45,827 - WARNING - Added microagent stdio server: fetch
+Instance googlecontainertools__jib-4035 - 2026-01-27 04:58:52,308 - ERROR - [Agent Controller e41cff0c-3956-4e-8ed0e3895133902] Error while running the agent (session ID: e41cff0c-3956-4e-8ed0e3895133902): litellm.AuthenticationError: AnthropicException - {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011CXXHsouGNeueCHAxRaphU"}
+Traceback (most recent call last):
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/litellm/llms/anthropic/chat/handler.py", line 445, in completion
+    response = client.post(
+               ^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/litellm/llms/custom_httpx/http_handler.py", line 979, in post
+    raise e
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/litellm/llms/custom_httpx/http_handler.py", line 961, in post
+    response.raise_for_status()
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/httpx/_models.py", line 829, in raise_for_status
+    raise HTTPStatusError(message, request=request, response=self)
+httpx.HTTPStatusError: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/litellm/main.py", line 2619, in completion
+    response = anthropic_chat_completions.completion(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/litellm/llms/anthropic/chat/handler.py", line 460, in completion
+    raise AnthropicError(
+litellm.llms.anthropic.common_utils.AnthropicError: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011CXXHsouGNeueCHAxRaphU"}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/seongminju/openhands/OpenHands-main/openhands/controller/agent_controller.py", line 381, in _step_with_exception_handling
+    await self._step()
+  File "/home/seongminju/openhands/OpenHands-main/openhands/controller/agent_controller.py", line 909, in _step
+    action = self.agent.step(self.state)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/openhands/OpenHands-main/openhands/agenthub/codeact_agent/codeact_agent.py", line 232, in step
+    response = self.llm.completion(**params)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/tenacity/__init__.py", line 338, in wrapped_f
+    return copy(f, *args, **kw)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/tenacity/__init__.py", line 477, in __call__
+    do = self.iter(retry_state=retry_state)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/tenacity/__init__.py", line 378, in iter
+    result = action(retry_state)
+             ^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/tenacity/__init__.py", line 400, in <lambda>
+    self._add_action_func(lambda rs: rs.outcome.result())
+                                     ^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/miniforge3/envs/openhands/lib/python3.12/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/miniforge3/envs/openhands/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/tenacity/__init__.py", line 480, in __call__
+    result = fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/openhands/OpenHands-main/openhands/llm/llm.py", line 352, in wrapper
+    # Calculate and record latency
+                              ^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/litellm/utils.py", line 1651, in wrapper
+    raise e
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/litellm/utils.py", line 1515, in wrapper
+    result = original_function(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/litellm/main.py", line 4159, in completion
+    raise exception_type(
+          ^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/litellm/litellm_core_utils/exception_mapping_utils.py", line 2346, in exception_type
+    raise e
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/litellm/litellm_core_utils/exception_mapping_utils.py", line 638, in exception_type
+    raise AuthenticationError(
+litellm.exceptions.AuthenticationError: litellm.AuthenticationError: AnthropicException - {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011CXXHsouGNeueCHAxRaphU"}
+Instance googlecontainertools__jib-4035 - 2026-01-27 04:58:52,325 - ERROR - STATUS$ERROR_LLM_AUTHENTICATION
+Instances processed:   1%|          | 1/108 [01:51<3:18:25, 111.26s/it]Instance googlecontainertools__jib-4035:   1%|          | 1/108 [01:51<3:18:25, 111.26s/it]Instance googlecontainertools__jib-4035:   1%|          | 1/108 [01:51<3:18:25, 111.26s/it, Test Result: {'git_patch': ''}...]Instance fasterxml__jackson-core-1309 - 2026-01-27 04:58:58,006 - INFO - Starting evaluation for instance fasterxml__jackson-core-1309.
+Hint: run "tail -f evaluation/evaluation_outputs/outputs/__home__seongminju__openhands__OpenHands-main__evaluation__benchmarks__multi_swe_bench__processed_java_dataset.jsonl-train/CodeActAgent/claude-3-5-sonnet_maxiter_30/infer_logs/instance_fasterxml__jackson-core-1309.log" to see live logs in a separate shell
+[92m04:58:58 - openhands:INFO[0m: shared.py:308 - Finished evaluation for instance googlecontainertools__jib-4035: {'git_patch': ''}...
+
+Instance googlecontainertools__jib-2536 - 2026-01-27 05:00:50,698 - WARNING - No search engine API key found, skipping search engine
+Instance googlecontainertools__jib-2536 - 2026-01-27 05:00:50,698 - WARNING - Added microagent stdio server: fetch
+Instance googlecontainertools__jib-2536 - 2026-01-27 05:00:58,290 - ERROR - [Agent Controller c72a2e6d-0f18-4b-d2056d905ff66f5] Error while running the agent (session ID: c72a2e6d-0f18-4b-d2056d905ff66f5): litellm.AuthenticationError: AnthropicException - {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011CXXJ36gKhh4HpZwDKorSF"}
+Traceback (most recent call last):
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/litellm/llms/anthropic/chat/handler.py", line 445, in completion
+    response = client.post(
+               ^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/litellm/llms/custom_httpx/http_handler.py", line 979, in post
+    raise e
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/litellm/llms/custom_httpx/http_handler.py", line 961, in post
+    response.raise_for_status()
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/httpx/_models.py", line 829, in raise_for_status
+    raise HTTPStatusError(message, request=request, response=self)
+httpx.HTTPStatusError: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/litellm/main.py", line 2619, in completion
+    response = anthropic_chat_completions.completion(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/litellm/llms/anthropic/chat/handler.py", line 460, in completion
+    raise AnthropicError(
+litellm.llms.anthropic.common_utils.AnthropicError: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011CXXJ36gKhh4HpZwDKorSF"}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/seongminju/openhands/OpenHands-main/openhands/controller/agent_controller.py", line 381, in _step_with_exception_handling
+    await self._step()
+  File "/home/seongminju/openhands/OpenHands-main/openhands/controller/agent_controller.py", line 909, in _step
+    action = self.agent.step(self.state)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/openhands/OpenHands-main/openhands/agenthub/codeact_agent/codeact_agent.py", line 232, in step
+    response = self.llm.completion(**params)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/tenacity/__init__.py", line 338, in wrapped_f
+    return copy(f, *args, **kw)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/tenacity/__init__.py", line 477, in __call__
+    do = self.iter(retry_state=retry_state)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/tenacity/__init__.py", line 378, in iter
+    result = action(retry_state)
+             ^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/tenacity/__init__.py", line 400, in <lambda>
+    self._add_action_func(lambda rs: rs.outcome.result())
+                                     ^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/miniforge3/envs/openhands/lib/python3.12/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/miniforge3/envs/openhands/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/tenacity/__init__.py", line 480, in __call__
+    result = fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/openhands/OpenHands-main/openhands/llm/llm.py", line 352, in wrapper
+    # Calculate and record latency
+                              ^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/litellm/utils.py", line 1651, in wrapper
+    raise e
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/litellm/utils.py", line 1515, in wrapper
+    result = original_function(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/litellm/main.py", line 4159, in completion
+    raise exception_type(
+          ^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/litellm/litellm_core_utils/exception_mapping_utils.py", line 2346, in exception_type
+    raise e
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/litellm/litellm_core_utils/exception_mapping_utils.py", line 638, in exception_type
+    raise AuthenticationError(
+litellm.exceptions.AuthenticationError: litellm.AuthenticationError: AnthropicException - {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011CXXJ36gKhh4HpZwDKorSF"}
+Instance googlecontainertools__jib-2536 - 2026-01-27 05:00:58,307 - ERROR - STATUS$ERROR_LLM_AUTHENTICATION
+Instance googlecontainertools__jib-2542 - 2026-01-27 05:01:03,228 - WARNING - No search engine API key found, skipping search engine
+Instance googlecontainertools__jib-2542 - 2026-01-27 05:01:03,229 - WARNING - Added microagent stdio server: fetch
+Instance googlecontainertools__jib-4035:   2%|▏         | 2/108 [03:57<3:31:47, 119.88s/it, Test Result: {'git_patch': ''}...]Instance fasterxml__jackson-core-1263 - 2026-01-27 05:01:03,914 - INFO - Starting evaluation for instance fasterxml__jackson-core-1263.
+Hint: run "tail -f evaluation/evaluation_outputs/outputs/__home__seongminju__openhands__OpenHands-main__evaluation__benchmarks__multi_swe_bench__processed_java_dataset.jsonl-train/CodeActAgent/claude-3-5-sonnet_maxiter_30/infer_logs/instance_fasterxml__jackson-core-1263.log" to see live logs in a separate shell
+Instance googlecontainertools__jib-2536:   2%|▏         | 2/108 [03:57<3:31:47, 119.88s/it, Test Result: {'git_patch': ''}...]Instance googlecontainertools__jib-2536:   2%|▏         | 2/108 [03:57<3:31:47, 119.88s/it, Test Result: {'git_patch': ''}...][92m05:01:03 - openhands:INFO[0m: shared.py:308 - Finished evaluation for instance googlecontainertools__jib-2536: {'git_patch': ''}...
+
+Instance googlecontainertools__jib-2542 - 2026-01-27 05:01:14,391 - ERROR - [Agent Controller d74734ef-810e-42-4101a9d1377f53d] Error while running the agent (session ID: d74734ef-810e-42-4101a9d1377f53d): litellm.AuthenticationError: AnthropicException - {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011CXXJ4HEM3dFRizoHgBcir"}
+Traceback (most recent call last):
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/litellm/llms/anthropic/chat/handler.py", line 445, in completion
+    response = client.post(
+               ^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/litellm/llms/custom_httpx/http_handler.py", line 979, in post
+    raise e
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/litellm/llms/custom_httpx/http_handler.py", line 961, in post
+    response.raise_for_status()
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/httpx/_models.py", line 829, in raise_for_status
+    raise HTTPStatusError(message, request=request, response=self)
+httpx.HTTPStatusError: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/litellm/main.py", line 2619, in completion
+    response = anthropic_chat_completions.completion(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/litellm/llms/anthropic/chat/handler.py", line 460, in completion
+    raise AnthropicError(
+litellm.llms.anthropic.common_utils.AnthropicError: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011CXXJ4HEM3dFRizoHgBcir"}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/seongminju/openhands/OpenHands-main/openhands/controller/agent_controller.py", line 381, in _step_with_exception_handling
+    await self._step()
+  File "/home/seongminju/openhands/OpenHands-main/openhands/controller/agent_controller.py", line 909, in _step
+    action = self.agent.step(self.state)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/openhands/OpenHands-main/openhands/agenthub/codeact_agent/codeact_agent.py", line 232, in step
+    response = self.llm.completion(**params)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/tenacity/__init__.py", line 338, in wrapped_f
+    return copy(f, *args, **kw)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/tenacity/__init__.py", line 477, in __call__
+    do = self.iter(retry_state=retry_state)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/tenacity/__init__.py", line 378, in iter
+    result = action(retry_state)
+             ^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/tenacity/__init__.py", line 400, in <lambda>
+    self._add_action_func(lambda rs: rs.outcome.result())
+                                     ^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/miniforge3/envs/openhands/lib/python3.12/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/miniforge3/envs/openhands/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/tenacity/__init__.py", line 480, in __call__
+    result = fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/openhands/OpenHands-main/openhands/llm/llm.py", line 352, in wrapper
+    # Calculate and record latency
+                              ^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/litellm/utils.py", line 1651, in wrapper
+    raise e
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/litellm/utils.py", line 1515, in wrapper
+    result = original_function(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/litellm/main.py", line 4159, in completion
+    raise exception_type(
+          ^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/litellm/litellm_core_utils/exception_mapping_utils.py", line 2346, in exception_type
+    raise e
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/litellm/litellm_core_utils/exception_mapping_utils.py", line 638, in exception_type
+    raise AuthenticationError(
+litellm.exceptions.AuthenticationError: litellm.AuthenticationError: AnthropicException - {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011CXXJ4HEM3dFRizoHgBcir"}
+Instance googlecontainertools__jib-2542 - 2026-01-27 05:01:14,408 - ERROR - STATUS$ERROR_LLM_AUTHENTICATION
+Instance googlecontainertools__jib-2536:   3%|▎         | 3/108 [04:13<2:07:08, 72.66s/it, Test Result: {'git_patch': ''}...] Instance googlecontainertools__jib-2542:   3%|▎         | 3/108 [04:13<2:07:08, 72.66s/it, Test Result: {'git_patch': ''}...]Instance googlecontainertools__jib-2542:   3%|▎         | 3/108 [04:13<2:07:08, 72.66s/it, Test Result: {'git_patch': ''}...]Instance fasterxml__jackson-core-1208 - 2026-01-27 05:01:20,376 - INFO - Starting evaluation for instance fasterxml__jackson-core-1208.
+Hint: run "tail -f evaluation/evaluation_outputs/outputs/__home__seongminju__openhands__OpenHands-main__evaluation__benchmarks__multi_swe_bench__processed_java_dataset.jsonl-train/CodeActAgent/claude-3-5-sonnet_maxiter_30/infer_logs/instance_fasterxml__jackson-core-1208.log" to see live logs in a separate shell
+[92m05:01:20 - openhands:INFO[0m: shared.py:308 - Finished evaluation for instance googlecontainertools__jib-2542: {'git_patch': ''}...
+
+Instance googlecontainertools__jib-2688 - 2026-01-27 05:02:58,728 - WARNING - No search engine API key found, skipping search engine
+Instance googlecontainertools__jib-2688 - 2026-01-27 05:02:58,729 - WARNING - Added microagent stdio server: fetch
+Instance googlecontainertools__jib-2688 - 2026-01-27 05:03:10,922 - ERROR - [Agent Controller b698d86a-4b30-40-15c91ccbdc2c8ef] Error while running the agent (session ID: b698d86a-4b30-40-15c91ccbdc2c8ef): litellm.AuthenticationError: AnthropicException - {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011CXXJCsg1XfXURPa57u8Zc"}
+Traceback (most recent call last):
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/litellm/llms/anthropic/chat/handler.py", line 445, in completion
+    response = client.post(
+               ^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/litellm/llms/custom_httpx/http_handler.py", line 979, in post
+    raise e
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/litellm/llms/custom_httpx/http_handler.py", line 961, in post
+    response.raise_for_status()
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/httpx/_models.py", line 829, in raise_for_status
+    raise HTTPStatusError(message, request=request, response=self)
+httpx.HTTPStatusError: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/litellm/main.py", line 2619, in completion
+    response = anthropic_chat_completions.completion(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/litellm/llms/anthropic/chat/handler.py", line 460, in completion
+    raise AnthropicError(
+litellm.llms.anthropic.common_utils.AnthropicError: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011CXXJCsg1XfXURPa57u8Zc"}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/seongminju/openhands/OpenHands-main/openhands/controller/agent_controller.py", line 381, in _step_with_exception_handling
+    await self._step()
+  File "/home/seongminju/openhands/OpenHands-main/openhands/controller/agent_controller.py", line 909, in _step
+    action = self.agent.step(self.state)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/openhands/OpenHands-main/openhands/agenthub/codeact_agent/codeact_agent.py", line 232, in step
+    response = self.llm.completion(**params)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/tenacity/__init__.py", line 338, in wrapped_f
+    return copy(f, *args, **kw)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/tenacity/__init__.py", line 477, in __call__
+    do = self.iter(retry_state=retry_state)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/tenacity/__init__.py", line 378, in iter
+    result = action(retry_state)
+             ^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/tenacity/__init__.py", line 400, in <lambda>
+    self._add_action_func(lambda rs: rs.outcome.result())
+                                     ^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/miniforge3/envs/openhands/lib/python3.12/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/miniforge3/envs/openhands/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/tenacity/__init__.py", line 480, in __call__
+    result = fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/openhands/OpenHands-main/openhands/llm/llm.py", line 352, in wrapper
+    # Calculate and record latency
+                              ^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/litellm/utils.py", line 1651, in wrapper
+    raise e
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/litellm/utils.py", line 1515, in wrapper
+    result = original_function(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/litellm/main.py", line 4159, in completion
+    raise exception_type(
+          ^^^^^^^^^^^^^^^
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/litellm/litellm_core_utils/exception_mapping_utils.py", line 2346, in exception_type
+    raise e
+  File "/home/seongminju/.cache/pypoetry/virtualenvs/openhands-ai--7qzkW3d-py3.12/lib/python3.12/site-packages/litellm/litellm_core_utils/exception_mapping_utils.py", line 638, in exception_type
+    raise AuthenticationError(
+litellm.exceptions.AuthenticationError: litellm.AuthenticationError: AnthropicException - {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011CXXJCsg1XfXURPa57u8Zc"}
+Instance googlecontainertools__jib-2688 - 2026-01-27 05:03:10,940 - ERROR - STATUS$ERROR_LLM_AUTHENTICATION
+Instance googlecontainertools__jib-2542:   4%|▎         | 4/108 [06:09<2:35:39, 89.80s/it, Test Result: {'git_patch': ''}...]Instance googlecontainertools__jib-2688:   4%|▎         | 4/108 [06:09<2:35:39, 89.80s/it, Test Result: {'git_patch': ''}...]Instance googlecontainertools__jib-2688:   4%|▎         | 4/108 [06:09<2:35:39, 89.80s/it, Test Result: {'git_patch': ''}...]Instance fasterxml__jackson-core-1204 - 2026-01-27 05:03:16,459 - INFO - Starting evaluation for instance fasterxml__jackson-core-1204.
+Hint: run "tail -f evaluation/evaluation_outputs/outputs/__home__seongminju__openhands__OpenHands-main__evaluation__benchmarks__multi_swe_bench__processed_java_dataset.jsonl-train/CodeActAgent/claude-3-5-sonnet_maxiter_30/infer_logs/instance_fasterxml__jackson-core-1204.log" to see live logs in a separate shell
+[92m05:03:16 - openhands:INFO[0m: shared.py:308 - Finished evaluation for instance googlecontainertools__jib-2688: {'git_patch': ''}...
+
+Terminated

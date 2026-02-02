@@ -1,0 +1,18 @@
+FROM python:3.9
+
+# Install git and other dependencies
+RUN apt-get update && apt-get install -y git
+
+# Set working directory
+WORKDIR /testbed
+
+# Clone repository and checkout commit
+RUN git clone https://github.com/aws-cloudformation/cfn-lint . && \
+    git checkout d598742504a6a6af0e5d882b6876f2f30007b851
+
+# Run setup commands from Python_examples.jsonl
+RUN pip install -e .[full] && \
+    pip install pytest coverage[toml] defusedxml pydot
+
+# Default command
+CMD ["/bin/bash"]

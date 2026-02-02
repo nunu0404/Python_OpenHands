@@ -1,0 +1,11 @@
+[llm.eval]
+model = "openai/gpt-4o"
+base_url = "https://api.openai.com/v1"
+api_key = "YOUR_API_KEY_HERE"
+temperature = 0.0
+
+[llm]
+model = "openai/gpt-4o"
+base_url = "https://api.openai.com/v1"
+api_key = "YOUR_API_KEY_HERE"
+temperature = 0.0

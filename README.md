@@ -7,44 +7,97 @@ It follows a structure where the core OpenHands engine and the MopenHands benchm
 
 ## 🚀 How to Reproduce (Step-by-Step Guide)
 
-Follow these steps faithfully to reproduce the benchmark execution using `Python_examples.jsonl`.
+Follow these steps to reproduce the benchmark execution from scratch.
+
+### Step 0: Prerequisites
+
+**System Requirements:**
+- Python 3.11 or higher
+- Docker installed and running
+- Linux/macOS (for Rootless Docker)
+- OpenAI API key or compatible LLM API endpoint
+
+**Docker Setup:**
+```bash
+# Verify Docker installation
+docker --version
+
+# For shared servers, use Rootless Docker
+# Check your Docker socket path
+ls /run/user/$(id -u)/docker.sock
+```
+
+---
 
 ### Step 1: Clone the Repository
-
-Clone this repository to your local machine.
 
 ```bash
 git clone https://github.com/nunu0404/Python_OpenHands.git
 cd Python_OpenHands
 ```
 
-### Step 2: Configure Environment Variables
+---
 
-Set up the necessary environment variables for OpenHands and Docker.
-*Note: Ensure you are using Rootless Docker if on a shared server.*
+### Step 2: Install Dependencies
+
+Install required Python packages:
 
 ```bash
-# 1. Add current directory to PYTHONPATH so OpenHands modules can be found
-export PYTHONPATH=$PYTHONPATH:$(pwd)
+# Option 1: Using pip
+pip install -e .
 
-# 2. Set Docker Host (Check your user ID with `id -u`)
-# Example: unix:///run/user/1005/docker.sock
-export DOCKER_HOST="unix:///run/user/$(id -u)/docker.sock"
+# Option 2: Using poetry (if available)
+poetry install
 ```
 
-### Step 3: Configure Benchmark Settings
+---
 
-Export the language and image settings required for the python benchmark.
+### Step 3: Configure API Key
+
+Create your configuration file from the template:
 
 ```bash
+# Copy template
+cp config.toml.template config.toml
+
+# Edit with your API key
+nano config.toml  # or use your preferred editor
+```
+
+**config.toml example:**
+```toml
+[llm.eval]
+model = "openai/gpt-4o"
+base_url = "https://api.openai.com/v1"
+api_key = "sk-your-actual-api-key-here"
+temperature = 0.0
+```
+
+> **Note:** The `config.toml` file is gitignored to protect your API key. Never commit it to Git.
+
+---
+
+### Step 4: Configure Environment Variables
+
+Set up the necessary environment variables:
+
+```bash
+# 1. Add current directory to PYTHONPATH
+export PYTHONPATH=$PYTHONPATH:$(pwd)
+
+# 2. Set Docker Host (for Rootless Docker)
+export DOCKER_HOST="unix:///run/user/$(id -u)/docker.sock"
+
+# 3. Configure benchmark settings
 export LANGUAGE=python
 export USE_INSTANCE_IMAGE=true
 ```
 
-### Step 4: Execute the Benchmark
+---
 
-Run the `run_infer.py` script using `nohup` to keep it running in the background.
-We use the provided `Python_examples.jsonl` dataset.
+### Step 5: Execute the Benchmark
+
+Run the benchmark using `nohup` to keep it running in the background:
 
 ```bash
 nohup python3 MopenHands/evaluation/benchmarks/swe_bench/run_infer.py \
@@ -57,7 +110,10 @@ nohup python3 MopenHands/evaluation/benchmarks/swe_bench/run_infer.py \
   > run_infer_python_reproduce.log 2>&1 &
 ```
 
-### Step 5: Monitor Progress
+---
+
+### Step 6: Monitor Progress
+
 
 Check the log file to see the progress of the benchmark.
 
@@ -78,9 +134,11 @@ Once completed, check the results in the `results/` directory.
 
 - **`openhands/`**: Core OpenHands Engine (v1.2.1)
 - **`MopenHands/`**: Benchmark Scripts (contains `run_infer.py`)
-- **`logs/`**: Execution Logs
-- **`results/`**: Benchmark Results
-- **`Python_examples.jsonl`**: Benchmark Dataset
+- **`Python_examples.jsonl`**: Benchmark Dataset (6 instances)
+- **`Java_examples.jsonl`**: Java Benchmark Dataset (optional)
+- **`config.toml.template`**: Configuration template (copy to `config.toml`)
+- **`results/`**: Benchmark execution results
+- **`logs/`**: Evaluation logs (gitignored)
 
 ---
 

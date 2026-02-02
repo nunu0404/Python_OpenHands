@@ -108,19 +108,3 @@ python -m evaluation.evaluation \
 
 ---
 
-## 📈 Results
-
-### Benchmark Statistics
-- **Dataset**: 6 Python instances
-- **Patch Application**: 3/5 successful (60%)
-- **Test Pass Rate**: 0/6 (0%)
-
-### Key Findings
-- OpenHands successfully generated patches for all instances
-- Patch format issues resolved using `data_format.py` filter
-- Generated code requires further refinement for test passage
-
-See `results/output.jsonl` for detailed results.
-
----
-

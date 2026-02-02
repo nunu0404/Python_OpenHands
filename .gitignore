@@ -263,3 +263,7 @@ test-results
 .sessions
 .eval_sessions
 Miniforge3-Linux-x86_64.sh
+
+# Temporary patch files
+*patch*.json
+*_filtered.json

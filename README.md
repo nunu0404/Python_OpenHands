@@ -1,11 +1,11 @@
-# OpenHands & SWE-bench Benchmark Repository
+# OpenHands and Python Evaluation Guide
 
 This repository contains the source code and results for running the SWE-bench (Python) benchmark using OpenHands.
 It follows a structure where the core OpenHands engine and the MopenHands benchmark scripts are integrated.
 
 ---
 
-## 🚀 How to Reproduce (Step-by-Step Guide)
+## How to Reproduce (Step-by-Step Guide)
 
 Follow these steps faithfully to reproduce the benchmark execution using `Python_examples.jsonl`.
 
@@ -84,7 +84,7 @@ Once completed, check the results in the `results/` directory.
 
 ---
 
-## 📊 Evaluation with SWE-bench-Live
+## Evaluation with SWE-bench-Live
 
 To verify patches using SWE-bench-Live framework:
 

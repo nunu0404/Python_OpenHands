@@ -1,3 +1,0 @@
-
-DOCKER_IMAGE_TAG=oh_v1.2.1_image_7342b45a_776_playwright-java-1817_tag_latest
-DOCKER_IMAGE_SOURCE_TAG=oh_v1.2.1_07u64d4o0fp8jjf9_2qabfpwiv7wldtoq

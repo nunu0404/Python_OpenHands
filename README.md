@@ -3,6 +3,23 @@
 This repository contains the source code and results for running the SWE-bench (Python) benchmark using OpenHands.
 It follows a structure where the core OpenHands engine and the MopenHands benchmark scripts are integrated.
 
+## 🐳 Quick Start: Docker Image
+
+For quick testing with the `faker-2279` instance:
+
+```bash
+# Pull Docker image
+docker pull jsm02404/python-faker:2279_runtime
+
+# Run with single instance dataset
+python3 MopenHands/evaluation/benchmarks/swe_bench/run_infer.py \
+  --dataset Python_examples_faker2279.jsonl \
+  --split train --config-file config.toml --llm-config eval \
+  --agent-cls CodeActAgent --max-iterations 30
+```
+
+See [QUICKSTART.md](QUICKSTART.md) for all available Docker images and detailed quick start guide.
+
 ---
 
 ## How to Reproduce (Step-by-Step Guide)

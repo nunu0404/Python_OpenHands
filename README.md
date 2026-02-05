@@ -12,6 +12,7 @@ For quick testing with the `faker-2279` instance:
 docker pull jsm02404/python-faker:2279_runtime
 
 # Run with single instance dataset
+export PYTHONPATH=$PYTHONPATH:$(pwd)
 python3 MopenHands/evaluation/benchmarks/swe_bench/run_infer.py \
   --dataset Python_examples_faker2279.jsonl \
   --split train --config-file config.toml --llm-config eval \

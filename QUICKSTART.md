@@ -42,7 +42,9 @@ cd Python_OpenHands
 # 2. Pull Docker image
 docker pull jsm02404/python-faker:2279_runtime
 
-# 3. Run benchmark with single instance
+# 3. Configure environment and run benchmark
+export PYTHONPATH=$PYTHONPATH:$(pwd)
+
 python3 MopenHands/evaluation/benchmarks/swe_bench/run_infer.py \
   --dataset Python_examples_faker2279.jsonl \
   --split train \

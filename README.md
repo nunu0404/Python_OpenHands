@@ -82,7 +82,7 @@ export LANGUAGE=python
   - single-instance quick test
   - also uses `/testbed`
 
-## Run Xin's Spreadsheet Directly
+## Run Spreadsheet Directly
 
 From `Python_OpenHands/MopenHands`:
 

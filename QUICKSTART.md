@@ -1,70 +1,77 @@
-# Quick Start: faker-2279 Instance
+# Quick Start: `joke2k__faker-2279`
 
-This section provides Docker image and dataset for quick testing of the `faker-2279` instance.
+This is the shortest verified path for a single Python instance.
 
-## 🐳 Docker Image
+## 1. Install
 
 ```bash
-# Pull the pre-built Docker image
-docker pull jsm02404/python-faker:2279_runtime
-
-# (Optional) Rename for convenience
-docker tag jsm02404/python-faker:2279_runtime python/faker:2279_runtime
+git clone https://github.com/nunu0404/Python_OpenHands.git
+cd Python_OpenHands/MopenHands
+poetry env use python3.12
+poetry install
+cp config.template.toml config.toml
 ```
 
-## 📦 Available Docker Images
+Add your LLM credentials to `config.toml`.
 
-All 6 Python instances are available on DockerHub:
+`MopenHands` requires Python 3.12. If Poetry picks Python 3.13 on your host, switch it to a Python 3.12 interpreter first.
 
-| Instance | Docker Image |
-|----------|--------------|
-| `joke2k__faker-2279` | `jsm02404/python-faker:2279_runtime` |
-| `joke2k__faker-2309` | `jsm02404/python-faker:2309_runtime` |
-| `cfn-lint-3377` | `jsm02404/python-cfn-lint:3377_runtime` |
-| `cfn-lint-3470` | `jsm02404/python-cfn-lint:3470_runtime` |
-| `cfn-lint-3561` | `jsm02404/python-cfn-lint:3561_runtime` |
-| `cfn-lint-3994` | `jsm02404/python-cfn-lint:3994_runtime` |
-
-## 📋 Dataset Files
-
-| File | Description |
-|------|-------------|
-| `Python_examples_faker2279.jsonl` | Single instance (faker-2279) for quick testing |
-| `Python_examples.jsonl` | All 6 Python instances |
-
-## 🚀 Quick Test
+## 2. Export Runtime Settings
 
 ```bash
-# 1. Clone this repo
-git clone https://github.com/nunu0404/Python_OpenHands.git
-cd Python_OpenHands
+export DOCKER_HOST="unix:///run/user/$(id -u)/docker.sock"
+export USE_INSTANCE_IMAGE=true
+export LANGUAGE=python
+```
 
-# 2. Pull Docker image
-docker pull jsm02404/python-faker:2279_runtime
+## 3. Optional Manual Environment Check
 
-# 3. Configure environment and run benchmark
-export PYTHONPATH=$PYTHONPATH:$(pwd)
+The verified base image for `faker-2279` is:
 
-python3 MopenHands/evaluation/benchmarks/swe_bench/run_infer.py \
-  --dataset Python_examples_faker2279.jsonl \
+```text
+crpi-sa60h0lyaf80r3a1.cn-shenzhen.personal.cr.aliyuncs.com/xinzhou1997_env/repoenv_py1:joke2k__faker-2279_linux
+```
+
+You can inspect it manually:
+
+```bash
+docker run -it --rm \
+  -w /testbed \
+  crpi-sa60h0lyaf80r3a1.cn-shenzhen.personal.cr.aliyuncs.com/xinzhou1997_env/repoenv_py1:joke2k__faker-2279_linux \
+  /bin/bash
+```
+
+Then inside the container:
+
+```bash
+pwd
+python -V
+pytest -rA 2>&1 | tee test-output.log
+```
+
+The target repo should be at `/testbed`.
+
+## 4. Run OpenHands
+
+From `Python_OpenHands/MopenHands`:
+
+```bash
+poetry run python evaluation/benchmarks/swe_bench/run_infer.py \
+  --dataset ../Python_examples_faker2279.jsonl \
   --split train \
   --config-file config.toml \
   --llm-config eval \
   --agent-cls CodeActAgent \
-  --max-iterations 30
+  --max-iterations 30 \
+  --eval-num-workers 1 \
+  --eval-note faker2279
 ```
 
-## 📊 faker-2279 Instance Details
+## 5. What This Repo Now Assumes
 
-| Field | Value |
-|-------|-------|
-| **Instance ID** | `joke2k__faker-2279` |
-| **Repository** | [joke2k/faker](https://github.com/joke2k/faker) |
-| **Language** | Python |
-| **FAIL_TO_PASS** | 1 test |
-| **PASS_TO_PASS** | 2,178 tests |
-| **Per-test Commands** | 4,608 |
+- OpenHands runtime code lives under `/openhands/code`
+- the repo to patch comes from dataset `working_dir`
+- for Python quick tests here, that path is `/testbed`
+- the dataset uses the base image tag, not a `*_runtime` tag as the dataset input
 
----
-
-For full installation guide, see the main [README.md](README.md).
+For the full 6-instance Python run, use [README.md](./README.md).

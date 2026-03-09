@@ -1,186 +1,148 @@
-# OpenHands and Python Evaluation Guide
+# Python OpenHands
 
-This repository contains the source code and results for running the SWE-bench (Python) benchmark using OpenHands.
-It follows a structure where the core OpenHands engine and the MopenHands benchmark scripts are integrated.
+This repository contains a Python-focused OpenHands benchmark setup built around `MopenHands/evaluation/benchmarks/swe_bench/run_infer.py`.
 
-## 🐳 Quick Start: Docker Image
+As of March 9, 2026, the Python path and runtime flow in this repo has been checked against Xin's intended setup:
 
-For quick testing with the `faker-2279` instance:
+- OpenHands runtime starts in `/openhands/code`
+- the target repo path comes from the dataset `working_dir`
+- Python datasets in this repo use `/testbed`
+- the benchmark uses instance-specific base images such as `repoenv_py1:<instance>_linux`
 
-```bash
-# Pull Docker image
-docker pull jsm02404/python-faker:2279_runtime
+## Verified Behavior
 
-# Run with single instance dataset
-export PYTHONPATH=$PYTHONPATH:$(pwd)
-python3 MopenHands/evaluation/benchmarks/swe_bench/run_infer.py \
-  --dataset Python_examples_faker2279.jsonl \
-  --split train --config-file config.toml --llm-config eval \
-  --agent-cls CodeActAgent --max-iterations 30
-```
+- `run_infer.py` now prefers `working_dir` from the dataset instead of assuming `/workspace/<repo>__<commit>`.
+- The prompt clearly distinguishes OpenHands code at `/openhands/code` from the repo to patch at `/testbed`.
+- Runtime initialization and completion both `cd` into the dataset-provided repo path.
+- `instance_swe_entry.sh` reads `working_dir`, so `/testbed` and `/testbed2` are both supported.
+- Python-specific runtime issues that blocked patch attempts were fixed:
+  - malformed reproduce scripts created with literal `\\n`
+  - accidental removal of valid Python source files during patch cleanup
+  - malformed `str_replace_editor` arguments such as `new_str=`
 
-See [QUICKSTART.md](QUICKSTART.md) for all available Docker images and detailed quick start guide.
+## Setup
 
----
-
-## How to Reproduce (Step-by-Step Guide)
-
-Follow these steps to reproduce the benchmark execution from scratch.
-
-### Step 0: Prerequisites
-
-**System Requirements:**
-- Python 3.11 or higher
-- Docker installed and running
-- Linux/macOS (for Rootless Docker)
-- OpenAI API key or compatible LLM API endpoint
-
-**Docker Setup:**
-```bash
-# Verify Docker installation
-docker --version
-
-# For shared servers, use Rootless Docker
-# Check your Docker socket path
-ls /run/user/$(id -u)/docker.sock
-```
-
----
-
-### Step 1: Clone the Repository
+1. Clone the repository.
 
 ```bash
 git clone https://github.com/nunu0404/Python_OpenHands.git
 cd Python_OpenHands
 ```
 
----
-
-### Step 2: Install Dependencies
-
-Install required Python packages:
+2. Install `MopenHands` dependencies.
 
 ```bash
-# Option 1: Using pip
-pip install -e .
-
-# Option 2: Using poetry (if available)
+cd MopenHands
+poetry env use python3.12
 poetry install
+cp config.template.toml config.toml
 ```
 
----
+`MopenHands` currently requires Python 3.12. If Poetry selects Python 3.13 or another version on your machine, point it to a Python 3.12 interpreter before running `poetry install`.
 
-### Step 3: Configure API Key
+3. Edit `MopenHands/config.toml` with your LLM credentials.
 
-Create your configuration file from the template:
+Example:
 
-```bash
-# Copy template
-cp config.toml.template config.toml
-
-# Edit with your API key
-nano config.toml  # or use your preferred editor
-```
-
-**config.toml example:**
 ```toml
 [llm.eval]
-model = "openai/gpt-4o"
+model = "openai/gpt-4o-mini"
 base_url = "https://api.openai.com/v1"
-api_key = "sk-your-actual-api-key-here"
+api_key = "sk-..."
 temperature = 0.0
 ```
 
-> **Note:** The `config.toml` file is gitignored to protect your API key. Never commit it to Git.
-
----
-
-### Step 4: Configure Environment Variables
-
-Set up the necessary environment variables:
+4. Export the benchmark environment variables.
 
 ```bash
-# 1. Add current directory to PYTHONPATH
-export PYTHONPATH=$PYTHONPATH:$(pwd)
-
-# 2. Set Docker Host (for Rootless Docker)
 export DOCKER_HOST="unix:///run/user/$(id -u)/docker.sock"
-
-# 3. Configure benchmark settings
-export LANGUAGE=python
 export USE_INSTANCE_IMAGE=true
+export LANGUAGE=python
 ```
 
----
+## Datasets
 
-### Step 5: Execute the Benchmark
+- `Python_examples.jsonl`
+  - 6 Python instances
+  - uses verified base images
+  - sets `working_dir` to `/testbed`
+- `Python_examples_faker2279.jsonl`
+  - single-instance quick test
+  - also uses `/testbed`
 
-Run the benchmark using `nohup` to keep it running in the background:
+## Run A Quick Test
+
+From `Python_OpenHands/MopenHands`:
 
 ```bash
-nohup python3 MopenHands/evaluation/benchmarks/swe_bench/run_infer.py \
-  --dataset Python_examples.jsonl \
+poetry run python evaluation/benchmarks/swe_bench/run_infer.py \
+  --dataset ../Python_examples_faker2279.jsonl \
   --split train \
   --config-file config.toml \
   --llm-config eval \
   --agent-cls CodeActAgent \
   --max-iterations 30 \
-  > run_infer_python_reproduce.log 2>&1 &
+  --eval-num-workers 1 \
+  --eval-note faker2279
 ```
 
----
+## Run The Full Python Set
 
-### Step 6: Monitor Progress
-
-
-Check the log file to see the progress of the benchmark.
+From `Python_OpenHands/MopenHands`:
 
 ```bash
-tail -f run_infer_python_reproduce.log
-```
-
-### Step 6: Verify Results
-
-Once completed, check the results in the `results/` directory.
-
-- **Summary File**: `results/output.jsonl` (Contains pass/fail status)
-- **Detailed Logs**: `results/infer_logs/` (Per-instance execution logs)
-
----
-
-## 📂 Repository Structure
-
-- **`openhands/`**: Core OpenHands Engine (v1.2.1)
-- **`MopenHands/`**: Benchmark Scripts (contains `run_infer.py`)
-- **`Python_examples.jsonl`**: Benchmark Dataset (6 instances)
-- **`Java_examples.jsonl`**: Java Benchmark Dataset (optional)
-- **`config.toml.template`**: Configuration template (copy to `config.toml`)
-- **`results/`**: Benchmark execution results
-- **`logs/`**: Evaluation logs (gitignored)
-
----
-
-## Evaluation with SWE-bench-Live
-
-To verify patches using SWE-bench-Live framework:
-
-### Install SWE-bench-Live
-```bash
-git clone https://github.com/microsoft/SWE-bench-Live.git
-cd SWE-bench-Live && pip install -e .
-```
-
-### Run Evaluation
-```bash
-DOCKER_HOST="unix:///run/user/$(id -u)/docker.sock" \
-python -m evaluation.evaluation \
+poetry run python evaluation/benchmarks/swe_bench/run_infer.py \
   --dataset ../Python_examples.jsonl \
-  --platform linux \
-  --patch_dir ../results/output.jsonl \
-  --output_dir ../logs/swe_bench_eval \
-  --workers 2 \
-  --overwrite 1
+  --split train \
+  --config-file config.toml \
+  --llm-config eval \
+  --agent-cls CodeActAgent \
+  --max-iterations 30 \
+  --eval-num-workers 1 \
+  --eval-note python-full
 ```
 
----
+## Logs And Outputs
 
+- OpenHands evaluation output is written under the `--eval-output-dir` you pass to `run_infer.py`.
+- Per-instance controller logs are written under `infer_logs/` inside that evaluation output directory.
+- The generated patch is stored in `output.jsonl` as `test_result.git_patch`.
+
+## Manual Docker Check
+
+If you want to inspect the target repo manually, use the dataset image and enter `/testbed`:
+
+```bash
+docker run -it --rm \
+  -w /testbed \
+  crpi-sa60h0lyaf80r3a1.cn-shenzhen.personal.cr.aliyuncs.com/xinzhou1997_env/repoenv_py1:joke2k__faker-2279_linux \
+  /bin/bash
+```
+
+Inside the container:
+
+```bash
+pwd
+python -V
+pytest -rA 2>&1 | tee test-output.log
+```
+
+This manual check is only for environment inspection. During benchmark runs, OpenHands itself decides how to reproduce and patch the issue.
+
+## Docker Images
+
+The dataset currently points to instance-specific Python base images of the form:
+
+```text
+crpi-sa60h0lyaf80r3a1.cn-shenzhen.personal.cr.aliyuncs.com/xinzhou1997_env/repoenv_py1:<instance_id>_linux
+```
+
+These are the images verified in this repo's Python flow, not `*_runtime` tags used directly as dataset inputs.
+
+## Notes
+
+- The path fix ensures the benchmark follows Xin's intended separation between OpenHands code and the target repo.
+- The Python 3-instance validation run confirmed the intended runtime flow: instance image selection, `TARGET_REPO_DIR=/testbed`, `cd /testbed`, and patch collection all executed without the old path mismatch.
+- This does not guarantee benchmark success. Agent quality and patch quality remain a separate problem.
+
+See [QUICKSTART.md](./QUICKSTART.md) for a shorter single-instance example.

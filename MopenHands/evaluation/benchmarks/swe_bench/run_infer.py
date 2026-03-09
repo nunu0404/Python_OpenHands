@@ -1,6 +1,8 @@
 import asyncio
 import json
 import os
+import re
+import shlex
 import tempfile
 from typing import Any
 
@@ -30,9 +32,9 @@ from evaluation.utils.shared import (
 from openhands.controller.state.state import State
 from openhands.core.config import (
     AgentConfig,
-    OpenHandsConfig as AppConfig,
+    AppConfig,
     get_llm_config_arg,
-    get_evaluation_parser as get_parser,
+    get_parser,
 )
 from openhands.core.logger import openhands_logger as logger
 from openhands.core.main import create_runtime, run_controller
@@ -54,6 +56,28 @@ DOCKER_IMAGE_PREFIX = os.environ.get('EVAL_DOCKER_IMAGE_PREFIX', '')
 LANGUAGE =os.environ.get('LANGUAGE', 'python')
 logger.info(f'Using docker image prefix: {DOCKER_IMAGE_PREFIX}')
 
+# Files that are often generated during agent runs and should never be submitted
+# as benchmark solution patches.
+EXCLUDE_PATCH_PATHS = {
+    'patch.diff',
+    'test-output.log',
+    'testlog.out',
+    'run_test.sh',
+    'reproduce_error.py',
+}
+
+EXCLUDE_PATCH_BASENAME_PATTERNS = (
+    re.compile(r'reproduce.*\.py$'),
+    re.compile(r'test_script.*\.py$'),
+)
+
+
+def _should_exclude_patch_path(path: str) -> bool:
+    basename = os.path.basename(path)
+    if path in EXCLUDE_PATCH_PATHS or basename in EXCLUDE_PATCH_PATHS:
+        return True
+    return any(pattern.fullmatch(basename) for pattern in EXCLUDE_PATCH_BASENAME_PATTERNS)
+
 
 AGENT_CLS_TO_FAKE_USER_RESPONSE_FN = {
     'CodeActAgent': codeact_user_response,
@@ -65,8 +89,27 @@ def _get_swebench_workspace_dir_name(instance: pd.Series) -> str:
     return f'{instance.repo}__{version}'.replace('/', '__')
 
 
-def get_instruction(instance: pd.Series, metadata: EvalMetadata):
+def _get_task_repo_path(instance: pd.Series) -> str:
+    working_dir = instance.get('working_dir')
+    if isinstance(working_dir, str):
+        working_dir = working_dir.strip()
+        if working_dir:
+            return working_dir
+    elif working_dir is not None and not pd.isna(working_dir):
+        working_dir = str(working_dir).strip()
+        if working_dir:
+            return working_dir
+
     workspace_dir_name = _get_swebench_workspace_dir_name(instance)
+    return f'/workspace/{workspace_dir_name}'
+
+
+def _quote_task_repo_path(instance: pd.Series) -> str:
+    return shlex.quote(_get_task_repo_path(instance))
+
+
+def get_instruction(instance: pd.Series, metadata: EvalMetadata):
+    task_repo_path = _get_task_repo_path(instance)
     # Prepare instruction
 
     # Instruction based on Anthropic's official trajectory
@@ -74,19 +117,19 @@ def get_instruction(instance: pd.Series, metadata: EvalMetadata):
     instructions = {
         "python":(
             '<uploaded_files>\n'
-            f'/workspace/{workspace_dir_name}\n'
+            f'{task_repo_path}\n'
             '</uploaded_files>\n'
-            f"I've uploaded a python code repository in the directory {workspace_dir_name}. Consider the following issue description:\n\n"
+            f"I've uploaded a python code repository in the directory {task_repo_path}. OpenHands' own source code lives under /openhands/code, but the repository you need to inspect and modify is at {task_repo_path}. Consider the following issue description:\n\n"
             f'<issue_description>\n'
             f'{instance.get("problem_statement", instance.get("PR_Title", ""))}\n'
             '</issue_description>\n\n'
             'Can you help me implement the necessary changes to the repository so that the requirements specified in the <issue_description> are met?\n'
             "I've already taken care of all changes to any of the test files described in the <issue_description>. This means you DON'T have to modify the testing logic or any of the tests in any way!\n"
             "Also the development Python environment is already set up for you (i.e., all dependencies already installed), so you don't need to install other packages.\n"
-            'Your task is to make the minimal changes to non-test files in the /workspace directory to ensure the <issue_description> is satisfied.\n'
+            f'Your task is to make the minimal changes to non-test files in the repository at {task_repo_path} to ensure the <issue_description> is satisfied.\n'
             'Follow these steps to resolve the issue:\n'
             '1. As a first step, it might be a good idea to explore the repo to familiarize yourself with its structure.\n'
-            '2. Create a script to reproduce the error and execute it with `python <filename.py>` using the BashTool, to confirm the error.\n'
+            '2. Create a script to reproduce the error and execute it with `python <filename.py>` using the BashTool, to confirm the error. When writing a multi-line Python file from Bash, use a heredoc such as `cat > reproduce.py <<\'PY\'` so the file contains real newlines; avoid `echo "...\\n..." > file.py`, which writes literal `\\n` sequences and breaks Python scripts.\n'
             '3. Edit the sourcecode of the repo to resolve the issue.\n'
             '4. Rerun your reproduce script and confirm that the error is fixed!\n'
             '5. Think about edgecases, add comprehensive tests for them in your reproduce script, and run them to make sure your fix handles them as well.\n'
@@ -99,16 +142,16 @@ def get_instruction(instance: pd.Series, metadata: EvalMetadata):
         ),
         "java": (
             '<uploaded_files>\n'
-            f'/workspace/{workspace_dir_name}\n'
+            f'{task_repo_path}\n'
             '</uploaded_files>\n'
-            f"I've uploaded a Java code repository in the directory {workspace_dir_name}. Consider the following issue description:\n\n"
+            f"I've uploaded a Java code repository in the directory {task_repo_path}. OpenHands' own source code lives under /openhands/code, but the repository you need to inspect and modify is at {task_repo_path}. Consider the following issue description:\n\n"
             f'<issue_description>\n'
             f'{instance.get("problem_statement", instance.get("PR_Title", ""))}\n'
             '</issue_description>\n\n'
             "Can you help me implement the necessary changes to the repository so that the requirements specified in the <issue_description> are met?\n"
             "I've already taken care of all changes to any of the test files described in the <issue_description>. This means you DON'T have to modify the testing logic or any of the tests in any way!\n"
             "Also the development Java environment is already set up for you (i.e., all dependencies already installed), so you don't need to install other packages.\n"
-            "Your task is to make the minimal changes to non-test files in the /workspace directory to ensure the <issue_description> is satisfied.\n"
+            f"Your task is to make the minimal changes to non-test files in the repository at {task_repo_path} to ensure the <issue_description> is satisfied.\n"
             "Follow these steps to resolve the issue:\n"
             "1. As a first step, it might be a good idea to explore the repo to familiarize yourself with its structure.\n"
             '2. Create a Java class to reproduce the error and execute it by first compiling with `javac <classname>.java` and then running with `java <classname>` using the BashTool, to confirm the error\n'
@@ -124,16 +167,16 @@ def get_instruction(instance: pd.Series, metadata: EvalMetadata):
         ),
         "go": (
             '<uploaded_files>\n'
-            f'/workspace/{workspace_dir_name}\n'
+            f'{task_repo_path}\n'
             '</uploaded_files>\n'
-            f"I've uploaded a Go code repository in the directory {workspace_dir_name}. Consider the following issue description:\n\n"
+            f"I've uploaded a Go code repository in the directory {task_repo_path}. OpenHands' own source code lives under /openhands/code, but the repository you need to inspect and modify is at {task_repo_path}. Consider the following issue description:\n\n"
             f'<issue_description>\n'
             f'{instance.get("problem_statement", instance.get("PR_Title", ""))}\n'
             '</issue_description>\n\n'
             'Can you help me implement the necessary changes to the repository so that the requirements specified in the <issue_description> are met?\n'
             "I've already taken care of all changes to any of the test files described in the <issue_description>. This means you DON'T have to modify the testing logic or any of the tests in any way!\n"
             "Also the development Go environment is already set up for you (i.e., all dependencies already installed), so you don't need to install other packages.\n"
-            'Your task is to make the minimal changes to non-test files in the /workspace directory to ensure the <issue_description> is satisfied.\n'
+            f'Your task is to make the minimal changes to non-test files in the repository at {task_repo_path} to ensure the <issue_description> is satisfied.\n'
             'Follow these steps to resolve the issue:\n'
             '1. As a first step, it might be a good idea to explore the repo to familiarize yourself with its structure.\n'
             '2. Create a script or a function to reproduce the error and execute it with `go run <filename.go>` using the BashTool, to confirm the error.\n'
@@ -149,16 +192,16 @@ def get_instruction(instance: pd.Series, metadata: EvalMetadata):
         ),
         "c": (
             '<uploaded_files>\n'
-            f'/workspace/{workspace_dir_name}\n'
+            f'{task_repo_path}\n'
             '</uploaded_files>\n'
-            f"I've uploaded a C code repository in the directory {workspace_dir_name}. Consider the following issue description:\n\n"
+            f"I've uploaded a C code repository in the directory {task_repo_path}. OpenHands' own source code lives under /openhands/code, but the repository you need to inspect and modify is at {task_repo_path}. Consider the following issue description:\n\n"
             f'<issue_description>\n'
             f'{instance.get("problem_statement", instance.get("PR_Title", ""))}\n'
             '</issue_description>\n\n'
             'Can you help me implement the necessary changes to the repository so that the requirements specified in the <issue_description> are met?\n'
             "I've already taken care of all changes to any of the test files described in the <issue_description>. This means you DON'T have to modify the testing logic or any of the tests in any way!\n"
             "Also the development C environment is already set up for you (i.e., all dependencies already installed), so you don't need to install other packages.\n"
-            'Your task is to make the minimal changes to non-test files in the /workspace directory to ensure the <issue_description> is satisfied.\n'
+            f'Your task is to make the minimal changes to non-test files in the repository at {task_repo_path} to ensure the <issue_description> is satisfied.\n'
             'Follow these steps to resolve the issue:\n'
             '1. As a first step, it might be a good idea to explore the repo to familiarize yourself with its structure.\n'
             '2. Create a script to reproduce the error by compiling your C code (for example, using `gcc <filename.c> -o <executable>`) and then running the executable using the BashTool, to confirm the error.\n'
@@ -174,16 +217,16 @@ def get_instruction(instance: pd.Series, metadata: EvalMetadata):
         ),
         "cpp": (
             '<uploaded_files>\n'
-            f'/workspace/{workspace_dir_name}\n'
+            f'{task_repo_path}\n'
             '</uploaded_files>\n'
-            f"I've uploaded a C++ code repository in the directory {workspace_dir_name}. Consider the following issue description:\n\n"
+            f"I've uploaded a C++ code repository in the directory {task_repo_path}. OpenHands' own source code lives under /openhands/code, but the repository you need to inspect and modify is at {task_repo_path}. Consider the following issue description:\n\n"
             f'<issue_description>\n'
             f'{instance.get("problem_statement", instance.get("PR_Title", ""))}\n'
             '</issue_description>\n\n'
             'Can you help me implement the necessary changes to the repository so that the requirements specified in the <issue_description> are met?\n'
             "I've already taken care of all changes to any of the test files described in the <issue_description>. This means you DON'T have to modify the testing logic or any of the tests in any way!\n"
             "Also the development C++ environment is already set up for you (i.e., all dependencies already installed), so you don't need to install other packages.\n"
-            'Your task is to make the minimal changes to non-test files in the /workspace directory to ensure the <issue_description> is satisfied.\n'
+            f'Your task is to make the minimal changes to non-test files in the repository at {task_repo_path} to ensure the <issue_description> is satisfied.\n'
             'Follow these steps to resolve the issue:\n'
             '1. As a first step, it might be a good idea to explore the repo to familiarize yourself with its structure.\n'
             '2. Create or adapt a small executable (e.g., a main file or a test driver) to reproduce the issue. Build and run it (for example, by using `g++ -o reproduce reproduce.cpp && ./reproduce` via the BashTool) to confirm the error.\n'
@@ -199,16 +242,16 @@ def get_instruction(instance: pd.Series, metadata: EvalMetadata):
         ),
         "javascript": (
             '<uploaded_files>\n'
-            f'/workspace/{workspace_dir_name}\n'
+            f'{task_repo_path}\n'
             '</uploaded_files>\n'
-            f"I've uploaded a Javascript code repository in the directory {workspace_dir_name}. Consider the following issue description:\n\n"
+            f"I've uploaded a Javascript code repository in the directory {task_repo_path}. OpenHands' own source code lives under /openhands/code, but the repository you need to inspect and modify is at {task_repo_path}. Consider the following issue description:\n\n"
             f'<issue_description>\n'
             f'{instance.get("problem_statement", instance.get("PR_Title", ""))}\n'
             '</issue_description>\n\n'
             'Can you help me implement the necessary changes to the repository so that the requirements specified in the <issue_description> are met?\n'
             "I've already taken care of all changes to any of the test files described in the <issue_description>. This means you DON'T have to modify the testing logic or any of the tests in any way!\n"
             "Also the development Javascript environment is already set up for you (i.e., all dependencies already installed), so you don't need to install other packages.\n"
-            'Your task is to make the minimal changes to non-test files in the /workspace directory to ensure the <issue_description> is satisfied.\n'
+            f'Your task is to make the minimal changes to non-test files in the repository at {task_repo_path} to ensure the <issue_description> is satisfied.\n'
             'Follow these steps to resolve the issue:\n'
             '1. As a first step, it might be a good idea to explore the repo to familiarize yourself with its structure.\n'
             '2. Create a script to reproduce the error and execute it with `node <filename.js>` using the BashTool, to confirm the error.\n'
@@ -224,16 +267,16 @@ def get_instruction(instance: pd.Series, metadata: EvalMetadata):
         ),
         "typescript":(
             '<uploaded_files>\n'
-            f'/workspace/{workspace_dir_name}\n'
+            f'{task_repo_path}\n'
             '</uploaded_files>\n'
-            f"I've uploaded a Typescript code repository in the directory {workspace_dir_name}. Consider the following issue description:\n\n"
+            f"I've uploaded a Typescript code repository in the directory {task_repo_path}. OpenHands' own source code lives under /openhands/code, but the repository you need to inspect and modify is at {task_repo_path}. Consider the following issue description:\n\n"
             f'<issue_description>\n'
             f'{instance.get("problem_statement", instance.get("PR_Title", ""))}\n'
             '</issue_description>\n\n'
             'Can you help me implement the necessary changes to the repository so that the requirements specified in the <issue_description> are met?\n'
             "I've already taken care of all changes to any of the test files described in the <issue_description>. This means you DON'T have to modify the testing logic or any of the tests in any way!\n"
             "Also the development Typescript environment is already set up for you (i.e., all dependencies already installed), so you don't need to install other packages.\n"
-            'Your task is to make the minimal changes to non-test files in the /workspace directory to ensure the <issue_description> is satisfied.\n'
+            f'Your task is to make the minimal changes to non-test files in the repository at {task_repo_path} to ensure the <issue_description> is satisfied.\n'
             'Follow these steps to resolve the issue:\n'
             '1. As a first step, it might be a good idea to explore the repo to familiarize yourself with its structure.\n'
             '2. Create a script to reproduce the error and execute it with `ts-node <filename.ts>` using the BashTool, to confirm the error.\n'
@@ -249,16 +292,16 @@ def get_instruction(instance: pd.Series, metadata: EvalMetadata):
         ),
         "rust":(
             '<uploaded_files>\n'
-            f'/workspace/{workspace_dir_name}\n'
+            f'{task_repo_path}\n'
             '</uploaded_files>\n'
-            f"I've uploaded a Rust code repository in the directory {workspace_dir_name}. Consider the following issue description:\n\n"
+            f"I've uploaded a Rust code repository in the directory {task_repo_path}. OpenHands' own source code lives under /openhands/code, but the repository you need to inspect and modify is at {task_repo_path}. Consider the following issue description:\n\n"
             f'<issue_description>\n'
             f'{instance.get("problem_statement", instance.get("PR_Title", ""))}\n'
             '</issue_description>\n\n'
             'Can you help me implement the necessary changes to the repository so that the requirements specified in the <issue_description> are met?\n'
             "I've already taken care of all changes to any of the test files described in the <issue_description>. This means you DON'T have to modify the testing logic or any of the tests in any way!\n"
             "Also the development Rust environment is already set up for you (i.e., all dependencies already installed), so you don't need to install other packages.\n"
-            'Your task is to make the minimal changes to non-test files in the /workspace directory to ensure the <issue_description> is satisfied.\n'
+            f'Your task is to make the minimal changes to non-test files in the repository at {task_repo_path} to ensure the <issue_description> is satisfied.\n'
             'Follow these steps to resolve the issue:\n'
             '1. As a first step, it might be a good idea to explore the repo to familiarize yourself with its structure.\n'
             '2. Create a reproduction script (or binary) that triggers the error and execute it with `cargo run --bin <filename>` using the BashTool, to confirm the error.\n'
@@ -283,6 +326,50 @@ def get_instruction(instance: pd.Series, metadata: EvalMetadata):
             '</IMPORTANT!>\n'
         )
     return instruction
+
+
+def clean_git_patch(patch_text: str) -> str:
+    """Remove binary/noisy file diffs while preserving unified diff validity."""
+    if not patch_text:
+        return patch_text
+
+    has_trailing_newline = patch_text.endswith('\n')
+    lines = patch_text.splitlines(keepends=True)
+    blocks: list[list[str]] = []
+    block: list[str] = []
+    for line in lines:
+        if line.startswith('diff --git '):
+            if block:
+                blocks.append(block)
+            block = [line]
+        else:
+            block.append(line)
+    if block:
+        blocks.append(block)
+
+    cleaned_blocks: list[list[str]] = []
+    header_re = re.compile(r'^diff --git a/(.+?) b/(.+?)\n?$')
+    for b in blocks:
+        if not b:
+            continue
+        block_text = ''.join(b)
+        if 'Binary files' in block_text:
+            continue
+
+        header = b[0]
+        m = header_re.match(header)
+        if m:
+            a_path, b_path = m.group(1), m.group(2)
+            if _should_exclude_patch_path(a_path) or _should_exclude_patch_path(b_path):
+                logger.info(f'Excluded generated file from patch: {a_path} -> {b_path}')
+                continue
+
+        cleaned_blocks.append(b)
+
+    cleaned = ''.join(''.join(b) for b in cleaned_blocks)
+    if has_trailing_newline and cleaned and not cleaned.endswith('\n'):
+        cleaned += '\n'
+    return cleaned
 
 
 
@@ -378,7 +465,8 @@ def initialize_runtime(
     logger.info('-' * 30)
     logger.info('BEGIN Runtime Initialization Fn')
     logger.info('-' * 30)
-    workspace_dir_name = _get_swebench_workspace_dir_name(instance)
+    task_repo_path = _get_task_repo_path(instance)
+    quoted_task_repo_path = _quote_task_repo_path(instance)
     obs: CmdOutputObservation
 
     REPO_NAME = instance['repo'].split('/')[-1]
@@ -471,14 +559,14 @@ def initialize_runtime(
             f'Failed to source /swe_util/swe_entry.sh: {str(obs)}',
         )
 
-    action = CmdRunAction(command=f'cd /workspace/{workspace_dir_name}')
+    action = CmdRunAction(command=f'cd {quoted_task_repo_path}')
     action.set_hard_timeout(600)
     logger.info(action, extra={'msg_type': 'ACTION'})
     obs = runtime.run_action(action)
     logger.info(obs, extra={'msg_type': 'OBSERVATION'})
     assert_and_raise(
         obs.exit_code == 0,
-        f'Failed to cd to /workspace/{workspace_dir_name}: {str(obs)}',
+        f'Failed to cd to {task_repo_path}: {str(obs)}',
     )
 
     action = CmdRunAction(command='git reset --hard')
@@ -514,7 +602,7 @@ def initialize_runtime(
 
 def complete_runtime(
     runtime: Runtime,
-    instance: pd.Series,  # this argument is not required, but it is used to get the workspace_dir_name
+    instance: pd.Series,  # this argument is not required, but it is used to get the task repo path
 ) -> dict[str, Any]:
     """Complete the runtime for the agent.
 
@@ -526,9 +614,10 @@ def complete_runtime(
     logger.info('BEGIN Runtime Completion Fn')
     logger.info('-' * 30)
     obs: CmdOutputObservation
-    workspace_dir_name = _get_swebench_workspace_dir_name(instance)
+    task_repo_path = _get_task_repo_path(instance)
+    quoted_task_repo_path = _quote_task_repo_path(instance)
 
-    action = CmdRunAction(command=f'cd /workspace/{workspace_dir_name}')
+    action = CmdRunAction(command=f'cd {quoted_task_repo_path}')
     action.set_hard_timeout(600)
     logger.info(action, extra={'msg_type': 'ACTION'})
     obs = runtime.run_action(action)
@@ -543,7 +632,7 @@ def complete_runtime(
         logger.info(obs, extra={'msg_type': 'OBSERVATION'})
 
         # Then run the command again
-        action = CmdRunAction(command=f'cd /workspace/{workspace_dir_name}')
+        action = CmdRunAction(command=f'cd {quoted_task_repo_path}')
         action.set_hard_timeout(600)
         logger.info(action, extra={'msg_type': 'ACTION'})
         obs = runtime.run_action(action)
@@ -551,7 +640,7 @@ def complete_runtime(
 
     assert_and_raise(
         isinstance(obs, CmdOutputObservation) and obs.exit_code == 0,
-        f'Failed to cd to /workspace/{workspace_dir_name}: {str(obs)}',
+        f'Failed to cd to {task_repo_path}: {str(obs)}',
     )
 
     action = CmdRunAction(command='git config --global core.pager ""')
@@ -575,13 +664,32 @@ def complete_runtime(
         f'Failed to git add -A: {str(obs)}',
     )
 
-    ##删除二进制文件
+    # Unstage known benchmark artifact files so they are never part of model_patch.
+    action = CmdRunAction(
+        command='''
+        for file in $(git status --porcelain | grep -E "^(M| M|\\?\\?|A| A)" | cut -c4-); do
+            base=$(basename "$file")
+            case "$base" in
+                patch.diff|test-output.log|testlog.out|run_test.sh|reproduce*.py|test_script*.py)
+                    git restore --staged -- "$file" 2>/dev/null || git reset HEAD -- "$file" >/dev/null 2>&1 || true
+                    ;;
+            esac
+        done
+        '''
+    )
+    action.set_hard_timeout(600)
+    logger.info(action, extra={'msg_type': 'ACTION'})
+    obs = runtime.run_action(action)
+    logger.info(obs, extra={'msg_type': 'OBSERVATION'})
+
+    # Only unstage true binary diffs. Text scripts can be reported by `file` as
+    # "executable", which would incorrectly drop valid source edits.
     action = CmdRunAction(
         command=f'''
         for file in $(git status --porcelain | grep -E "^(M| M|\\?\\?|A| A)" | cut -c4-); do
-            if [ -f "$file" ] && (file "$file" | grep -q "executable" || git check-attr binary "$file" | grep -q "binary: set"); then
-                git rm -f "$file" 2>/dev/null || rm -f "$file"
-                echo "Removed: $file"
+            if [ -f "$file" ] && git diff --cached --numstat -- "$file" | awk 'NR > 0 && $1 == "-" && $2 == "-" {{found=1}} END {{exit found ? 0 : 1}}'; then
+                git restore --staged -- "$file" 2>/dev/null || git reset HEAD -- "$file" >/dev/null 2>&1 || true
+                echo "Unstaged binary diff: $file"
             fi
         done
         '''
@@ -701,29 +809,7 @@ def process_instance(
     # ======= Attempt to evaluate the agent's edits =======
     # we use eval_infer.sh to evaluate the agent's edits, not here
     # because the agent may alter the environment / testcases
-    ###remove binary diffs
-    def remove_binary_diffs(patch_text):
-        lines = patch_text.splitlines()
-        cleaned_lines = []
-        block = []
-        is_binary_block = False
-
-        for line in lines:
-            if line.startswith("diff --git "):
-                if block and not is_binary_block:
-                    cleaned_lines.extend(block)
-                block = [line]
-                is_binary_block = False
-            elif "Binary files" in line:
-                is_binary_block = True
-                block.append(line)
-            else:
-                block.append(line)
-
-        if block and not is_binary_block:
-            cleaned_lines.extend(block)
-        return "\n".join(cleaned_lines)
-    git_patch = remove_binary_diffs(git_patch)
+    git_patch = clean_git_patch(git_patch)
     test_result = {
         'git_patch': git_patch,
     }

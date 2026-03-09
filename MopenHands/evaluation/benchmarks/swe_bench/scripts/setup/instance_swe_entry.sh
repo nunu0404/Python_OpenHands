@@ -24,8 +24,14 @@ if [[ -z "$item" ]]; then
 fi
 
 WORKSPACE_NAME=$(echo "$item" | jq -r '(.repo | tostring) + "__" + ((.version // .base_commit) | tostring) | gsub("/"; "__")')
+TARGET_REPO_DIR=$(echo "$item" | jq -r '(.working_dir // "") | tostring')
+
+if [[ "$TARGET_REPO_DIR" == "null" ]]; then
+    TARGET_REPO_DIR=""
+fi
 
 echo "WORKSPACE_NAME: $WORKSPACE_NAME"
+echo "TARGET_REPO_DIR: ${TARGET_REPO_DIR:-<unset>}"
 
 # Clear the workspace
 if [ -d /workspace ]; then
@@ -38,12 +44,17 @@ if [ -d /workspace/$WORKSPACE_NAME ]; then
     rm -rf /workspace/$WORKSPACE_NAME
 fi
 mkdir -p /workspace
-if [ -d "/testbed" ]; then
-    cp -r /testbed /workspace/$WORKSPACE_NAME
+if [[ -n "$TARGET_REPO_DIR" && -d "$TARGET_REPO_DIR" ]]; then
+    # Respect the dataset-provided target repo path, such as /testbed or /testbed2.
+    ln -s "$TARGET_REPO_DIR" /workspace/$WORKSPACE_NAME
+elif [ -d "/testbed" ]; then
+    # Create a symlink instead of copying, to preserve 'pip install -e .' editable paths
+    ln -s /testbed /workspace/$WORKSPACE_NAME
 elif [ -d "/home/$REPO_NAME" ]; then
-    cp -r /home/$REPO_NAME /workspace/$WORKSPACE_NAME
+    # Create a symlink instead of copying
+    ln -s /home/$REPO_NAME /workspace/$WORKSPACE_NAME
 else
-    echo "Error: Repository source not found in /testbed or /home/$REPO_NAME"
+    echo "Error: Repository source not found in ${TARGET_REPO_DIR:-/testbed} or /home/$REPO_NAME"
     exit 1
 fi
 

@@ -472,6 +472,23 @@ def combine_thought(action: Action, thought: str) -> Action:
     return action
 
 
+def _normalize_argument_keys(arguments: dict) -> dict:
+    normalized: dict = {}
+    for key, value in arguments.items():
+        normalized_key = key
+        if isinstance(key, str):
+            normalized_key = key.strip()
+            if normalized_key.endswith('='):
+                normalized_key = normalized_key[:-1].strip()
+
+        if normalized_key in normalized and normalized[normalized_key] != value:
+            raise FunctionCallValidationError(
+                f'Conflicting values for normalized argument key "{normalized_key}"'
+            )
+        normalized[normalized_key] = value
+    return normalized
+
+
 def response_to_actions(response: ModelResponse) -> list[Action]:
     actions: list[Action] = []
     assert len(response.choices) == 1, 'Only one choice is supported for now'
@@ -496,6 +513,11 @@ def response_to_actions(response: ModelResponse) -> list[Action]:
                 raise RuntimeError(
                     f'Failed to parse tool call arguments: {tool_call.function.arguments}'
                 ) from e
+            if not isinstance(arguments, dict):
+                raise FunctionCallValidationError(
+                    f'Tool call arguments must decode to an object: {tool_call.function.arguments}'
+                )
+            arguments = _normalize_argument_keys(arguments)
             if tool_call.function.name == 'execute_bash':
                 if 'command' not in arguments:
                     raise FunctionCallValidationError(
@@ -546,6 +568,20 @@ def response_to_actions(response: ModelResponse) -> list[Action]:
                 other_kwargs = {
                     k: v for k, v in arguments.items() if k not in ['command', 'path']
                 }
+                allowed_kwargs = {
+                    'file_text',
+                    'old_str',
+                    'new_str',
+                    'insert_line',
+                    'view_range',
+                }
+                unexpected_kwargs = sorted(
+                    k for k in other_kwargs if k not in allowed_kwargs
+                )
+                if unexpected_kwargs:
+                    raise FunctionCallValidationError(
+                        f'Unexpected arguments for {tool_call.function.name}: {unexpected_kwargs}'
+                    )
 
                 if command == 'view':
                     action = FileReadAction(

@@ -1,12 +1,13 @@
-# Quick Start: `joke2k__faker-2279`
+# Quick Start: Xin's Python Spreadsheet
 
-This is the shortest verified path for a single Python instance.
+This is the shortest verified path for running Xin's original `py_examples_updated.xlsx` file.
 
 ## 1. Install
 
 ```bash
 git clone https://github.com/nunu0404/Python_OpenHands.git
 cd Python_OpenHands/MopenHands
+python3.12 --version
 poetry env use python3.12
 poetry install
 cp config.template.toml config.toml
@@ -14,7 +15,7 @@ cp config.template.toml config.toml
 
 Add your LLM credentials to `config.toml`.
 
-`MopenHands` requires Python 3.12. If Poetry picks Python 3.13 on your host, switch it to a Python 3.12 interpreter first.
+`MopenHands` requires Python 3.12. If `python3.12` is not on your host `PATH`, install Python 3.12 first and replace `python3.12` above with the full path to that interpreter.
 
 ## 2. Export Runtime Settings
 
@@ -24,32 +25,19 @@ export USE_INSTANCE_IMAGE=true
 export LANGUAGE=python
 ```
 
-## 3. Optional Manual Environment Check
+## 3. Dataset
 
-The verified base image for `faker-2279` is:
+The original spreadsheet is included at the repository root:
 
 ```text
-crpi-sa60h0lyaf80r3a1.cn-shenzhen.personal.cr.aliyuncs.com/xinzhou1997_env/repoenv_py1:joke2k__faker-2279_linux
+../py_examples_updated.xlsx
 ```
 
-You can inspect it manually:
+It contains these three Python instances:
 
-```bash
-docker run -it --rm \
-  -w /testbed \
-  crpi-sa60h0lyaf80r3a1.cn-shenzhen.personal.cr.aliyuncs.com/xinzhou1997_env/repoenv_py1:joke2k__faker-2279_linux \
-  /bin/bash
-```
-
-Then inside the container:
-
-```bash
-pwd
-python -V
-pytest -rA 2>&1 | tee test-output.log
-```
-
-The target repo should be at `/testbed`.
+- `joke2k__faker-2309`
+- `joke2k__faker-2279`
+- `aws-cloudformation__cfn-lint-3377`
 
 ## 4. Run OpenHands
 
@@ -57,14 +45,14 @@ From `Python_OpenHands/MopenHands`:
 
 ```bash
 poetry run python evaluation/benchmarks/swe_bench/run_infer.py \
-  --dataset ../Python_examples_faker2279.jsonl \
+  --dataset ../py_examples_updated.xlsx \
   --split train \
   --config-file config.toml \
   --llm-config eval \
   --agent-cls CodeActAgent \
   --max-iterations 30 \
   --eval-num-workers 1 \
-  --eval-note faker2279
+  --eval-note py-excel
 ```
 
 ## 5. What This Repo Now Assumes
@@ -72,6 +60,7 @@ poetry run python evaluation/benchmarks/swe_bench/run_infer.py \
 - OpenHands runtime code lives under `/openhands/code`
 - the repo to patch comes from dataset `working_dir`
 - for Python quick tests here, that path is `/testbed`
-- the dataset uses the base image tag, not a `*_runtime` tag as the dataset input
+- the spreadsheet uses the base image tag, not a `*_runtime` tag as the dataset input
+- `run_infer.py` reconstructs the issue text from `PR_Title` and `PR_Body` when `problem_statement` is absent
 
-For the full 6-instance Python run, use [README.md](./README.md).
+For the extended JSONL dataset and manual Docker checks, use [README.md](./README.md).

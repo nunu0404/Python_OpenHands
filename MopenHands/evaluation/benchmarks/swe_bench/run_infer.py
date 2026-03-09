@@ -1,9 +1,11 @@
 import asyncio
+import ast
 import json
 import os
 import re
 import shlex
 import tempfile
+from pathlib import Path
 from typing import Any
 
 import pandas as pd
@@ -108,8 +110,83 @@ def _quote_task_repo_path(instance: pd.Series) -> str:
     return shlex.quote(_get_task_repo_path(instance))
 
 
+def _get_optional_text(value: Any) -> str:
+    if value is None:
+        return ''
+    if isinstance(value, float) and pd.isna(value):
+        return ''
+    if pd.isna(value):
+        return ''
+    text = str(value).strip()
+    return '' if text.lower() == 'nan' else text
+
+
+def _coerce_command_list(value: Any) -> list[str]:
+    if value is None:
+        return []
+    if isinstance(value, str):
+        text = value.strip()
+        if not text:
+            return []
+        if text.startswith('[') and text.endswith(']'):
+            try:
+                parsed = ast.literal_eval(text)
+            except (ValueError, SyntaxError):
+                parsed = None
+            if isinstance(parsed, (list, tuple)):
+                return [str(item).strip() for item in parsed if str(item).strip()]
+        return [text]
+    if isinstance(value, (list, tuple, set)):
+        return [str(item).strip() for item in value if str(item).strip()]
+    if pd.isna(value):
+        return []
+    return [str(value).strip()]
+
+
+def _format_command_section(title: str, commands: list[str]) -> str:
+    if not commands:
+        return ''
+    lines = [f'{title}:']
+    lines.extend(f'- {command}' for command in commands)
+    return '\n'.join(lines)
+
+
+def _get_problem_statement(instance: pd.Series) -> str:
+    problem_statement = _get_optional_text(instance.get('problem_statement'))
+    if not problem_statement:
+        title = _get_optional_text(instance.get('PR_Title'))
+        body = _get_optional_text(instance.get('PR_Body'))
+        if title and body:
+            problem_statement = f'{title}\n\n{body}'
+        else:
+            problem_statement = title or body
+
+    command_sections = [
+        _format_command_section(
+            'Useful rebuild commands from the dataset',
+            _coerce_command_list(instance.get('rebuild_cmds') or instance.get('setup_cmds')),
+        ),
+        _format_command_section(
+            'Useful test commands from the dataset',
+            _coerce_command_list(instance.get('test_cmds')),
+        ),
+        _format_command_section(
+            'Useful print/debug commands from the dataset',
+            _coerce_command_list(instance.get('print_cmds')),
+        ),
+    ]
+    command_sections = [section for section in command_sections if section]
+    if command_sections:
+        if problem_statement:
+            problem_statement += '\n\n'
+        problem_statement += '\n\n'.join(command_sections)
+
+    return problem_statement
+
+
 def get_instruction(instance: pd.Series, metadata: EvalMetadata):
     task_repo_path = _get_task_repo_path(instance)
+    problem_statement = _get_problem_statement(instance)
     # Prepare instruction
 
     # Instruction based on Anthropic's official trajectory
@@ -121,7 +198,7 @@ def get_instruction(instance: pd.Series, metadata: EvalMetadata):
             '</uploaded_files>\n'
             f"I've uploaded a python code repository in the directory {task_repo_path}. OpenHands' own source code lives under /openhands/code, but the repository you need to inspect and modify is at {task_repo_path}. Consider the following issue description:\n\n"
             f'<issue_description>\n'
-            f'{instance.get("problem_statement", instance.get("PR_Title", ""))}\n'
+            f'{problem_statement}\n'
             '</issue_description>\n\n'
             'Can you help me implement the necessary changes to the repository so that the requirements specified in the <issue_description> are met?\n'
             "I've already taken care of all changes to any of the test files described in the <issue_description>. This means you DON'T have to modify the testing logic or any of the tests in any way!\n"
@@ -146,7 +223,7 @@ def get_instruction(instance: pd.Series, metadata: EvalMetadata):
             '</uploaded_files>\n'
             f"I've uploaded a Java code repository in the directory {task_repo_path}. OpenHands' own source code lives under /openhands/code, but the repository you need to inspect and modify is at {task_repo_path}. Consider the following issue description:\n\n"
             f'<issue_description>\n'
-            f'{instance.get("problem_statement", instance.get("PR_Title", ""))}\n'
+            f'{problem_statement}\n'
             '</issue_description>\n\n'
             "Can you help me implement the necessary changes to the repository so that the requirements specified in the <issue_description> are met?\n"
             "I've already taken care of all changes to any of the test files described in the <issue_description>. This means you DON'T have to modify the testing logic or any of the tests in any way!\n"
@@ -171,7 +248,7 @@ def get_instruction(instance: pd.Series, metadata: EvalMetadata):
             '</uploaded_files>\n'
             f"I've uploaded a Go code repository in the directory {task_repo_path}. OpenHands' own source code lives under /openhands/code, but the repository you need to inspect and modify is at {task_repo_path}. Consider the following issue description:\n\n"
             f'<issue_description>\n'
-            f'{instance.get("problem_statement", instance.get("PR_Title", ""))}\n'
+            f'{problem_statement}\n'
             '</issue_description>\n\n'
             'Can you help me implement the necessary changes to the repository so that the requirements specified in the <issue_description> are met?\n'
             "I've already taken care of all changes to any of the test files described in the <issue_description>. This means you DON'T have to modify the testing logic or any of the tests in any way!\n"
@@ -196,7 +273,7 @@ def get_instruction(instance: pd.Series, metadata: EvalMetadata):
             '</uploaded_files>\n'
             f"I've uploaded a C code repository in the directory {task_repo_path}. OpenHands' own source code lives under /openhands/code, but the repository you need to inspect and modify is at {task_repo_path}. Consider the following issue description:\n\n"
             f'<issue_description>\n'
-            f'{instance.get("problem_statement", instance.get("PR_Title", ""))}\n'
+            f'{problem_statement}\n'
             '</issue_description>\n\n'
             'Can you help me implement the necessary changes to the repository so that the requirements specified in the <issue_description> are met?\n'
             "I've already taken care of all changes to any of the test files described in the <issue_description>. This means you DON'T have to modify the testing logic or any of the tests in any way!\n"
@@ -627,7 +704,7 @@ def complete_runtime(
         # The previous command is still running
         # We need to kill previous command
         logger.info('The previous command is still running, trying to kill it...')
-        action = CmdRunAction(command='C-c')
+        action = CmdRunAction(command='C-c', is_input=True)
         obs = runtime.run_action(action)
         logger.info(obs, extra={'msg_type': 'OBSERVATION'})
 
@@ -857,6 +934,24 @@ def filter_dataset(dataset: pd.DataFrame, filter_column: str) -> pd.DataFrame:
     return dataset
 
 
+def load_eval_dataframe(dataset_path: str, split: str) -> pd.DataFrame:
+    suffix = Path(dataset_path).suffix.lower()
+    if suffix in {'.xlsx', '.xls'}:
+        if split != 'train':
+            logger.warning(
+                'Excel datasets are treated as a single train split. Requested split=%s will still load the spreadsheet rows directly.',
+                split,
+            )
+        return pd.read_excel(dataset_path)
+
+    if suffix in {'.json', '.jsonl'}:
+        dataset = load_dataset('json', data_files=dataset_path)
+        return dataset[split].to_pandas()
+
+    dataset = load_dataset(dataset_path, split=split)
+    return dataset.to_pandas()
+
+
 if __name__ == '__main__':
     # pdb.set_trace()
     parser = get_parser()
@@ -878,9 +973,7 @@ if __name__ == '__main__':
     # so we don't need to manage file uploading to OpenHands's repo
     # dataset = load_dataset(args.dataset, split=args.split)
     # dataset = load_dataset(args.dataset)
-    dataset = load_dataset("json", data_files = args.dataset)
-    dataset = dataset[args.split]
-    swe_bench_tests = filter_dataset(dataset.to_pandas(), 'instance_id')
+    swe_bench_tests = filter_dataset(load_eval_dataframe(args.dataset, args.split), 'instance_id')
     logger.info(
         f'Loaded dataset {args.dataset} with split {args.split}: {len(swe_bench_tests)} tasks'
     )

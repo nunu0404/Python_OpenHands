@@ -8,6 +8,7 @@ As of March 9, 2026, the Python path and runtime flow in this repo has been chec
 - the target repo path comes from the dataset `working_dir`
 - Python datasets in this repo use `/testbed`
 - the benchmark uses instance-specific base images such as `repoenv_py1:<instance>_linux`
+- `run_infer.py` accepts both `.jsonl` and Xin's original `.xlsx` example file
 
 ## Verified Behavior
 
@@ -22,6 +23,12 @@ As of March 9, 2026, the Python path and runtime flow in this repo has been chec
 
 ## Setup
 
+Prerequisites:
+
+- Python 3.12
+- Poetry
+- Docker access for the current user
+
 1. Clone the repository.
 
 ```bash
@@ -33,12 +40,13 @@ cd Python_OpenHands
 
 ```bash
 cd MopenHands
+python3.12 --version
 poetry env use python3.12
 poetry install
 cp config.template.toml config.toml
 ```
 
-`MopenHands` currently requires Python 3.12. If Poetry selects Python 3.13 or another version on your machine, point it to a Python 3.12 interpreter before running `poetry install`.
+`MopenHands` currently requires Python 3.12. If `python3.12` is not on your `PATH`, install Python 3.12 first and replace `python3.12` above with the full path to that interpreter.
 
 3. Edit `MopenHands/config.toml` with your LLM credentials.
 
@@ -62,6 +70,10 @@ export LANGUAGE=python
 
 ## Datasets
 
+- `py_examples_updated.xlsx`
+  - Xin's original 3-instance spreadsheet
+  - directly supported by `run_infer.py`
+  - contains `joke2k__faker-2309`, `joke2k__faker-2279`, `aws-cloudformation__cfn-lint-3377`
 - `Python_examples.jsonl`
   - 6 Python instances
   - uses verified base images
@@ -70,7 +82,25 @@ export LANGUAGE=python
   - single-instance quick test
   - also uses `/testbed`
 
-## Run A Quick Test
+## Run Xin's Spreadsheet Directly
+
+From `Python_OpenHands/MopenHands`:
+
+```bash
+poetry run python evaluation/benchmarks/swe_bench/run_infer.py \
+  --dataset ../py_examples_updated.xlsx \
+  --split train \
+  --config-file config.toml \
+  --llm-config eval \
+  --agent-cls CodeActAgent \
+  --max-iterations 30 \
+  --eval-num-workers 1 \
+  --eval-note py-excel
+```
+
+This is the closest command to "run Xin's example file as-is" because the spreadsheet is now accepted directly.
+
+## Run A Quick Single-Instance Test
 
 From `Python_OpenHands/MopenHands`:
 
@@ -86,7 +116,7 @@ poetry run python evaluation/benchmarks/swe_bench/run_infer.py \
   --eval-note faker2279
 ```
 
-## Run The Full Python Set
+## Run The Extended JSONL Set
 
 From `Python_OpenHands/MopenHands`:
 
@@ -142,6 +172,7 @@ These are the images verified in this repo's Python flow, not `*_runtime` tags u
 ## Notes
 
 - The path fix ensures the benchmark follows Xin's intended separation between OpenHands code and the target repo.
+- The original spreadsheet does not contain `problem_statement`, so `run_infer.py` now reconstructs the issue text from `PR_Title` and `PR_Body` and also exposes dataset-provided rebuild/test commands to the agent.
 - The Python 3-instance validation run confirmed the intended runtime flow: instance image selection, `TARGET_REPO_DIR=/testbed`, `cd /testbed`, and patch collection all executed without the old path mismatch.
 - This does not guarantee benchmark success. Agent quality and patch quality remain a separate problem.
 

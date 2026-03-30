@@ -1,8 +1,8 @@
 # Quick Start: Xin's Python Spreadsheet
 
-This is the shortest verified path for running Xin's original `py_examples_updated.xlsx` file.
+This is the shortest verified path for `py_examples_updated.xlsx`.
 
-## 1. Install
+## 1. Install OpenHands
 
 ```bash
 git clone https://github.com/nunu0404/Python_OpenHands.git
@@ -10,57 +10,37 @@ cd Python_OpenHands/MopenHands
 python3.12 --version
 poetry env use python3.12
 poetry install
-cp config.template.toml config.toml
+cd ..
+cp config.toml.template MopenHands/config.toml
 ```
 
-Add your LLM credentials to `config.toml`.
+Edit `MopenHands/config.toml` and fill in either `[llm.eval]` or `[llm.gpt-5-mini-ca]`.
 
-`MopenHands` requires Python 3.12. If `python3.12` is not on your host `PATH`, install Python 3.12 first and replace `python3.12` above with the full path to that interpreter.
-
-## 2. Export Runtime Settings
+## 2. Check Docker
 
 ```bash
 export DOCKER_HOST="unix:///run/user/$(id -u)/docker.sock"
-export USE_INSTANCE_IMAGE=true
-export LANGUAGE=python
+docker run --rm hello-world
 ```
 
-## 3. Dataset
-
-The original spreadsheet is included at the repository root:
-
-```text
-../py_examples_updated.xlsx
-```
-
-It contains these three Python instances:
-
-- `joke2k__faker-2309`
-- `joke2k__faker-2279`
-- `aws-cloudformation__cfn-lint-3377`
-
-## 4. Run OpenHands
-
-From `Python_OpenHands/MopenHands`:
+## 3. Run The Full Pipeline
 
 ```bash
-poetry run python evaluation/benchmarks/swe_bench/run_infer.py \
-  --dataset ../py_examples_updated.xlsx \
-  --split train \
-  --config-file config.toml \
-  --llm-config eval \
-  --agent-cls CodeActAgent \
-  --max-iterations 30 \
-  --eval-num-workers 1 \
-  --eval-note py-excel
+LLM_CONFIG=gpt-5-mini-ca ./scripts/run_py_examples_updated_pipeline.sh
 ```
 
-## 5. What This Repo Now Assumes
+This runs:
 
-- OpenHands runtime code lives under `/openhands/code`
-- the repo to patch comes from dataset `working_dir`
-- for Python quick tests here, that path is `/testbed`
-- the spreadsheet uses the base image tag, not a `*_runtime` tag as the dataset input
-- `run_infer.py` reconstructs the issue text from `PR_Title` and `PR_Body` when `problem_statement` is absent
+- OpenHands on `py_examples_updated.xlsx`
+- patch conversion
+- SWE-bench-Live evaluation
 
-For the extended JSONL dataset and manual Docker checks, use [README.md](./README.md).
+## 4. Fast Single-Instance Smoke Test
+
+```bash
+export SKIP_IDS="joke2k__faker-2309,aws-cloudformation__cfn-lint-3377"
+export INSTANCE_IDS=joke2k__faker-2279
+LLM_CONFIG=eval MAX_ITERATIONS=10 ./scripts/run_py_examples_updated_pipeline.sh
+```
+
+Use [README.md](./README.md) for the separate-stage commands and output file locations.

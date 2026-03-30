@@ -104,7 +104,7 @@ workspace_base = "./workspace"
 #aws_secret_access_key = ""
 
 # API key to use (For Headless / CLI only -  In Web this is overridden by Session Init)
-api_key = "sk-TfYwdsLVehuG10ISFg9pE3OwUXLxPMKM4i5kI4DmQZs5BPpc"
+api_key = "YOUR_API_KEY_HERE"
 
 # API base URL (For Headless / CLI only -  In Web this is overridden by Session Init)
 base_url = "https://api.openai.com/v1"

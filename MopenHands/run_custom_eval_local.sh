@@ -2,8 +2,11 @@
 set -e
 
 # Define absolute path to dataset
-DATASET_PATH="/home/seongminju/openhands/Python_examples.jsonl"
-MOPENHANDS_DIR="/home/seongminju/openhands/MopenHands"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+ROOT_DIR="$(cd "$SCRIPT_DIR/.." && pwd)"
+
+DATASET_PATH="$ROOT_DIR/Python_examples.jsonl"
+MOPENHANDS_DIR="$ROOT_DIR/MopenHands"
 
 # Set DOCKER_HOST for rootless docker (based on docker context)
 export DOCKER_HOST="unix:///run/user/$(id -u)/docker.sock"

@@ -1,7 +1,8 @@
 #!/bin/bash
 
 # MopenHands Java Benchmark - 3 Tasks
-# Run from: /home/seongminju/openhands/MopenHands
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+# Run from: $SCRIPT_DIR
 
 BASE_SCRIPT="./evaluation/benchmarks/swe_bench/scripts/run_infer.sh"
 
@@ -12,7 +13,7 @@ EVAL_LIMIT="3"
 MAX_ITER="30"
 NUM_WORKERS="1"
 LANGUAGE="java"
-DATASET="/home/seongminju/openhands/MopenHands/evaluation/benchmarks/swe_bench/data/java_mopenhands.jsonl"
+DATASET="$SCRIPT_DIR/evaluation/benchmarks/swe_bench/data/java_mopenhands.jsonl"
 
 echo "=============================="
 echo "MopenHands Java Benchmark"

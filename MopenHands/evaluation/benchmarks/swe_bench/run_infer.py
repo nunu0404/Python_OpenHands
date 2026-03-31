@@ -677,11 +677,49 @@ def complete_runtime(
     task_repo_path = _get_task_repo_path(instance)
     quoted_task_repo_path = _quote_task_repo_path(instance)
 
-    action = CmdRunAction(command=f'cd {quoted_task_repo_path}')
-    action.set_hard_timeout(600)
-    logger.info(action, extra={'msg_type': 'ACTION'})
-    obs = runtime.run_action(action)
-    logger.info(obs, extra={'msg_type': 'OBSERVATION'})
+    def _run_completion_command(command: str, timeout: int = 600) -> CmdOutputObservation:
+        action = CmdRunAction(command=command)
+        action.set_hard_timeout(timeout)
+        logger.info(action, extra={'msg_type': 'ACTION'})
+        local_obs = runtime.run_action(action)
+        logger.info(local_obs, extra={'msg_type': 'OBSERVATION'})
+        return local_obs
+
+    def _git_add_with_index_recovery() -> CmdOutputObservation:
+        local_obs = _run_completion_command('git add -A')
+        if (
+            isinstance(local_obs, CmdOutputObservation)
+            and local_obs.exit_code != 0
+            and any(
+                pattern in str(local_obs).lower()
+                for pattern in (
+                    'unknown index entry format',
+                    'index file corrupt',
+                    'corrupt index',
+                    'index file smaller than expected',
+                )
+            )
+        ):
+            logger.warning(
+                'git add -A failed with a corrupt git index. '
+                'Rebuilding the index and retrying once.'
+            )
+            repair_obs = _run_completion_command(
+                '''
+                index_path=$(git rev-parse --git-path index)
+                rm -f "$index_path"
+                git reset --mixed HEAD
+                '''
+            )
+            assert_and_raise(
+                isinstance(repair_obs, CmdOutputObservation)
+                and repair_obs.exit_code == 0,
+                f'Failed to rebuild git index after git add -A failure: {str(repair_obs)}',
+            )
+            local_obs = _run_completion_command('git add -A')
+        return local_obs
+
+    obs = _run_completion_command(f'cd {quoted_task_repo_path}')
 
     if obs.exit_code == -1:
         # The previous command is still running
@@ -692,33 +730,21 @@ def complete_runtime(
         logger.info(obs, extra={'msg_type': 'OBSERVATION'})
 
         # Then run the command again
-        action = CmdRunAction(command=f'cd {quoted_task_repo_path}')
-        action.set_hard_timeout(600)
-        logger.info(action, extra={'msg_type': 'ACTION'})
-        obs = runtime.run_action(action)
-        logger.info(obs, extra={'msg_type': 'OBSERVATION'})
+        obs = _run_completion_command(f'cd {quoted_task_repo_path}')
 
     assert_and_raise(
         isinstance(obs, CmdOutputObservation) and obs.exit_code == 0,
         f'Failed to cd to {task_repo_path}: {str(obs)}',
     )
 
-    action = CmdRunAction(command='git config --global core.pager ""')
-    action.set_hard_timeout(600)
-    logger.info(action, extra={'msg_type': 'ACTION'})
-    obs = runtime.run_action(action)
-    logger.info(obs, extra={'msg_type': 'OBSERVATION'})
+    obs = _run_completion_command('git config --global core.pager ""')
     assert_and_raise(
         isinstance(obs, CmdOutputObservation) and obs.exit_code == 0,
         f'Failed to git config --global core.pager "": {str(obs)}',
     )
 
 
-    action = CmdRunAction(command='git add -A')
-    action.set_hard_timeout(600)
-    logger.info(action, extra={'msg_type': 'ACTION'})
-    obs = runtime.run_action(action)
-    logger.info(obs, extra={'msg_type': 'OBSERVATION'})
+    obs = _git_add_with_index_recovery()
     assert_and_raise(
         isinstance(obs, CmdOutputObservation) and obs.exit_code == 0,
         f'Failed to git add -A: {str(obs)}',

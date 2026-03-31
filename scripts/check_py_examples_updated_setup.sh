@@ -22,6 +22,17 @@ fi
 
 export DOCKER_HOST="${DOCKER_HOST:-unix:///run/user/$(id -u)/docker.sock}"
 
+inspect_docker_image() {
+  local image="$1"
+
+  if docker buildx version >/dev/null 2>&1; then
+    docker buildx imagetools inspect "$image" >/dev/null
+    return
+  fi
+
+  docker manifest inspect "$image" >/dev/null
+}
+
 echo "[1/5] Validating Python environment"
 project_python - "$DATASET_PATH" "$CONFIG_FILE" "$LLM_CONFIG" <<'PY'
 from pathlib import Path
@@ -93,7 +104,7 @@ fi
 
 if [ "$CHECK_IMAGE_MANIFESTS" = "1" ]; then
   echo "[4/5] Checking dataset docker images"
-  project_python - "$DATASET_PATH" <<'PY' | while IFS= read -r image; do
+  mapfile -t docker_images < <(project_python - "$DATASET_PATH" <<'PY'
 from pathlib import Path
 import sys
 
@@ -111,7 +122,10 @@ images = sorted(
 for image in images:
     print(image)
 PY
-    docker manifest inspect "$image" >/dev/null
+  )
+
+  for image in "${docker_images[@]}"; do
+    inspect_docker_image "$image"
     echo "Verified image: $image"
   done
 else

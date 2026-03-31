@@ -1,10 +1,17 @@
 import asyncio
 import json
 import os
-import shlex
-import tempfile
 import re
+import shlex
+import sys
+import tempfile
+from pathlib import Path
 from typing import Any
+
+REPO_ROOT = Path(__file__).resolve().parents[4]
+if str(REPO_ROOT) not in sys.path:
+    # Prefer the root OpenHands package over the legacy vendored copy in MopenHands.
+    sys.path.insert(0, str(REPO_ROOT))
 
 import pandas as pd
 import toml
@@ -22,6 +29,7 @@ from evaluation.utils.shared import (
     codeact_user_response,
     get_default_sandbox_config_for_eval,
     get_metrics,
+    get_openhands_config_for_eval,
     is_fatal_evaluation_error,
     make_metadata,
     prepare_dataset,
@@ -44,7 +52,6 @@ from openhands.events.serialization.event import event_to_dict
 from openhands.runtime.base import Runtime
 from openhands.utils.async_utils import call_async_from_sync
 from openhands.utils.shutdown_listener import sleep_if_should_continue
-import pdb
 
 USE_HINT_TEXT = os.environ.get('USE_HINT_TEXT', 'false').lower() == 'true'
 USE_INSTANCE_IMAGE = os.environ.get('USE_INSTANCE_IMAGE', 'true').lower() == 'true'
@@ -82,6 +89,34 @@ def _should_exclude_patch_path(path: str) -> bool:
 AGENT_CLS_TO_FAKE_USER_RESPONSE_FN = {
     'CodeActAgent': codeact_user_response,
 }
+
+
+def _normalize_optional_string(value: Any) -> str | None:
+    if value is None:
+        return None
+    if isinstance(value, str):
+        normalized = value.strip()
+        return normalized or None
+    if pd.isna(value):
+        return None
+    normalized = str(value).strip()
+    return normalized or None
+
+
+def _parse_id_list(value: Any) -> list[str]:
+    if value is None:
+        return []
+    if isinstance(value, str):
+        parts = re.split(r'[\s,]+', value.strip())
+        return [part for part in parts if part]
+    if isinstance(value, (list, tuple, set)):
+        return [
+            normalized
+            for item in value
+            if (normalized := _normalize_optional_string(item)) is not None
+        ]
+    normalized = _normalize_optional_string(value)
+    return [normalized] if normalized else []
 
 
 def _get_swebench_workspace_dir_name(instance: pd.Series) -> str:
@@ -375,23 +410,22 @@ def clean_git_patch(patch_text: str) -> str:
 
 
 # TODO: 适应所有的语言
-# def get_instance_docker_image(instance_id: str) -> str:
-#     image_name = 'sweb.eval.x86_64.' + instance_id
-#     if LANGUAGE == 'python':
-#         image_name = image_name.replace(
-#             '__', '_s_'
-#         )  # to comply with docker image naming convention
-#         return (DOCKER_IMAGE_PREFIX.rstrip('/') + '/' + image_name).lower()
-#     else:
-#         return image_name.lower() ##加载本地的
-import json
-import os
+def _get_public_swebench_image(instance_id: str) -> str:
+    if '__' not in instance_id:
+        raise ValueError(
+            f'Cannot derive a public SWE-bench image from instance_id={instance_id!r}'
+        )
+    repo, name = instance_id.split('__', 1)
+    return f'docker.io/swebench/sweb.eval.x86_64.{repo}_1776_{name}:latest'.lower()
+
 
 def get_instance_docker_image(instance: pd.Series):
-    instance_id = instance.get('instance_id', '')
+    instance_id = _normalize_optional_string(instance.get('instance_id')) or ''
 
     # 1. Custom Image Mapping (우선순위 1위: 로컬 테스트용)
-    custom_image_map_path = os.environ.get('CUSTOM_IMAGE_MAP_PATH')
+    custom_image_map_path = _normalize_optional_string(
+        os.environ.get('CUSTOM_IMAGE_MAP_PATH')
+    )
     if custom_image_map_path and os.path.exists(custom_image_map_path):
         try:
             with open(custom_image_map_path, 'r') as f:
@@ -404,14 +438,28 @@ def get_instance_docker_image(instance: pd.Series):
             logger.warning(f'Failed to load custom image map from {custom_image_map_path}: {e}')
 
     # 2. JSONL 파일 내 지정 이미지 (우선순위 2위)
-    if 'docker_image' in instance and instance['docker_image']:
-        return instance['docker_image']
+    dataset_image = _normalize_optional_string(instance.get('docker_image'))
+    if dataset_image:
+        return dataset_image
 
-    # 3. Default Hardcoded Logic (알리윤 레지스트리)
+    # 3. Environment override for custom registries
+    if DOCKER_IMAGE_PREFIX:
+        image_name = ('sweb.eval.x86_64.' + instance_id).replace('__', '_s_')
+        return (DOCKER_IMAGE_PREFIX.rstrip('/') + '/' + image_name).lower()
+
+    # 4. Portable public fallback
     if LANGUAGE == 'python':
-        return f"crpi-sa60h0lyaf80r3a1.cn-shenzhen.personal.cr.aliyuncs.com/xinzhou1997_env/repoenv_py1:{instance_id}_linux"
-    else:
-        return f"crpi-sa60h0lyaf80r3a1.cn-shenzhen.personal.cr.aliyuncs.com/xinzhou1997_env/repoenv_java1:{instance_id}_linux"
+        fallback_image = _get_public_swebench_image(instance_id)
+        logger.info(
+            f'No docker_image column value found for {instance_id}; '
+            f'falling back to public SWE-bench image {fallback_image}'
+        )
+        return fallback_image
+
+    raise ValueError(
+        'No docker_image was provided for a non-python task. '
+        'Set the dataset docker_image column or EVAL_DOCKER_IMAGE_PREFIX.'
+    )
 
 
 
@@ -436,6 +484,7 @@ def get_config(
     sandbox_config = get_default_sandbox_config_for_eval()
     sandbox_config.base_container_image = base_container_image
     sandbox_config.enable_auto_lint = True
+    sandbox_config.use_host_network = False
     # Add platform to the sandbox config to solve issue 4401
     sandbox_config.platform = 'linux/amd64'
     sandbox_config.remote_runtime_resource_factor = get_instance_resource_factor(
@@ -443,16 +492,11 @@ def get_config(
         instance_id=instance['instance_id'],
     )
 
-    config = OpenHandsConfig(
-        default_agent=metadata.agent_class,
-        run_as_openhands=False,
-        max_iterations=metadata.max_iterations,
+    config = get_openhands_config_for_eval(
+        metadata=metadata,
+        enable_browser=RUN_WITH_BROWSING,
         runtime=os.environ.get('RUNTIME', 'docker'),
-        sandbox=sandbox_config,
-        # do not mount workspace
-        workspace_base=None,
-        workspace_mount_path=None,
-        file_store_path='/home/seongminju/openhands/file_store',
+        sandbox_config=sandbox_config,
     )
     config.set_llm_config(
         update_llm_config_for_completions_logging(
@@ -855,21 +899,25 @@ def process_instance(
 
 def filter_dataset(dataset: pd.DataFrame, filter_column: str) -> pd.DataFrame:
     file_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'config.toml')
+    instance_ids = _parse_id_list(os.environ.get('INSTANCE_IDS'))
+    if instance_ids:
+        logger.info(f'Filtering {len(instance_ids)} tasks from "INSTANCE_IDS"...')
+        dataset = dataset[dataset[filter_column].isin(instance_ids)]
+        logger.info(f'Retained {dataset.shape[0]} tasks after INSTANCE_IDS filtering')
     if os.path.exists(file_path):
         with open(file_path, 'r') as file:
             data = toml.load(file)
-            if 'selected_ids' in data:
-                selected_ids = data['selected_ids']
+            selected_ids = _parse_id_list(data.get('selected_ids'))
+            if selected_ids and not instance_ids:
                 logger.info(
                     f'Filtering {len(selected_ids)} tasks from "selected_ids"...'
                 )
-                subset = dataset[dataset[filter_column].isin(selected_ids)]
-                logger.info(f'Retained {subset.shape[0]} tasks after filtering')
-                return subset
-    skip_ids = os.environ.get('SKIP_IDS', '').split(',')
-    if len(skip_ids) > 0:
+                dataset = dataset[dataset[filter_column].isin(selected_ids)]
+                logger.info(f'Retained {dataset.shape[0]} tasks after filtering')
+    skip_ids = _parse_id_list(os.environ.get('SKIP_IDS'))
+    if skip_ids:
         logger.info(f'Filtering {len(skip_ids)} tasks from "SKIP_IDS"...')
-        return dataset[~dataset[filter_column].isin(skip_ids)]
+        dataset = dataset[~dataset[filter_column].isin(skip_ids)]
     return dataset
 
 
@@ -894,11 +942,10 @@ if __name__ == '__main__':
     # so we don't need to manage file uploading to OpenHands's repo
     if args.dataset.endswith('.xlsx'):
         from datasets import Dataset, DatasetDict
-        import pandas as pd
         df = pd.read_excel(args.dataset, engine='openpyxl')
         dataset = DatasetDict({args.split: Dataset.from_pandas(df)})
     elif args.dataset.endswith('.jsonl') or args.dataset.endswith('.json'):
-        dataset = load_dataset("json", data_files = args.dataset)
+        dataset = load_dataset('json', data_files={args.split: args.dataset})
     else:
         dataset = load_dataset(args.dataset)
     dataset = dataset[args.split]

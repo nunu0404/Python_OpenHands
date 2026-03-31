@@ -153,6 +153,7 @@ evaluation = [
   "joblib",
   "matplotlib",
   "multi-swe-bench==0.1.2",
+  "openpyxl>=3.1.5",
   "pandas",
   "pyarrow==21",
   "retry",
@@ -339,6 +340,7 @@ streamlit = "*"
 whatthepatch = "*"
 retry = "*"
 evaluate = "*"
+openpyxl = "^3.1.5"
 visualswebench = { git = "https://github.com/luolin101/Visual-SWE-bench.git" }
 swegym = { git = "https://github.com/SWE-Gym/SWE-Bench-Package.git" }
 commit0 = "*"

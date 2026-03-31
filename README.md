@@ -1,175 +1,137 @@
-# OpenHands and Python Evaluation Guide
+# Python OpenHands Reproduction Guide
 
-This repository contains the source code and results for running the SWE-bench (Python) benchmark using OpenHands.
-It follows a structure where the core OpenHands engine and the MopenHands benchmark scripts are integrated.
+This repository is set up to run `py_examples_updated.xlsx` through OpenHands, convert the generated patches, and evaluate them with SWE-bench-Live.
 
----
+The verified path is:
 
-## How to Reproduce (Step-by-Step Guide)
+1. Install the root OpenHands repository with the `evaluation` dependency group.
+2. Keep your LLM config in the repository-root `config.toml`.
+3. Run the wrapper scripts in `scripts/`.
 
-Follow these steps to reproduce the benchmark execution from scratch.
+`MopenHands/` is still used for the spreadsheet-aware `run_infer.py`, but the Python environment is now always the repository-root OpenHands environment. That removes the broken mixed-install path that previously came from `cd MopenHands && poetry run ...`.
 
-### Step 0: Prerequisites
+## Prerequisites
 
-**System Requirements:**
-- Python 3.11 or higher
-- Docker installed and running
-- Linux/macOS (for Rootless Docker)
-- OpenAI API key or compatible LLM API endpoint
+- Python `3.12` or `3.13`
+- Docker with access to `unix:///run/user/$(id -u)/docker.sock`
+- A working LLM API config in `config.toml`
+- A checkout of SWE-bench-Live at `./SWE-bench-Live-main`
 
-**Docker Setup:**
-```bash
-# Verify Docker installation
-docker --version
-
-# For shared servers, use Rootless Docker
-# Check your Docker socket path
-ls /run/user/$(id -u)/docker.sock
-```
-
----
-
-### Step 1: Clone the Repository
+## 1. Clone And Install
 
 ```bash
 git clone https://github.com/nunu0404/Python_OpenHands.git
 cd Python_OpenHands
+python3 --version  # must be 3.12.x or 3.13.x
+poetry env use python3
+poetry install --with evaluation
 ```
 
----
+The root environment is required because:
 
-### Step 2: Install Dependencies
+- `openhands/` comes from the repository root.
+- `py_examples_updated.xlsx` support needs `openpyxl`.
+- SWE-bench-Live conversion and evaluation are executed from the same environment.
 
-Install required Python packages:
-
-```bash
-# Option 1: Using pip
-pip install -e .
-
-# Option 2: Using poetry (if available)
-poetry install
-```
-
----
-
-### Step 3: Configure API Key
-
-Create your configuration file from the template:
+## 2. Configure The LLM
 
 ```bash
-# Copy template
 cp config.toml.template config.toml
-
-# Edit with your API key
-nano config.toml  # or use your preferred editor
 ```
 
-**config.toml example:**
+Edit `config.toml` and fill in one of the configured sections, for example:
+
 ```toml
 [llm.eval]
-model = "openai/gpt-4o"
+model = "openai/gpt-4o-mini"
 base_url = "https://api.openai.com/v1"
-api_key = "sk-your-actual-api-key-here"
+api_key = "YOUR_API_KEY_HERE"
 temperature = 0.0
 ```
 
-> **Note:** The `config.toml` file is gitignored to protect your API key. Never commit it to Git.
+The wrapper scripts default to `LLM_CONFIG=eval`. You can switch to another section, such as `gpt-5-mini-ca`, by exporting `LLM_CONFIG`.
 
----
+## 3. Prepare SWE-bench-Live
 
-### Step 4: Configure Environment Variables
-
-Set up the necessary environment variables:
+Clone SWE-bench-Live into the repository root so the wrapper scripts can find it:
 
 ```bash
-# 1. Add current directory to PYTHONPATH
-export PYTHONPATH=$PYTHONPATH:$(pwd)
+git clone https://github.com/microsoft/SWE-bench-Live.git SWE-bench-Live-main
+```
 
-# 2. Set Docker Host (for Rootless Docker)
+`./scripts/prepare_swe_bench_live.sh` installs SWE-bench-Live and RepoLaunch into an isolated virtual environment at `SWE-bench-Live-main/.venv`. This avoids overwriting the root OpenHands environment after inference.
+
+## 4. Run The Preflight Check
+
+```bash
 export DOCKER_HOST="unix:///run/user/$(id -u)/docker.sock"
-
-# 3. Configure benchmark settings
-export LANGUAGE=python
-export USE_INSTANCE_IMAGE=true
+./scripts/check_py_examples_updated_setup.sh
 ```
 
----
+This verifies:
 
-### Step 5: Execute the Benchmark
+- `py_examples_updated.xlsx` opens correctly
+- `config.toml` contains the requested LLM section
+- Docker is reachable
+- every `docker_image` embedded in the spreadsheet is resolvable
+- `SWE-bench-Live-main` exists
 
-Run the benchmark using `nohup` to keep it running in the background:
+To include a `hello-world` container smoke test:
 
 ```bash
-nohup python3 MopenHands/evaluation/benchmarks/swe_bench/run_infer.py \
-  --dataset Python_examples.jsonl \
-  --split train \
-  --config-file config.toml \
-  --llm-config eval \
-  --agent-cls CodeActAgent \
-  --max-iterations 30 \
-  > run_infer_python_reproduce.log 2>&1 &
+DOCKER_SMOKE_TEST=1 ./scripts/check_py_examples_updated_setup.sh
 ```
 
----
-
-### Step 6: Monitor Progress
-
-
-Check the log file to see the progress of the benchmark.
+## 5. Run Inference
 
 ```bash
-tail -f run_infer_python_reproduce.log
+export DOCKER_HOST="unix:///run/user/$(id -u)/docker.sock"
+LLM_CONFIG=eval ./scripts/run_py_examples_updated.sh
 ```
 
-### Step 6: Verify Results
+Useful overrides:
 
-Once completed, check the results in the `results/` directory.
+- `INSTANCE_IDS=joke2k__faker-2279` runs only one instance
+- `SKIP_IDS=joke2k__faker-2309,aws-cloudformation__cfn-lint-3377` excludes instances
+- `MAX_ITERATIONS=10` reduces agent turns for smoke tests
+- `RUN_ID=my_run_name` controls the output directory name
 
-- **Summary File**: `results/output.jsonl` (Contains pass/fail status)
-- **Detailed Logs**: `results/infer_logs/` (Per-instance execution logs)
+The wrapper prints the exact `output.jsonl` path when the run finishes.
 
----
-
-## 📂 Repository Structure
-
-- **`openhands/`**: Core OpenHands Engine (v1.2.1)
-- **`MopenHands/`**: Benchmark Scripts (contains `run_infer.py`)
-- **`Python_examples.jsonl`**: Benchmark Dataset (6 instances)
-- **`Java_examples.jsonl`**: Java Benchmark Dataset (optional)
-- **`config.toml.template`**: Configuration template (copy to `config.toml`)
-- **`results/`**: Benchmark execution results
-- **`logs/`**: Evaluation logs (gitignored)
-
----
-
-## Evaluation with SWE-bench-Live
-
-To verify patches using SWE-bench-Live framework:
-
-### Install SWE-bench-Live
-```bash
-git clone https://github.com/microsoft/SWE-bench-Live.git
-cd SWE-bench-Live && pip install -e .
-```
-
-### Run Evaluation
-
-OpenHands 출력물(output.jsonl)을 SWE-bench-Live 양식(.json)으로 먼저 변환해야 합니다.
+## 6. Run SWE-bench-Live
 
 ```bash
-# 산출물 포맷 변환 (jsonl -> json)
-python3 MopenHands/scripts/convert_format_for_live.py ../results/output.jsonl ../results/output.swebench-live.json
-
-# 평가 실행
-DOCKER_HOST="unix:///run/user/$(id -u)/docker.sock" \
-python -m evaluation.evaluation \
-  --dataset ../Python_examples.jsonl \
-  --platform linux \
-  --patch_dir ../results/output.swebench-live.json \
-  --output_dir ../logs/swe_bench_eval \
-  --workers 2 \
-  --overwrite 1
+./scripts/run_py_examples_updated_live_eval.sh /absolute/path/to/output.jsonl
 ```
 
----
+The live-eval wrapper performs these steps:
 
+1. convert `py_examples_updated.xlsx` to JSONL
+2. convert OpenHands `output.jsonl` to SWE-bench-Live `preds.json`
+3. install SWE-bench-Live and RepoLaunch into `SWE-bench-Live-main/.venv`
+4. run `evaluation.evaluation` with the isolated SWE-bench-Live interpreter
+
+## 7. Run The Full Pipeline
+
+```bash
+export DOCKER_HOST="unix:///run/user/$(id -u)/docker.sock"
+LLM_CONFIG=eval ./scripts/run_py_examples_updated_pipeline.sh
+```
+
+By default the pipeline runs the preflight check first. Set `RUN_PREFLIGHT=0` only if you intentionally want to skip it.
+
+## Outputs
+
+Every run is written under `runs/<RUN_ID>/`.
+
+- Inference artifacts: `runs/<RUN_ID>/infer/`
+- OpenHands predictions: `runs/<RUN_ID>/infer/**/output.jsonl`
+- Spreadsheet converted to JSONL: `runs/<RUN_ID>/py_examples_updated.from_xlsx.jsonl`
+- SWE-bench-Live patch bundle: `runs/<RUN_ID>/preds.json`
+- SWE-bench-Live results: `runs/<RUN_ID>/live_eval/`
+
+## Notes
+
+- `py_examples_updated.xlsx` is tracked as a binary file. Do not remove the `.gitattributes` rules for `*.xlsx`.
+- The spreadsheet's `docker_image` column is the primary source of truth for runtime images.
+- If a row omits `docker_image`, the runner now falls back to the public `swebench/sweb.eval.x86_64.*:latest` convention instead of a user-specific private registry.

@@ -19,7 +19,7 @@ def main() -> None:
     output_path = Path(args.output_jsonl)
     output_path.parent.mkdir(parents=True, exist_ok=True)
 
-    dataframe = pd.read_excel(input_path)
+    dataframe = pd.read_excel(input_path, engine="openpyxl")
     with output_path.open("w", encoding="utf-8") as handle:
         for _, row in dataframe.iterrows():
             record = {

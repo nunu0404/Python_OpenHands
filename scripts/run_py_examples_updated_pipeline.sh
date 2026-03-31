@@ -5,9 +5,14 @@ set -euo pipefail
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 RUN_ID="${RUN_ID:-$(date -u +%Y%m%dT%H%M%SZ)_py_examples_updated}"
 OUTPUT_ROOT="${OUTPUT_ROOT:-$ROOT_DIR/runs/$RUN_ID}"
+RUN_PREFLIGHT="${RUN_PREFLIGHT:-1}"
 
 export RUN_ID
 export OUTPUT_ROOT
+
+if [ "$RUN_PREFLIGHT" != "0" ]; then
+  "$ROOT_DIR/scripts/check_py_examples_updated_setup.sh"
+fi
 
 "$ROOT_DIR/scripts/run_py_examples_updated.sh"
 

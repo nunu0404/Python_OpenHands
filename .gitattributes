@@ -3,5 +3,8 @@
 # force *nix line endings so files don't look modified in container run from Windows clone
 * text eol=lf
 # Git incorrectly thinks some media is text
+*.xls -text !eol
+*.xlsx -text !eol
+*.xlsm -text !eol
 *.png -text
 *.mp4 -text

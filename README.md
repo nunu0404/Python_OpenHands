@@ -94,7 +94,8 @@ Useful overrides:
 - `INSTANCE_IDS=joke2k__faker-2279` runs only one instance
 - `SKIP_IDS=joke2k__faker-2309,aws-cloudformation__cfn-lint-3377` excludes instances
 - `MAX_ITERATIONS=10` reduces agent turns for smoke tests
-- `RUN_ID=my_run_name` controls the output directory name
+- `RUN_ID=my_run_name` 코드로 출력 디렉토리 이름을 제어합니다.
+- `EVAL_WORKING_DIR=/testbed` 컨테이너 내 작업 디렉토리를 강제 설정합니다. (기본값은 `/workspace/...`)
 
 The wrapper prints the exact `output.jsonl` path when the run finishes.
 
@@ -135,3 +136,6 @@ Every run is written under `runs/<RUN_ID>/`.
 - `py_examples_updated.xlsx` is tracked as a binary file. Do not remove the `.gitattributes` rules for `*.xlsx`.
 - The spreadsheet's `docker_image` column is the primary source of truth for runtime images.
 - If a row omits `docker_image`, the runner now falls back to the public `swebench/sweb.eval.x86_64.*:latest` convention instead of a user-specific private registry.
+- **Working Directory**: The default task path inside the container is `/workspace/{instance_id}`. If your image uses a different path (e.g., `/testbed`), you can:
+  - Add a `working_dir` column to the spreadsheet with the value `/testbed`.
+  - Or export `EVAL_WORKING_DIR=/testbed` before running the inference script.

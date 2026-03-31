@@ -136,6 +136,12 @@ def _get_task_repo_path(instance: pd.Series) -> str:
             return working_dir
 
     workspace_dir_name = _get_swebench_workspace_dir_name(instance)
+    # Check for environmental override (highest priority)
+    env_working_dir = os.environ.get('EVAL_WORKING_DIR')
+    if env_working_dir:
+        return env_working_dir
+
+    # Fallback order: /testbed -> /testbed2 -> /workspace/{dir_name}
     return f'/workspace/{workspace_dir_name}'
 
 

@@ -106,6 +106,28 @@ def _get_swebench_workspace_dir_name(instance: pd.Series) -> str:
         return f'{instance.repo}__{instance.version}'.replace('/', '__')
 
 
+def _get_task_repo_path(instance: pd.Series) -> str:
+    """Get the path to the task repository inside the container.
+    Priority:
+    1. instance.working_dir (from dataset)
+    2. EVAL_WORKING_DIR environment variable
+    3. /testbed (common in SWE-bench-Live)
+    4. /testbed2
+    5. /workspace/{workspace_dir_name} (fallback)
+    """
+    working_dir = instance.get('working_dir')
+    if isinstance(working_dir, str) and working_dir.strip():
+        return working_dir.strip()
+
+    env_working_dir = os.environ.get('EVAL_WORKING_DIR')
+    if env_working_dir:
+        return env_working_dir
+
+    workspace_dir_name = _get_swebench_workspace_dir_name(instance)
+    # Default fallback to the old /workspace behavior if nothing else matches
+    return f'/workspace/{workspace_dir_name}'
+
+
 def get_instruction(instance: pd.Series, metadata: EvalMetadata) -> MessageAction:
     workspace_dir_name = _get_swebench_workspace_dir_name(instance)
     mode = metadata.details['mode']
@@ -136,9 +158,11 @@ def get_instruction(instance: pd.Series, metadata: EvalMetadata) -> MessageActio
     template = env.get_template(template_name)
 
     # Prepare context for rendering
+    task_repo_path = _get_task_repo_path(instance)
     context = {
         'instance': instance,
         'workspace_dir_name': workspace_dir_name,
+        'task_repo_path': task_repo_path,
         'metadata': metadata,  # Pass metadata if needed in templates
     }
 
@@ -296,6 +320,8 @@ def initialize_runtime(
         f'Failed to export SWE_INSTANCE_ID and configure git: {str(obs)}',
     )
 
+    task_repo_path = _get_task_repo_path(instance)
+
     action = CmdRunAction(command="""export USER=$(whoami); echo USER=${USER} """)
     action.set_hard_timeout(600)
     logger.info(action, extra={'msg_type': 'ACTION'})
@@ -369,14 +395,14 @@ def initialize_runtime(
         f'Failed to source /swe_util/{entry_script_path}: {str(obs)}',
     )
 
-    action = CmdRunAction(command=f'cd /workspace/{workspace_dir_name}')
+    action = CmdRunAction(command=f'cd {task_repo_path}')
     action.set_hard_timeout(600)
     logger.info(action, extra={'msg_type': 'ACTION'})
     obs = runtime.run_action(action)
     logger.info(obs, extra={'msg_type': 'OBSERVATION'})
     assert_and_raise(
         obs.exit_code == 0,
-        f'Failed to cd to /workspace/{workspace_dir_name}: {str(obs)}',
+        f'Failed to cd to {task_repo_path}: {str(obs)}',
     )
 
     action = CmdRunAction(command='git reset --hard')
@@ -450,10 +476,8 @@ def complete_runtime(
     logger.info('-' * 30)
     logger.info('BEGIN Runtime Completion Fn')
     logger.info('-' * 30)
-    obs: CmdOutputObservation
-    workspace_dir_name = _get_swebench_workspace_dir_name(instance)
-
-    action = CmdRunAction(command=f'cd /workspace/{workspace_dir_name}')
+    task_repo_path = _get_task_repo_path(instance)
+    action = CmdRunAction(command=f'cd {task_repo_path}')
     action.set_hard_timeout(600)
     logger.info(action, extra={'msg_type': 'ACTION'})
     obs = runtime.run_action(action)
@@ -468,7 +492,7 @@ def complete_runtime(
         logger.info(obs, extra={'msg_type': 'OBSERVATION'})
 
         # Then run the command again
-        action = CmdRunAction(command=f'cd /workspace/{workspace_dir_name}')
+        action = CmdRunAction(command=f'cd {task_repo_path}')
         action.set_hard_timeout(600)
         logger.info(action, extra={'msg_type': 'ACTION'})
         obs = runtime.run_action(action)
@@ -483,7 +507,7 @@ def complete_runtime(
         logger.info(obs, extra={'msg_type': 'OBSERVATION'})
 
         # Then run the command again
-        action = CmdRunAction(command=f'cd /workspace/{workspace_dir_name}')
+        action = CmdRunAction(command=f'cd {task_repo_path}')
         action.set_hard_timeout(600)
         logger.info(action, extra={'msg_type': 'ACTION'})
         obs = runtime.run_action(action)
@@ -491,7 +515,7 @@ def complete_runtime(
 
     assert_and_raise(
         isinstance(obs, CmdOutputObservation) and obs.exit_code == 0,
-        f'Failed to cd to /workspace/{workspace_dir_name}: {str(obs)}',
+        f'Failed to cd to {task_repo_path}: {str(obs)}',
     )
 
     action = CmdRunAction(command='git config --global core.pager ""')

@@ -1,10 +1,37 @@
 #!/usr/bin/env python3
 
 import argparse
+import ast
 import json
 from pathlib import Path
 
 import pandas as pd
+
+
+LITERAL_COLUMNS = {
+    "issues",
+    "rebuild_cmds",
+    "test_cmds",
+    "print_cmds",
+    "PASS_TO_PASS",
+    "FAIL_TO_PASS",
+}
+
+
+def normalize_value(key: str, value):
+    if pd.isna(value):
+        return None
+    if key not in LITERAL_COLUMNS or not isinstance(value, str):
+        return value
+
+    stripped = value.strip()
+    if not stripped:
+        return value
+
+    try:
+        return ast.literal_eval(stripped)
+    except (SyntaxError, ValueError):
+        return value
 
 
 def main() -> None:
@@ -23,7 +50,7 @@ def main() -> None:
     with output_path.open("w", encoding="utf-8") as handle:
         for _, row in dataframe.iterrows():
             record = {
-                key: (None if pd.isna(value) else value)
+                key: normalize_value(key, value)
                 for key, value in row.to_dict().items()
             }
             json.dump(record, handle, ensure_ascii=False, default=str)

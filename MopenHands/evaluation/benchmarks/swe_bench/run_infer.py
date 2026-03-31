@@ -642,6 +642,17 @@ def initialize_runtime(
     logger.info(obs, extra={'msg_type': 'OBSERVATION'})
     assert_and_raise(obs.exit_code == 0, f'Failed to git reset --hard: {str(obs)}')
 
+    # Reset tracked files and remove generated/untracked artifacts left by the
+    # runtime image so model_patch only reflects the agent's edits.
+    action = CmdRunAction(command='git clean -fdx -e mnt_tmp/')
+    action.set_hard_timeout(600)
+    logger.info(action, extra={'msg_type': 'ACTION'})
+    obs = runtime.run_action(action)
+    logger.info(obs, extra={'msg_type': 'OBSERVATION'})
+    assert_and_raise(
+        obs.exit_code == 0, f'Failed to git clean -fdx -e mnt_tmp/: {str(obs)}'
+    )
+
     action = CmdRunAction(
         command='for remote_name in $(git remote); do git remote remove "${remote_name}"; done'
     )

@@ -12,7 +12,9 @@ export USE_INSTANCE_IMAGE="true" # Use instance-specific Docker images
 # Force model name with provider for Litellm
 export LLM_MODEL="openai/gpt-4o"
 # Dataset path - SWE-bench-Live MultiLang
-export DATASET="/home/seongminju/openhands/OpenHands-main/evaluation/benchmarks/multi_swe_bench/processed_java_dataset.jsonl"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+ROOT_DIR="$(cd "$SCRIPT_DIR/../../.." && pwd)"
+export DATASET="$ROOT_DIR/evaluation/benchmarks/multi_swe_bench/processed_java_dataset.jsonl"
 export SPLIT="train" # Local json loading usually defaults to 'train' split 
 
 # Set PYTHONPATH to include current directory
